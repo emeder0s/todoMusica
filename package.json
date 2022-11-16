@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/emeder0s/todoMusica/issues"
   },
-  "homepage": "https://github.com/emeder0s/todoMusica#readme"
+  "homepage": "https://github.com/emeder0s/todoMusica#readme",
+  "dependencies": {
+    "sequelize": "^6.25.6"
+  }
 }
