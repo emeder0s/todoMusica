@@ -41,43 +41,43 @@ const Instruments = sequelize.define('instruments', {
     //Se cierra el navegador
     const guitarras_electricas = await scrapInsert(page, "guitarras_electricas")
     for await (let element of guitarras_electricas) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const guitarras_clasicas = await scrapInsert(page, "guitarras_clasicas")
     for await (let element of guitarras_clasicas) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const bajos_electricos = await scrapInsert(page, "bajos_electricos")
     for await (let element of bajos_electricos) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const instrumentos_de_teclas = await scrapInsert(page, "instrumentos_de_teclas")
     for await (let element of instrumentos_de_teclas) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const instrumentos_de_arco = await scrapInsert(page, "instrumentos_de_arco")
     for await (let element of instrumentos_de_arco) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const saxofones = await scrapInsert(page, "saxofones")
     for await (let element of saxofones) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const trompetas = await scrapInsert(page, "trompetas")
     for await (let element of trompetas) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const trombones = await scrapInsert(page, "trombones")
     for await (let element of trombones) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const amplificadores_de_guitarra_electrica = await scrapInsert(page, "amplificadores_de_guitarra_electrica")
     for await (let element of amplificadores_de_guitarra_electrica) {
-        let instrument = Instruments.create(element)
+        let instrument = await Instruments.create(element)
     }
     const drums_acusticos = await scrapInsert(page, "drums_acusticos")
     for await (let element of drums_acusticos) {
-        let instrument = Instruments.create(element)
+        let instrument =  await Instruments.create(element)
     }
     sequelize.close()
     await browser.close()

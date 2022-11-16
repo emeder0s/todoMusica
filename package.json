@@ -4,7 +4,7 @@
   "description": "",
   "main": "scrapping.js",
   "scripts": {
-    "start": "node scrapping.js",
+    "start": "node ./scrapping/scrapping.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
