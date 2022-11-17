@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS address_type(
 CREATE TABLE IF NOT EXISTS addresses(
         id INT AUTO_INCREMENT NOT NULL,
         way_type VARCHAR(25) NOT NULL, 
-        address VARCHAR(50) NOT NULL, 
+        address VARCHAR(100) NOT NULL, 
         a_number INT,
-        additional_address VARCHAR (50),
-        locality VARCHAR(25),
-        province VARCHAR(25),
+        additional_address VARCHAR (100),
+        locality VARCHAR(50),
+        province VARCHAR(50),
         country VARCHAR(25),
         postal_code CHAR(5),
         fk_id_address_type INT NOT NULL,
@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS addresses(
 
 CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT NOT NULL,
-        first_name VARCHAR(35) NOT NULL, 
-        last_name VARCHAR(35) NOT NULL, 
+        first_name VARCHAR(50) NOT NULL, 
+        last_name VARCHAR(50) NOT NULL, 
         email VARCHAR (40) UNIQUE NOT NULL,
         phone VARCHAR(15),
         birth_date DATE,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS users(
         brand VARCHAR(40) NOT NULL, 
         model VARCHAR(100) NOT NULL,
         price VARCHAR(10) NOT NULL, 
-        category VARCHAR(30) NOT NULL, 
+        category VARCHAR(100) NOT NULL, 
         photo_path VARCHAR(512) NOT NULL, 
         PRIMARY KEY(id)
  );

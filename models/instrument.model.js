@@ -1,39 +1,20 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../databases/mysql').sqlConexion();
+const sequelize = require('../databases/mysql');
 
-const Users = sequelize.define('USERS', {
+const Instruments = sequelize.define('instruments', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    nombre_usuario: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false
-    },
-    nombre: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    contrasenia: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    foto_perfil: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    fecha_registro: {
-        type: DataTypes.DATE
-    }
+    brand: DataTypes.STRING,
+    model: DataTypes.STRING,
+    price: DataTypes.STRING,
+    category: DataTypes.STRING,
+    photo_path: DataTypes.STRING,
+
 }, {
     timestamps: false
 });
-sequelize.close();
-module.exports = Users;
+
+module.exports = Instruments;
