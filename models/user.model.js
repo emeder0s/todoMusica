@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../databases/mysql');
 
+
 const Users = sequelize.define('users', {
     id: {
         type: DataTypes.INTEGER,
@@ -39,5 +40,6 @@ const Users = sequelize.define('users', {
     }
 }, {
     timestamps: false
+    
 });
 module.exports = Users;
