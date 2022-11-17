@@ -10,5 +10,5 @@ let classSchema= new Schema({
     students: [String]  
 });
  
-const classModel = mongoose.model("class", classSchema);
+const classModel = mongoose.model("classes", classSchema);
 module.exports = classModel;
