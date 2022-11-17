@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "scraping": "node ./scrapping/scrapping.js"
   },
   "repository": {
     "type": "git",
@@ -14,11 +15,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+
   "bugs": {
     "url": "https://github.com/emeder0s/todoMusica/issues"
   },
   "homepage": "https://github.com/emeder0s/todoMusica#readme",
   "dependencies": {
-    "sequelize": "^6.25.6"
+
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "puppeteer": "^19.2.2",
+    "sequelize": "^6.25.6",
+    "express": "^4.18.2",
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.7.2",
+    "nodemon": "^2.0.20"
+
   }
 }
