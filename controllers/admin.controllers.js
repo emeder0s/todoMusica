@@ -1,20 +1,30 @@
 const mongoose = require("../databases/mongo.js");
-const AdminModel = require("../models/class.model.js");
+const AdminModel = require("../models/admin.model.js");
+const jwt = require("jsonwebtoken");
 
 const _admin = {
-    showAll: async (req, res) => {
+    /**
+     * Login del administrador
+     * @param {*} req 
+     * @param {*} res 
+     */
+    login:  async (req, res) => {
+        const { user, password } = req.body;
         await mongoose.conn();
-        ClassModel.find({}, function(err, classes) {
-            if (!err) { 
-                res.render('all_classes.ejs', {allClasses: classes});
-            }
-            else {
-
-                throw err;
-            }
-        });
-        // mongoose.disconn();
-    },
+        var admin = await AdminModel.findOne({admin:user});
+        if (admin){
+            if (admin.password == password && admin.admin == user){
+                const infoJwt = jwt.sign({ admin }, "m1c4s4", {
+                    expiresIn: "1800s",
+                });
+                res.cookie("infoJwt", infoJwt).render('./dashboard.ejs'); 
+            }else{
+                res.json("invalid login")
+            }    
+        } else {
+          res.json("invalid login")
+        }
+    }
 }
 
 module.exports = _admin;

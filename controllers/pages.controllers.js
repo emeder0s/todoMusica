@@ -27,6 +27,9 @@ const pages = {
     },
     login: (req,res)=>{
         res.render("./login.ejs")
+    },
+    loginAdmin: (req,res)=>{
+        res.render("./login_admin.ejs")
     }
 };
 

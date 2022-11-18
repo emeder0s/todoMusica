@@ -7,5 +7,5 @@ let enrollRequestSchema= new Schema({
     request_status:String
 });
  
-const enrollRequestModel = mongoose.model("classes", enrollRequestSchema);
+const enrollRequestModel = mongoose.model("enroll_requests", enrollRequestSchema);
 module.exports = enrollRequestModel;

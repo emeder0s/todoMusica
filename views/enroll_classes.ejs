@@ -18,7 +18,7 @@
                     <p>Profesor: <%= classes[i].teacher %></p>
                     <p>Año: <%= classes[i].year %></p>
                     <p>Plazas vacantes: <%= 4 - classes[i].students.length %></p>
-                    <form action="/menviar-solicitud-matricula/<%= classes[i]._id%>" method="POST">
+                    <form action="/send-enroll-request/<%= classes[i]._id%>" method="POST">
                         <button type="submit" class="btn btn-dark">Enviar solicitud</button>
                     </form>
                 </div>

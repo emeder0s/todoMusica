@@ -5,14 +5,17 @@ const user = require("../controllers/users.controllers")
 const _admin = require("../controllers/admin.controllers");
 const _center = require("../controllers/centers.controllers");
 const pages = require("../controllers/pages.controllers");
+const enrollRequest = require("../controllers/enroll.request.controllers");
+
 
 //PAGES
-router.get("/seleccionar-centro-instrumento",pages.startEnroll);
+router.get("/select-center-instrument",pages.startEnroll);//pagina para seleccionar el centro y el instrumento de las clases a mostrar
 router.get("/signin", pages.signin) //pagina del registro de usuario
 router.get("/address", pages.insertAddress)// pagina registro de direccion
 router.get("/passrecovery", pages.forgetPass) //Pagina para recuperar contraseña
 router.get("/forgetpassword/:infoJwt", pages.newPassword) //Pagina para establecer la nueva contraseña
 router.get("/login", pages.login) //Pagina que muestra el formulario de login
+router.get("/login-admin", pages.loginAdmin) //Pagina que muestra el formulario de login del administrador
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users
@@ -24,19 +27,24 @@ router.post("/verificar", user.verificar) //funcion que verifica que un usuario 
 router.post("/delete", user.delete) // borra usuario
 router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
 
-
 //CLASSES
-router.get("/mostrar-clases",_class.showAll);
 router.get("/mostrar-clases",_class.showAll);
 router.get("/clases-estudiante/:id",_class.showByUser);
 router.post("/matricularse/:idClass/:idUser",_class.enroll);
+router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 //router.get("/mostrar-por-instrumento/",_class.showByCenter);
 //router.get("/mostrar-por-centros-y-instrumento/",_class.showByCenter);
+
 //ADMIN
-// router.get("/login-admin/:id",_admin.login);
+router.post("/login-admin",_admin.login);
+//
+
 //INSTRUMENTS
 router.get("/instruments", instrument.start);
 router.get("/findInstruments", instrument.findInstruments);
 router.post("/findCategory", instrument.findByCategory);
+
+//ENROLL REQUEST
+router.post("/send-enroll-request/:classId",enrollRequest.add);
 
 module.exports = router;
