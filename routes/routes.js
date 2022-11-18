@@ -16,6 +16,9 @@ router.post("/getUser",user.getUser)
 router.get("/forgetpassword/:infoJwt", user.paginaPassword)
 router.post("/verificar", user.verificar)
 router.get("/address", user.insertAddress)
+router.post("/delete", user.delete)
+router.post("/isbuyer", user.isbuyer)
+
 router.get("/mostrar-clases",_class.showAll);
 router.get("/clases-estudiante/:id",_class.showByUser);
 router.get("/mostrar-por-centros/",_class.showByCenter);
