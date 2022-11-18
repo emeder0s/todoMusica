@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selección Centro e Instrumento</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/enroll.css">
 </head>
 <body>
     <form action="/selected-center-instrument" method="POST">
         <div class="form-group">
             <label for="center">Centros</label>
-            <select  id="center"  class="form-control" placeholder="Selecciona un centro" name="center">
+            <select  id="center"  class="form-control" placeholder="Selecciona un centro" name="center" required>
+                <option disabled selected>Selecciona un centro</option>
                 <% for(var i=0; i<centers.length; i++) {%>
                     <option><%= centers[i].center_name %></option>
                 <% } %>
@@ -19,7 +21,8 @@
         </div>
         <div class="form-group">
             <label for="center">Instrumentos</label>
-            <select  id="instrument"  class="form-control" placeholder="Selecciona un instrumento" name="instrument">
+            <select  id="instrument"  class="form-control" placeholder="Selecciona un instrumento" name="instrument" required>
+                <option disabled selected>Selecciona un instrumento</option>
                 <% for(var i=0; i<instruments.length; i++) {%>
                     <option><%= instruments[i] %></option>
                 <% } %>

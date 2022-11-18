@@ -27,14 +27,16 @@ const User = {
   },
   login: async (req, res) => {
     const { email, user_password } = req.body;
-    const user = await Users.findOne({ email })
+    console.log(req.body)
+    const user = await Users.findOne( {where: {"email":req.body.email} })
+    console.log(user.dataValues)
     let hashSaved = user.dataValues.user_password;
     let compare = bcyptjs.compareSync(user_password, hashSaved);
     const infoJwt = jwt.sign({ email }, "m1c4s4", {
       expiresIn: "1800s",
     });
     if (compare) {
-      res.cookie("infoJwt" , infoJwt).send('Cookie is set');
+      res.cookie("infoJwt", infoJwt).send('Cookie is set');
     } else {
       res.json("no ok")
     }
