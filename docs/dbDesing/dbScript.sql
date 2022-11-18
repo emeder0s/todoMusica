@@ -26,13 +26,12 @@ CREATE TABLE IF NOT EXISTS addresses(
 
 CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT NOT NULL,
-        first_name VARCHAR(25) NOT NULL, 
-        last_name VARCHAR(25) NOT NULL, 
-        dni CHAR(9) NOT NULL, 
-        email VARCHAR (25) UNIQUE NOT NULL,
+        first_name VARCHAR(35) NOT NULL, 
+        last_name VARCHAR(35) NOT NULL, 
+        email VARCHAR (40) UNIQUE NOT NULL,
         phone VARCHAR(15),
         birth_date DATE,
-        user_password VARCHAR(15),
+        user_password VARCHAR(32),
         isBuyer TINYINT,
         fk_id_address INT,
         PRIMARY KEY(id),
@@ -51,10 +50,10 @@ CREATE TABLE IF NOT EXISTS users(
  
   CREATE TABLE IF NOT EXISTS instruments(
         id INT AUTO_INCREMENT NOT NULL,
-        brand VARCHAR(25) NOT NULL, 
-        model VARCHAR(25) NOT NULL,
+        brand VARCHAR(40) NOT NULL, 
+        model VARCHAR(100) NOT NULL,
         price VARCHAR(10) NOT NULL, 
-        category VARCHAR(25) NOT NULL, 
+        category VARCHAR(30) NOT NULL, 
         photo_path VARCHAR(512) NOT NULL, 
         PRIMARY KEY(id)
  );
