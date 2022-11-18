@@ -1,0 +1,41 @@
+[
+{
+    "_id": {
+        "$oid": "63760f567a5deea40680fc20"
+      },
+    "center_name": "Teide Música",
+    "coordinates": "28.4894262887102, -16.31328313846818",
+    "address": "C. Nava y Grimon, 22, 38201 La Laguna, Santa Cruz de Tenerife",
+    "phone_number": "922262695"
+},
+
+{
+    "_id": {
+        "$oid": "63760f567a5deea40680fc21"
+      },
+    "center_name": "Barquera Música",
+    "coordinates": "43.459760464001235, -3.8236393263063246",
+    "address": "C. San Fernando, 58",
+    "phone_number": "942536536"
+},
+
+{
+    "_id": {
+        "$oid": "63760f567a5deea40680fc22"
+      },
+    "center_name": "Tabernas Música",
+    "coordinates": "36.83600340414077, -2.4622849245973284",
+    "address": "A. Federico García Lorca, 13, 04004 Almería",
+    "phone_number": "950245424"
+},
+
+{
+    "_id": {
+        "$oid": "63760f567a5deea40680fc23"
+      },
+    "center_name": "Malasaña Música",
+    "coordinates": "40.42637927948749, -3.7044663518617886",
+    "address": "C. de la Palma, 35, 28004 Madrid",
+    "phone_number": "915211156"
+}
+]

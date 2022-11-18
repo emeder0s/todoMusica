@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT NOT NULL,
         first_name VARCHAR(25) NOT NULL, 
         last_name VARCHAR(25) NOT NULL, 
+        dni CHAR(9) NOT NULL, 
         email VARCHAR (25) UNIQUE NOT NULL,
         phone VARCHAR(15),
         birth_date DATE,

@@ -1,0 +1,12 @@
+
+    <% for(var i=0; i<allClasses.length; i++) {%>
+        <div class="class-container">
+            <p>Instrumento: <%= allClasses[i].instrument %></p>
+            <p>Horario: <%= allClasses[i].schedule %></p>
+            <p>Profesor: <%= allClasses[i].teacher %></p>
+            <p>Año: <%= allClasses[i].year %></p>
+            <p>Plazas vacantes: <%= 4 - allClasses[i].students.length %></p>
+            <button name="edit-class">Editar</button>
+        </div>
+       <br>
+    <% } %>
