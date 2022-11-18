@@ -1,0 +1,401 @@
+[{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b1"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Javier Gonzáles",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b2"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "María Hernández",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b3"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Pedro Rodríguez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b4"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Elena García",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b5"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Jose Miranda",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b6"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Javier Gonzáles",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b7"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "María Hernández",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b8"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Pedro Rodríguez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117b9"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Elena García",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117ba"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Jose Miranda",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc20",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117bb"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Jorge Pérez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117bc"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Violeta Vega",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117bd"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Rocío Pérez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117be"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Manuel Jurado",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117bf"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Alba Prieto",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c0"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Jorge Pérez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c1"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Violeta Vega",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c2"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Rocío Pérez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c3"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Manuel Jurad",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c4"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Mario Ramírez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc21",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c5"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Ana Cañada",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c6"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Carlos Martín",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c7"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Debora Rodríguez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c8"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Marco Polo",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117c9"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Mario Ramírez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117ca"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Ana Cañada",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117cb"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Carlos Martín",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117cc"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Debora Rodríguez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117cd"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Marco Polo",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117ce"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Mario Ramírez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc22",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117cf"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Roberto Gutierrez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d0"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Clara Martínez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d1"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "David Muñoz",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d2"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Cristina Morales",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d3"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 12h a 14h",
+  "teacher": "Sergio Miravalles",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d4"
+  },
+  "instrument": "Guitarra",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Roberto Gutierrez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d5"
+  },
+  "instrument": "Piano",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Clara Martínez",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d6"
+  },
+  "instrument": "Clarinete",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "David Muñoz",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d7"
+  },
+  "instrument": "Violín",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Cristina Morales",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+},{
+  "_id": {
+    "$oid": "6376273d188a008e77b117d8"
+  },
+  "instrument": "Percusión",
+  "schedule": "Lunes y Miércoles - 18h a 20h",
+  "teacher": "Sergio Miravalles",
+  "year": "2022",
+  "fk_id_center": "63760f567a5deea40680fc23",
+  "students": []
+}]
