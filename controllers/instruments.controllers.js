@@ -7,7 +7,6 @@ const instruments = {
     },
     findInstruments: async (req, res) => {
         const instrumentos = await Instruments.findAll();
-        sql.close();
         res.json(instrumentos);
     },
 
