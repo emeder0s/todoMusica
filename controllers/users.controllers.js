@@ -9,21 +9,27 @@ const User = {
     res.json(users);
   },
   register: async (req, res) => {
-    const { first_name, last_name, email, phone, birth_date, user_password } = req.body;
-    user_password_hash = await bcyptjs.hash(user_password, 8);
-    const user = await Users.create({ first_name, last_name, email, phone, birth_date, "user_password": user_password_hash })
-    res.send(user_password)
+    const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
+    console.log(req.body)
+    const user_password_hash = await bcyptjs.hash(user_password, 8);
+    const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
+    res.send("Usuario registrado")
   },
   set_address: async (req, res) => {
     var cookies = req.cookies;
     var token = cookies.infoJwt;
+    try {
     let jwtVerify = jwt.verify(token, "m1c4s4")
     let email = jwtVerify.email;
-    const { way_type, address, a_number, additional_address, locality, province, country, postal_code } = req.body;
-    const user_address = await Address.create({ way_type, address, a_number, additional_address, locality, province, country, postal_code });
-    console.log(user_address.dataValues)
-    let user = await Users.update({ "fk_id_address":user_address.id }, { where: { email } })
-    res.json({ way_type, address, a_number, additional_address, locality, province, country, postal_code, cookies  })
+    if (jwtVerify) {
+      const { way_type, address, a_number, additional_address, locality, province, country, postal_code } = req.body;
+      const user_address = await Address.create({ way_type, address, a_number, additional_address, locality, province, country, postal_code });
+      let user = await Users.update({ "fk_id_address": user_address.id }, { where: { email } })
+      res.json({ way_type, address, a_number, additional_address, locality, province, country, postal_code, cookies })
+    }}
+    catch (error){
+      res.json(error)
+    }
   },
   login: async (req, res) => {
     const { email, user_password } = req.body;
@@ -43,7 +49,7 @@ const User = {
   },
   getUser: async (req, res) => {
     const { email } = req.body;
-    const infoUser = await Users.findOne({ email });
+    const infoUser = await Users.findOne( {where: {"email":req.body.email}} );
     if (infoUser) {
       const infoJwt = jwt.sign({ email }, "m1c4s4", {
         expiresIn: "1000s",
@@ -66,6 +72,9 @@ const User = {
       res.json(false);
     }
   },
+
+  // ESTO hay que llevarlo a PAGES.controller-----------------------------
+
   paginaPassword: (req, res) => {
     console.log("vamos a paginapasword")
     res.render("./newPass.ejs");
@@ -74,9 +83,39 @@ const User = {
     console.log("vamos a recovery")
     res.render("./forgetPass.ejs");
   },
-  insertAddress: (req,res) =>{
+  insertAddress: (req, res) => {
     res.render("./address.ejs")
+  },
+
+  //-----------------------------------------------------------------------
+  delete: async (req, res) => {
+    const { email, user_password } = req.body;
+    const user = await Users.findOne({ email })
+    let hashSaved = user.dataValues.user_password;
+    let compare = bcyptjs.compareSync(user_password, hashSaved);
+    if (compare) {
+      user.destroy();
+      res.json("Usuario Borrado")
+    } else {
+      res.json("no ok")
+    }
+  },
+  isbuyer: async (req, res) => {
+    try {
+      var cookies = req.cookies;
+      var token = cookies.infoJwt;
+      let jwtVerify = jwt.verify(token, "m1c4s4")
+      let email = jwtVerify.email;
+      console.log(jwtVerify)
+      if (jwtVerify) {
+        let isbuyer = 1
+        const infoUser = await Users.update({ isbuyer }, { where: { email } });
+        res.json(true)
+      }}
+      catch (error) {
+        res.json(false);
+      }
+    },
   }
-}
 
 module.exports = User;
