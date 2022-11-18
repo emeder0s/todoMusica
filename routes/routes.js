@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const instrument = require("../controllers/instruments.controllers")
 const _class = require("../controllers/classes.controllers");
 const user = require("../controllers/users.controllers")
 const _admin = require("../controllers/admin.controllers");
@@ -23,5 +24,7 @@ router.post("/matricularse/:idClass/:idUser",_class.enroll);
 //router.get("/mostrar-por-centros-y-instrumento/",_class.showByCenter);
 // router.get("/login-admin/:id",_admin.login);
 
-
+router.get("/instruments", instrument.start);
+router.get("/findInstruments", instrument.findInstruments);
+router.post("/findCategory", instrument.findByCategory);
 module.exports = router;

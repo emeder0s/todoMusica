@@ -1,0 +1,30 @@
+#instrumentos {
+    display: flex;
+    flex-direction: column;
+}
+
+h1.categorias {
+    display: flex;
+    justify-content: space-around;
+}
+
+button.instrumentos img{
+    width: 30%;
+    margin-left: 5%;
+}
+
+#guitarras_electricas {
+    border-top: 0.25px solid rgba(128, 128, 128, 0.649);
+}
+
+button.instrumentos {
+    display: flex;
+    background-color: white;
+    border: none;
+    border-bottom: 0.25px solid rgba(128, 128, 128, 0.649);
+}
+
+button.instrumentos p{
+    margin-left: 15%;
+    padding-top: 8%;
+}
