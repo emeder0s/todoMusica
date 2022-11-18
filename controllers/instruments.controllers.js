@@ -2,10 +2,21 @@ const sql = require("../databases/mysql");
 const Instruments = require("../models/instrument.model")
 
 const instruments = {
-    findAll: async (req, res) => {
-        let conexion = sql.sqlConexion();
+    start: (req, res) => {
+        res.render("../views/instrumentos.ejs");
+    },
+    findInstruments: async (req, res) => {
         const instrumentos = await Instruments.findAll();
-        conexion.close();
+        sql.close();
+        res.json(instrumentos);
+    },
+
+    findByCategory: async (req, res) => {
+        const instrumentos = await Instruments.findAll({
+            where: {
+                category: req.body.category
+            }
+        });
         res.json(instrumentos);
     }
 }
