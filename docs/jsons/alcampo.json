@@ -1,0 +1,1231 @@
+[
+    {
+        "place_id": 346972878,
+        "lat": "40.383767",
+        "lon": "-3.6078908",
+        "display_name": "Alcampo, 8, Calle de Puentelarra, Santa Eugenia, Villa de Vallecas, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28031, España"
+    },
+    {
+        "place_id": 24493486, 
+        "lat": "40.3937323",
+        "lon": "-3.7650943",
+        "display_name": "Alcampo, 30, Calle de Maqueda, Aluche, Latina, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28024, España"
+    },
+    {
+        "place_id": 342695981, 
+        "lat": "40.4039951",
+        "lon": "-3.5613851",
+        "display_name": "Mi Alcampo, Calle de Imperio Argentina, El Cañaveral, Vicálvaro, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28052, España"
+    },
+    {
+        "place_id": 347805006,
+        "lat": "41.3854996",
+        "lon": "2.1829056",
+        "display_name": "Alcampo, Plaça Comercial, la Ribera, Sant Pere, Santa Caterina i la Ribera, Ciutat Vella, Barcelona, Barcelonés, Barcelona, Cataluña, 08001, España"
+    },
+    {
+        "place_id": 80697123,
+        "lat": "41.4098536",
+        "lon": "2.2169427",
+        "display_name": "Alcampo, La Terrassa del Mar, Diagonal Mar i el Front Marítim del Poblenou, Sant Martí, Barcelona, Barcelonés, Barcelona, Cataluña, 08001, España"
+    },
+    {
+        "place_id": 74621745,
+        "lat": "41.3784",
+        "lon": "2.17852",
+        "display_name": "Alcampo, Carrer Ample, el Gòtic, Ciutat Vella, Barcelona, Barcelonés, Barcelona, Cataluña, 08001, España"
+    },
+    {
+        "place_id": 74916836, 
+        "lat": "41.6554673",
+        "lon": "-0.8800079",
+        "display_name": "Alcampo, 44, Calle Manifestación, Casco Antiguo, Zaragoza, Aragón, 50003, España"
+    },
+    {
+        "place_id": 57320143, 
+        "lat": "41.6446746",
+        "lon": "-0.8811955",
+        "display_name": "Alcampo, 20, Calle de San Vicente Mártir, Centro, Zaragoza, Aragón, 50008, España"
+    },
+    {
+        "place_id": 92899751, 
+        "lat": "41.6601646",
+        "lon": "-0.8766359",
+        "display_name": "Alcampo, Calle José María Matheu, Arrabal, Zaragoza, Aragón, 50001, España"
+    },
+    {
+        "place_id": 65684544, 
+        "lat": "41.6704958",
+        "lon": "-0.8459367",
+        "display_name": "Alcampo, Avenida Cataluña, Cogullada, La Jota, Zaragoza, Aragón, 50058, España"
+    },
+    {
+        "place_id": 23478142, 
+        "lat": "41.6400873",
+        "lon": "-0.8683153",
+        "display_name": "Alcampo, Camino de Cabaldós, San José, Zaragoza, Aragón, 50013, España"
+    },
+    {
+        "place_id": 68676529, 
+        "lat": "41.6666131",
+        "lon": "-0.8317472",
+        "display_name": "Alcampo, Calle Mosén Damián Borobia, Santa Isabel, Zaragoza, Aragón, 50016, España"
+    },
+    {
+        "place_id": 94971470, 
+        "lat": "41.6304057",
+        "lon": "-0.9092906",
+        "display_name": "Alcampo, Calle Embarcadero, Casablanca, Zaragoza, Aragón, 50009, España"
+    },
+    {
+        "place_id": 68021332, 
+        "lat": "41.6441739",
+        "lon": "-0.8747313",
+        "display_name": "Alcampo, Calle Florida, San José, Zaragoza, Aragón, 50008, España"
+    },
+    {
+        "place_id": 252358156, 
+        "lat": "41.6463205",
+        "lon": "-0.8626162243794147",
+        "display_name": "Alcampo, Calle de Leopoldo Romeo, Las Fuentes, Zaragoza, Aragón, 50002, España"
+    },
+    {
+        "place_id": 78306433, 
+        "lat": "41.6435541",
+        "lon": "-0.9354633",
+        "display_name": "Alcampo, Avenida de las Estrellas, Valdefierro, Zaragoza, Aragón, 50012, España"
+    },
+    {
+        "place_id": 73472822, 
+        "lat": "41.6377643",
+        "lon": "-0.8904061",
+        "display_name": "Alcampo, 20, Calle Arzobispo Morcillo, Romareda, Universidad, Zaragoza, Aragón, 50006, España"
+    },
+    {
+        "place_id": 73201885, 
+        "lat": "41.6461155",
+        "lon": "-0.8626507",
+        "display_name": "Alcampo, Calle Rodrigo Rebolledo, Las Fuentes, Zaragoza, Aragón, 50002, España"
+    },
+    {
+        "place_id": 73400136, 
+        "lat": "41.6550514",
+        "lon": "-0.8872752",
+        "display_name": "Alcampo, Calle Conde de Aranda, El Gancho, San Pablo, Zaragoza, Aragón, 50003, España"
+    },
+    {
+        "place_id": 55629646, 
+        "lat": "41.6485916",
+        "lon": "-0.9138586",
+        "display_name": "Alcampo, Calle de Mosén Andrés Vicente, Delicias, Zaragoza, Aragón, 50017, España"
+    },
+    {
+        "place_id": 63199436, 
+        "lat": "41.6369603",
+        "lon": "-0.8666921",
+        "display_name": "Alcampo, Calle del Principado de Morea, San José, Zaragoza, Aragón, 50013, España"
+    },
+    {
+        "place_id": 63348943, 
+        "lat": "41.6442347",
+        "lon": "-0.8745346",
+        "display_name": "Alcampo, 15, Calle Miraflores, San José, Zaragoza, Aragón, 50008, España"
+    },
+    {
+        "place_id": 6539159, 
+        "lat": "41.7017646",
+        "lon": "-1.0012688",
+        "display_name": "Alcampo, Camino de los Llanos, Zaragoza, Aragón, 50180, España"
+    },
+    {
+        "place_id": 214682273, 
+        "lat": "41.64414525",
+        "lon": "-0.9358990870000301",
+        "display_name": "Gasolinera Alcampo Los Enlaces, Calle de Aldebarán, Valdefierro, Zaragoza, Aragón, 50012, España"
+    },
+    {
+        "place_id": 49341609, 
+        "lat": "38.3547252",
+        "lon": "-0.4713733",
+        "display_name": "Alcampo, Avenida de Denia, la Goteta, Alicante, El Alacantí, Alicante, Comunidad Valenciana, 03016, España"
+    },
+    {
+        "place_id": 46307247, 
+        "lat": "38.3709541",
+        "lon": "-0.4660362",
+        "display_name": "Alcampo, calle doctor Fleming, Centro Comercial Vistahermosa, Vistahermosa, Alicante, El Alacantí, Alicante, Comunidad Valenciana, 03016, España"
+    },
+    {
+        "place_id": 193582675, 
+        "lat": "38.37078735",
+        "lon": "-0.46680431670902145",
+        "display_name": "Alcampo, calle doctor Fleming, Centro Comercial Vistahermosa, Vistahermosa, Alicante, El Alacantí, Alicante, Comunidad Valenciana, 03016, España"
+    },
+    {
+        "place_id": 163114164,
+        "lat": "43.5115141",
+        "lon": "-5.691059519284039",
+        "display_name": "Alcampo, Camino de La Fana a Tremañes, Santa Bárbara, Gijón, Asturias, 33211, España"
+    },
+    {
+        "place_id": 118952065,
+        "lat": "40.64361515",
+        "lon": "-4.699584011682782",
+        "display_name": "Alcampo, Calle del Arca de las Cinco Llaves, Ávila, Castilla y León, 05002, España"
+    },
+    {
+        "place_id": 58059611, 
+        "lat": "42.4648315",
+        "lon": "-2.4315602",
+        "display_name": "Alcampo, 28, Calle de la Cigüeña, San José, Logroño, La Rioja, 26004, España"
+    },
+    {
+        "place_id": 3783823, 
+        "lat": "42.4655713",
+        "lon": "-2.4583863",
+        "display_name": "Alcampo, Calle Valcuerna, Parque de Los Enamorados-San Lázaro, El Cubo, Logroño, La Rioja, 26005, España"
+    },
+    {
+        "place_id": 66553700, 
+        "lat": "42.4547107",
+        "lon": "-2.4396654",
+        "display_name": "Alcampo, 7, Calle Servillas, Cascajos, Logroño, La Rioja, 26003, España"
+    },
+    {
+        "place_id": 3885229,
+        "lat": "42.4515741",
+        "lon": "-2.468399",
+        "display_name": "Alcampo, 4, Calle Serradero, Las Tejeras, Yagüe, Logroño, La Rioja, 26007, España"
+    },
+    {
+        "place_id": 664362, 
+        "lat": "42.4535004",
+        "lon": "-2.4679145",
+        "display_name": "Alcampo, Calle las Tejeras, Las Tejeras, Yagüe, Logroño, La Rioja, 26007, España"
+    },
+    {
+        "place_id": 20629727, 
+        "lat": "42.1280656",
+        "lon": "-0.4268047",
+        "display_name": "Alcampo, Avenida de Martínez de Velasco, Barrio de la Encarnación, La Encarnación, Huesca, Hoya de Huesca, Huesca, Aragón, 22004, España"
+    },
+    {
+        "place_id": 254373615,
+        "lat": "42.12894995",
+        "lon": "-0.4245070477678566",
+        "display_name": "Alcampo, Camino viejo de Cuarte, Barrio de la Encarnación, La Encarnación, Huesca, Hoya de Huesca, Huesca, Aragón, 22004, España"
+    },
+    {
+        "place_id": 40826899,
+        "lat": "41.4438378",
+        "lon": "2.2247843",
+        "display_name": "Alcampo, Carrer de Don Pelai, La Salut, Districte 4, Badalona, Barcelonés, Barcelona, Cataluña, 08911, España"
+    },
+    {
+        "place_id": 180834557,
+        "lat": "41.14547615",
+        "lon": "1.097653279185511",
+        "display_name": "Alcampo, Carrer de Cèlia Artiga Esplugas, Clarises, Reus, Bajo Campo, Tarragona, Cataluña, 43201, España"
+    },
+    {
+        "place_id": 41257988,
+        "lat": "41.1455784",
+        "lon": "1.0987698",
+        "display_name": "Alcampo, Carrer de Puig i Ferrater, Clarises, Reus, Bajo Campo, Tarragona, Cataluña, 43201, España"
+    },
+    {
+        "place_id": 650429,
+        "lat": "41.55328",
+        "lon": "2.4297735",
+        "display_name": "Alcampo, Carretera de Cirera, La Llàntia, Mataró, Maresme, Barcelona, Cataluña, 80304, España"
+    },
+    {
+        "place_id": 114723527, 
+        "lat": "41.677177650000004",
+        "lon": "-3.6908592170949444",
+        "display_name": "Alcampo, CL-619, Aranda de Duero, Burgos, Castilla y León, 09400, España"
+    },
+    {
+        "place_id": 75732077, 
+        "lat": "41.7654685",
+        "lon": "-2.4655967",
+        "display_name": "Alcampo, Calle de Bernardo Robles, Soria, Castilla y León, 42002, España"
+    },
+    {
+        "place_id": 152843546, 
+        "lat": "40.33401785",
+        "lon": "-1.0884125073241573",
+        "display_name": "Alcampo, Avenida de Sagunto, Teruel, Comunidad de Teruel, Teruel, Aragón, 44002, España"
+    },
+    {
+        "place_id": 64773373,
+        "lat": "40.818279",
+        "lon": "0.514852",
+        "display_name": "Alcampo, Carrer de Sebastià Elcano, Ferreries, Tortosa, Bajo Ebro, Tarragona, Cataluña, 43500, España"
+    },
+    {
+        "place_id": 531550, 
+        "lat": "42.0530192",
+        "lon": "-1.5985822",
+        "display_name": "Alcampo, Avenida del Barrio, Tudela, Ribera, Navarra, 31500, España"
+    },
+    {
+        "place_id": 130891609, 
+        "lat": "42.661615749999996",
+        "lon": "-2.034662356737071",
+        "display_name": "Alcampo, Calle de Carlos VII, Estella, Tierra Estella, Navarra, 31200, España"
+    },
+    {
+        "place_id": 254818128, 
+        "lat": "40.295476050000005",
+        "lon": "-3.7462451568196258",
+        "display_name": "Alcampo, Senda de Mafalda, Sector III (Cerro Buenavista), Getafe, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28905, España"
+    },
+    {
+        "place_id": 57701578,
+        "lat": "41.2218014",
+        "lon": "1.7369632",
+        "display_name": "Alcampo, Camí de l'Aparcament a la Platja del Far, Barri de Mar, Vilanova y Geltrú, Garraf, Barcelona, Cataluña, 08800, España"
+    },
+    {
+        "place_id": 261659249,
+        "lat": "40.818387200000004",
+        "lon": "0.5142843391558745",
+        "display_name": "Alcampo, Rambla Pompeu Fabra, Ferreries, Tortosa, Bajo Ebro, Tarragona, Cataluña, 43500, España"
+    },
+    {
+        "place_id": 16053059,
+        "lat": "43.3200039",
+        "lon": "-1.834781",
+        "display_name": "Alcampo, 80, Autopista del Cantabrico, Arbes, Irún, Bajo Bidasoa, Guipúzcoa, País Vasco, 20305, España"
+    },
+    {
+        "place_id": 6595480, 
+        "lat": "40.5109016",
+        "lon": "-3.6897557",
+        "display_name": "Alcampo, 20, Calle del Monasterio de Silos, Montecarmelo, El Goloso, Fuencarral-El Pardo, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28034, España"
+    },
+    {
+        "place_id": 2135613, 
+        "lat": "40.5041349",
+        "lon": "-3.7032844",
+        "display_name": "Alcampo, Avenida del Monasterio de El Escorial, Montecarmelo, El Goloso, Fuencarral, Fuencarral-El Pardo, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28034, España"
+    },
+    {
+        "place_id": 70630639,
+        "lat": "40.378698",
+        "lon": "-3.7486522",
+        "display_name": "Alcampo, 99, Avenida de Nuestra Señora de Fátima, Vista Alegre, Carabanchel, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28047, España"
+    },
+    {
+        "place_id": 72173252, 
+        "lat": "40.4384238",
+        "lon": "-3.6674315",
+        "display_name": "Alcampo, Calle Francisco Remiro, Guindalera, Salamanca, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28028, España"
+    },
+    {
+        "place_id": 59908285, 
+        "lat": "40.4322049",
+        "lon": "-3.6740912",
+        "display_name": "Alcampo, 58, Calle de Juan Bravo, Lista, Salamanca, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28006, España"
+    },
+    {
+        "place_id": 34399563, 
+        "lat": "40.4566039",
+        "lon": "-3.7085347",
+        "display_name": "Mi Alcampo, 53, Calle de Francos Rodríguez, Bellas Vistas, Tetuán, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28039, España"
+    },
+    {
+        "place_id": 95585017, 
+        "lat": "40.3864045",
+        "lon": "-3.6501123",
+        "display_name": "Alcampo, Avenida de Palomeras, Portazgo, Puente de Vallecas, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28018, España"
+    },
+    {
+        "place_id": 96133162,
+        "lat": "40.4322021",
+        "lon": "-3.697866",
+        "display_name": "Alcampo, 41, Calle de Santa Engracia, Trafalgar, Chamberí, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28010, España"
+    },
+    {
+        "place_id": 81717090, 
+        "lat": "40.4242378",
+        "lon": "-3.6578471",
+        "display_name": "Alcampo, 62-66, Calle de Ricardo Ortiz, Ventas, Ciudad Lineal, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28017, España"
+    },
+    {
+        "place_id": 11229539, 
+        "lat": "40.3990274",
+        "lon": "-3.7028284",
+        "display_name": "Alcampo, 51, Paseo de la Esperanza, Las Acacias, Arganzuela, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28005, España"
+    },
+    {
+        "place_id": 197481276,
+        "lat": "40.400091200000006",
+        "lon": "-3.707260949999996",
+        "display_name": "Alcampo, Calle de Arganda, Las Acacias, Arganzuela, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28005, España"
+    },
+    {
+        "place_id": 77909968,
+        "lat": "40.4630031",
+        "lon": "-3.675144",
+        "display_name": "Alcampo, 4, Avenida de Pío XII, Nueva España, Chamartín, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28016, España"
+    },
+    {
+        "place_id": 298854221,
+        "lat": "40.480352",
+        "lon": "-3.7068876",
+        "display_name": "Alcampo, 36, Avenida de Monforte de Lemos, Altamira, El Pilar, Fuencarral-El Pardo, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28029, España"
+    },
+    {
+        "place_id": 73392987, 
+        "lat": "40.3907602",
+        "lon": "-3.7018796",
+        "display_name": "Alcampo City, 210, Avenida del Manzanares, Moscardó, Usera, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28026, España"
+    },
+    {
+        "place_id": 72662515, 
+        "lat": "40.4614899",
+        "lon": "-3.6937827",
+        "display_name": "Alcampo, Calle de Orense, Castillejos, Tetuán, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28020, España"
+    },
+    {
+        "place_id": 65596175, 
+        "lat": "42.3507751",
+        "lon": "-3.6711514",
+        "display_name": "Alcampo, Plaza San Bruno, Barriada Juan XXIII, Burgos, Castilla y León, 09080, España"
+    },
+    {
+        "place_id": 5789617, 
+        "lat": "42.3373722",
+        "lon": "-3.6973048",
+        "display_name": "Alcampo, 31, Calle Progreso, San Julián, Barriada la Nevera, Burgos, Castilla y León, 09004, España"
+    },
+    {
+        "place_id": 8022363, 
+        "lat": "42.3375916",
+        "lon": "-3.6970164",
+        "display_name": "Alcampo, Calle Santa Cruz, San Julián, Barriada la Nevera, Burgos, Castilla y León, 09004, España"
+    },
+    {
+        "place_id": 19381464, 
+        "lat": "42.3511351",
+        "lon": "-3.6705021",
+        "display_name": "Alcampo, Calle Francisco Grandmontagne, Barriada Juan XXIII, Burgos, Castilla y León, 09080, España"
+    },
+    {
+        "place_id": 17887898, 
+        "lat": "42.3497875",
+        "lon": "-3.6816389",
+        "display_name": "Alcampo, Calle Juan Bravo, Polígono Río Vena, Burgos, Castilla y León, 09005, España"
+    },
+    {
+        "place_id": 3812685,
+        "lat": "42.349529",
+        "lon": "-3.6947534",
+        "display_name": "Alcampo, Calle Federico Martínez Varea, Urbanización Fuente Nueva, Vadillos, Burgos, Castilla y León, 09071, España"
+    },
+    {
+        "place_id": 3959365,
+        "lat": "42.3495655",
+        "lon": "-3.695316",
+        "display_name": "Alcampo, Calle Francisco Sarmiento, Vadillos, Burgos, Castilla y León, 09071, España"
+    },
+    {
+        "place_id": 3803627,
+        "lat": "42.853302",
+        "lon": "-2.6807921",
+        "display_name": "Alcampo, Avenida de Gasteiz, Txagorritxu, Vitoria, Cuadrilla de Vitoria, Álava, País Vasco, 01009, España"
+    },
+    {
+        "place_id": 65392710, 
+        "lat": "40.0775733",
+        "lon": "-2.1509926",
+        "display_name": "Alcampo, Avenida de los Alfares, Barrio de San Antón, Cuenca, Castilla-La Mancha, 16002, España"
+    },
+    {
+        "place_id": 3925005, 
+        "lat": "40.5017421",
+        "lon": "-3.3324291",
+        "display_name": "Alcampo, Calle de Jadraque, Parque Comercial La Dehesa, Virgen del Val, Distrito V, Alcalá de Henares, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28805, España"
+    },
+    {
+        "place_id": 57207705,
+        "lat": "40.078095",
+        "lon": "-2.1517167",
+        "display_name": "Alcampo, Carretera de Nohales, Nohales, Cuenca, Castilla-La Mancha, 16002, España"
+    },
+    {
+        "place_id": 5231776, 
+        "lat": "40.5051299",
+        "lon": "-3.3289374",
+        "display_name": "Alcampo, Calle la Vega de Henares, Parque Comercial La Dehesa, Distrito V, Alcalá de Henares, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28805, España"
+    },
+    {
+        "place_id": 14795786,
+        "lat": "39.0087989",
+        "lon": "-1.878067",
+        "display_name": "Alcampo, Calle Saturnino Calleja, Urbanización Acequia Redonda, Cañicas-Canal de María Cristina, Albacete, Castilla-La Mancha, 02005, España"
+    },
+    {
+        "place_id": 88334430, 
+        "lat": "39.0094806",
+        "lon": "-1.8784235",
+        "display_name": "Alcampo, Avenida Escritor Rodrigo Rubio, Cañicas-Canal de María Cristina, Albacete, Castilla-La Mancha, 02005, España"
+    },
+    {
+        "place_id": 286869410, 
+        "lat": "41.6770014",
+        "lon": "-3.6919494875371948",
+        "display_name": "Alcampo, CL-619, Aranda de Duero, Burgos, Castilla y León, 09400, España"
+    },
+    {
+        "place_id": 20281773, 
+        "lat": "42.5470079",
+        "lon": "-3.3214759",
+        "display_name": "Alcampo, Avenida Mencía de Velasco, Briviesca, Burgos, Castilla y León, 09240, España"
+    },
+    {
+        "place_id": 8812053, 
+        "lat": "41.6977606",
+        "lon": "-3.9300443",
+        "display_name": "Alcampo, Calle Padre Usera, Barrio de San Antón, Roa, Burgos, Castilla y León, 09313, España"
+    },
+    {
+        "place_id": 276730106, 
+        "lat": "41.35299405",
+        "lon": "-1.6315575999999998",
+        "display_name": "Alcampo, Avenida de las Fuerzas Armadas, Calatayud, Comunidad de Calatayud, Zaragoza, Aragón, 50300, España"
+    },
+    {
+        "place_id": 14745309, 
+        "lat": "40.3404658",
+        "lon": "-3.7340871",
+        "display_name": "Alcampo, Carretera de Villaverde, El Carrascal, Leganés, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28919, España"
+    },
+    {
+        "place_id": 53195779,
+        "lat": "41.331345",
+        "lon": "2.051514",
+        "display_name": "Alcampo, 6-12, Carrer de les Alberedes, Parc Comercial Sant Boi, Vinyets i Molí Vell, Sant Boi de Llobregat, Bajo Llobregat, Barcelona, Cataluña, 08830, España"
+    },
+    {
+        "place_id": 171711041,
+        "lat": "37.930818599999995",
+        "lon": "-0.7373156146427116",
+        "display_name": "Alcampo, La Zenia Boulevard, Amapolas IV, Dehesa de Campoamor, Orihuela, La Vega Baja del Segura, Alicante, Comunidad Valenciana, 03189, España"
+    },
+    {
+        "place_id": 4293012,
+        "lat": "40.53452",
+        "lon": "-3.6370272",
+        "display_name": "Alcampo, Avenida de la Vega, Alcobendas, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 20108, España"
+    },
+    {
+        "place_id": 81065521, 
+        "lat": "42.1263308",
+        "lon": "-1.1389069",
+        "display_name": "Mi Alcampo, 2, Avenida Cosculluela, Ejea de los Caballeros, Cinco Villas, Zaragoza, Aragón, 50600, España"
+    },
+    {
+        "place_id": 182072106, 
+        "lat": "42.1283942",
+        "lon": "-1.12595727779688",
+        "display_name": "Alcampo, Calle Mariano Alastuey, Ejea de los Caballeros, Cinco Villas, Zaragoza, Aragón, 50600, España"
+    },
+    {
+        "place_id": 46742614,
+        "lat": "40.534293",
+        "lon": "-3.6388555",
+        "display_name": "Alcampo, Avenida Olímpica, Alcobendas, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28108, España"
+    },
+    {
+        "place_id": 268360325, 
+        "lat": "42.128770349999996",
+        "lon": "-1.1268635766511517",
+        "display_name": "Alcampo, Calle Luis Buñuel, Ejea de los Caballeros, Cinco Villas, Zaragoza, Aragón, 50600, España"
+    },
+    {
+        "place_id": 294817434,
+        "lat": "40.3304228",
+        "lon": "-3.829359479943775",
+        "display_name": "Alcampo, Calle Oceanía, Los Palomares, Suroeste, Alcorcón, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28922, España"
+    },
+    {
+        "place_id": 21356547,
+        "lat": "41.2354265",
+        "lon": "-0.045435",
+        "display_name": "Alcampo, 8, Calle Diputación, Caspe, Bajo Aragón-Caspe, Zaragoza, Aragón, 50700, España"
+    },
+    {
+        "place_id": 293023341, 
+        "lat": "41.050548",
+        "lon": "-0.15616628970152874",
+        "display_name": "Alcampo, Avenida de Zaragoza, Alcañiz, Bajo Aragón, Teruel, Aragón, 44600, España"
+    },
+    {
+        "place_id": 277985219, 
+        "lat": "41.05127025",
+        "lon": "-0.15666499165472886",
+        "display_name": "Alcampo, Avenida de Zaragoza, Alcañiz, Bajo Aragón, Teruel, Aragón, 44600, España"
+    },
+    {
+        "place_id": 1028754, 
+        "lat": "40.3038227",
+        "lon": "-3.8322325",
+        "display_name": "Alcampo, 17, Avenida de Pablo Iglesias, Loranca, Loranca - Nuevo Versalles - Parque Miraflores, Fuenlabrada, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28942, España"
+    },
+    {
+        "place_id": 236604537,
+        "lat": "41.377441399999995",
+        "lon": "2.098560242348926",
+        "display_name": "Alcampo, Carrer Sant Mateu, Ca n'Oliveres, Esplugues de Llobregat, Bajo Llobregat, Barcelona, Cataluña, 08906, España"
+    },
+    {
+        "place_id": 129467064,
+        "lat": "42.031262749999996",
+        "lon": "0.11938962272236692",
+        "display_name": "Alcampo, Carretera de Tarragona a Bilbao y San Sebastián, Barbastro, Somontano de Barbastro, Huesca, Aragón, 22300, España"
+    },
+    {
+        "place_id": 96423001,
+        "lat": "18.9253118",
+        "lon": "-99.2352767",
+        "display_name": "Alcampo, Calle Vicente Guerrero, Centro, Cuernavaca, Morelos, 62000, México"
+    },
+    {
+        "place_id": 269085423,
+        "lat": "42.0321819",
+        "lon": "0.11847466006180904",
+        "display_name": "Alcampo, Carretera de Tarragona a Bilbao y San Sebastián, Barbastro, Somontano de Barbastro, Huesca, Aragón, 22300, España"
+    },
+    {
+        "place_id": 57600084, 
+        "lat": "40.4239428",
+        "lon": "-3.6780412",
+        "display_name": "Alcampo, Calle de Francisca Moreno, Goya, Salamanca, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28001, España"
+    },
+    {
+        "place_id": 112494227, 
+        "lat": "40.393177699999995",
+        "lon": "-3.6547325562655817",
+        "display_name": "Alcampo, Calle de Pío Felipe, Numancia, Puente de Vallecas, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28038, España"
+    },
+    {
+        "place_id": 259629811,
+        "lat": "40.4123808",
+        "lon": "-3.66043776611939",
+        "display_name": "Alcampo, Calle del Corregidor Diego de Valderrábano, Media Legua, Moratalaz, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28017, España"
+    },
+    {
+        "place_id": 20652133,
+        "lat": "40.394771",
+        "lon": "-3.6799609",
+        "display_name": "Alcampo, 1-1E, Avenida del Planetario, Legazpi, Arganzuela, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28045, España"
+    },
+    {
+        "place_id": 18951185, 
+        "lat": "40.3952352",
+        "lon": "-3.6976312",
+        "display_name": "Alcampo, Calle Tomás Borrás, Chopera, Arganzuela, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28045, España"
+    },
+    {
+        "place_id": 36941612,
+        "lat": "40.3892931",
+        "lon": "-3.692129",
+        "display_name": "Alcampo, Calle de Embajadores, Legazpi, Arganzuela, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28045, España"
+    },
+    {
+        "place_id": 338781688, 
+        "lat": "40.4463281",
+        "lon": "-3.6673818",
+        "display_name": "Alcampo, Calle de Ramos Carrión, Prosperidad, Chamartín, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28002, España"
+    },
+    {
+        "place_id": 16807866,
+        "lat": "37.4084798",
+        "lon": "-5.910971",
+        "display_name": "Alcampo, Calle Periodista José Antonio Garmendia, Sevilla Este, Distrito Este-Alcosa-Torreblanca, Sevilla, Andalucía, 41020, España"
+    },
+    {
+        "place_id": 115588251, 
+        "lat": "37.370243349999996",
+        "lon": "-5.966105542227362",
+        "display_name": "Alcampo, Ronda del Tamarguillo, Distrito Sur, Sevilla, Andalucía, 41005, España"
+    },
+    {
+        "place_id": 655600,
+        "lat": "37.370472",
+        "lon": "-5.965194",
+        "display_name": "Alcampo, Ronda del Tamarguillo, Distrito Sur, Sevilla, Andalucía, 41005, España"
+    },
+    {
+        "place_id": 7788078,
+        "lat": "37.369812",
+        "lon": "-5.9663657",
+        "display_name": "Alcampo, Ronda del Tamarguillo, Distrito Sur, Sevilla, Andalucía, 41005, España"
+    },
+    {
+        "place_id": 55545111, 
+        "lat": "41.6432496",
+        "lon": "-0.9092111",
+        "display_name": "Mi Alcampo, Avenida Juan Carlos I, Delicias, Zaragoza, Aragón, 50009, España"
+    },
+    {
+        "place_id": 142549381, 
+        "lat": "41.6592446",
+        "lon": "-0.8617843467679798",
+        "display_name": "Alcampo, Calle María Pilar de las Heras Dopereiro, La Jota, Zaragoza, Aragón, 50014, España"
+    },
+    {
+        "place_id": 75241325,
+        "lat": "41.655317",
+        "lon": "-0.8841706",
+        "display_name": "Alcampo, Avenida de César Augusto, El Gancho, Casco Antiguo, Zaragoza, Aragón, 50004, España"
+    },
+    {
+        "place_id": 19559579, 
+        "lat": "37.1981731",
+        "lon": "-3.6087694",
+        "display_name": "Alcampo, 88, Avenida Juan Pablo II, Joaquina Eguaras Beiro, Joaquina Eguaras, Beiro, Granada, Comarca de la Vega de Granada, Granada, Andalucía, 18013, España"
+    },
+    {
+        "place_id": 169051894, 
+        "lat": "39.90669935",
+        "lon": "-4.016773600617051",
+        "display_name": "Alcampo, Calle Conde de Benavente, Toledo, Castilla-La Mancha, 45005, España"
+    },
+    {
+        "place_id": 169605828, 
+        "lat": "39.9052198",
+        "lon": "-4.017718640682395",
+        "display_name": "Alcampo, CM-4003, Toledo, Castilla-La Mancha, 45005, España"
+    },
+    {
+        "place_id": 7222520, 
+        "lat": "42.8823065",
+        "lon": "-8.5270539",
+        "display_name": "Alcampo, Rúa de Berlín, As Fontiñas, Santiago de Compostela, As Fontiñas, Santiago de Compostela, Santiago, La Coruña, Galicia, 15703, España"
+    },
+    {
+        "place_id": 60840159, 
+        "lat": "43.3289249",
+        "lon": "-8.3912762",
+        "display_name": "Alcampo, 1, Lugar de Palavea, Elviña, La Coruña, Galicia, 15009, España"
+    },
+    {
+        "place_id": 36003956, 
+        "lat": "43.3293287",
+        "lon": "-8.3911322",
+        "display_name": "Alcampo, 1, Lugar de Palavea, Elviña, La Coruña, Galicia, 15009, España"
+    },
+    {
+        "place_id": 19129301, 
+        "lat": "-34.5627992",
+        "lon": "-58.4577475",
+        "display_name": "Alcampo, Juramento, Belgrano R, Belgrano, Buenos Aires, Comuna 13, Ciudad Autónoma de Buenos Aires, C1428CTF, Argentina"
+    },
+    {
+        "place_id": 36190869,
+        "lat": "43.329068",
+        "lon": "-8.3908552",
+        "display_name": "Alcampo, Lugar Palavea, Pedralonga, Palavea, Elviña, La Coruña, Galicia, 15170, España"
+    },
+    {
+        "place_id": 119607666, 
+        "lat": "43.3292316",
+        "lon": "-8.390590001504592",
+        "display_name": "Alcampo, Carretera Coruña-Santiago, Santa Gema, Palavea, Elviña, La Coruña, Galicia, 15170, España"
+    },
+    {
+        "place_id": 15306618,
+        "lat": "43.328931",
+        "lon": "-8.3900688",
+        "display_name": "Alcampo, Lugar Palavea, Santa Gema, Palavea, Elviña, La Coruña, Galicia, 15170, España"
+    },
+    {
+        "place_id": 91936419, 
+        "lat": "42.8448476",
+        "lon": "-2.6826053",
+        "display_name": "Alcampo, Avenida de Gasteiz, Abendaño, San Martín, Vitoria, Cuadrilla de Vitoria, Álava, País Vasco, 01008, España"
+    },
+    {
+        "place_id": 19055654, 
+        "lat": "36.8540483",
+        "lon": "-2.4475385",
+        "display_name": "Alcampo, Calle Sáhara, El Eucalipto, Villa Blanca, Almería, Andalucía, 04009, España"
+    },
+    {
+        "place_id": 123624755, 
+        "lat": "43.510769249999996",
+        "lon": "-5.6936402077253385",
+        "display_name": "Alcampo, Camino del Fondo de Porceyo, El Barrio Vega, Gijón, Asturias, 33211, España"
+    },
+    {
+        "place_id": 5321552, 
+        "lat": "40.6432091",
+        "lon": "-4.6983237",
+        "display_name": "Alcampo, Calle del Arca de las Cinco Llaves, Ávila, Castilla y León, 05002, España"
+    },
+    {
+        "place_id": 346827488, 
+        "lat": "40.5061407",
+        "lon": "-3.3331142",
+        "display_name": "Alcampo, Calle de Don Juan Tenorio, Centro Comercial Quadernillos, Distrito V, Alcalá de Henares, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28805, España"
+    },
+    {
+        "place_id": 15040849, 
+        "lat": "36.6921233",
+        "lon": "-6.1575385",
+        "display_name": "Alcampo, Calle Amanecer, San Juan de Dios, Jerez de la Frontera, Campiña de Jerez, Cádiz, Andalucía, 11404, España"
+    },
+    {
+        "place_id": 171891650, 
+        "lat": "36.6912989",
+        "lon": "-6.1589238899431535",
+        "display_name": "Alcampo, Calle Amanecer, San Juan de Dios, Jerez de la Frontera, Campiña de Jerez, Cádiz, Andalucía, 11404, España"
+    },
+    {
+        "place_id": 37689683, 
+        "lat": "36.6930957",
+        "lon": "-6.1584117",
+        "display_name": "Alcampo, Ronda de la Aurora Boreal, San Juan de Dios, Jerez de la Frontera, Campiña de Jerez, Cádiz, Andalucía, 11404, España"
+    },
+    {
+        "place_id": 13656024, 
+        "lat": "36.5222585",
+        "lon": "-4.8755492",
+        "display_name": "Alcampo, Autovía/Autopista del Mediterráneo, Miraflores, Serrania, Marbella, Costa del Sol Occidental, Málaga, Andalucía, 29603, España"
+    },
+    {
+        "place_id": 233295267,
+        "lat": "40.81924325",
+        "lon": "0.5145068562125918",
+        "display_name": "Alcampo, Carrer de Sebastià Elcano, Ferreries, Tortosa, Bajo Ebro, Tarragona, Cataluña, 43500, España"
+    },
+    {
+        "place_id": 72947137,
+        "lat": "43.4917927",
+        "lon": "-8.207942",
+        "display_name": "Alcampo, Carretera de la Trinchera, O Bertón, Ferrol, La Coruña, Galicia, 15404, España"
+    },
+    {
+        "place_id": 149911095,
+        "lat": "43.4917968",
+        "lon": "-8.208241812361509",
+        "display_name": "Centro Comercial Alcampo, Avenida Nicasio Pérez, Polígono Industrial de A Gándara, O Bertón, Ferrol, La Coruña, Galicia, 15406, España"
+    },
+    {
+        "place_id": 111933357, "lat": "28.46357035",
+        "lon": "-16.306487064228456",
+        "display_name": "Alcampo, Calle Rector Gumersindo Trujillo, San Felipe, San Bartolomé de Geneto, Taco, San Cristóbal de La Laguna, Santa Cruz de Tenerife, Canarias, 38296, España"
+    },
+    {
+        "place_id": 78184186, 
+        "lat": "36.7416547",
+        "lon": "-3.5296395",
+        "display_name": "Alcampo, Rambla de las Brujas, Motril, Comarca de la Costa Granadina, Granada, Andalucía, 18600, España"
+    },
+    {
+        "place_id": 77867821, 
+        "lat": "42.2196528",
+        "lon": "-8.7452889",
+        "display_name": "Alcampo, 1, Rúa do Grove, O Cruceiro, Coia, Vigo, Pontevedra, Galicia, 36209, España"
+    },
+    {
+        "place_id": 113301232,
+        "lat": "42.215229550000004",
+        "lon": "-8.701342137910338",
+        "display_name": "Alcampo, Avenida de Madrid, Sárdoma, Vigo, Pontevedra, Galicia, 36214, España"
+    },
+    {
+        "place_id": 341982811, 
+        "lat": "42.2354284",
+        "lon": "-8.7101763",
+        "display_name": "Alcampo, Senda Via Verde, A Divina Pastora, Vigo, Pontevedra, Galicia, 36201, España"
+    },
+    {
+        "place_id": 98640582,
+        "lat": "41.4134156",
+        "lon": "2.2248436",
+        "display_name": "Alcampo, Moll de les Escales, La Mina - districte 6, Sant Adrià de Besòs, Barcelonés, Barcelona, Cataluña, 08930, España"
+    },
+    {
+        "place_id": 4112602,
+        "lat": "41.4264239",
+        "lon": "2.229745",
+        "display_name": "Alcampo, Carrer de Ramon VIñas, Sant Joan Baptista - districte 2, Sant Adrià de Besòs, Barcelonés, Barcelona, Cataluña, 08918, España"
+    },
+    {
+        "place_id": 208241848, 
+        "lat": "41.70165675",
+        "lon": "-1.0031094267412506",
+        "display_name": "Alcampo, Antigua Autovía de Logroño, Las Ventas, Utebo, Zaragoza, Aragón, 50180, España"
+    },
+    {
+        "place_id": 178405475, 
+        "lat": "36.74239755",
+        "lon": "-3.529314620266564",
+        "display_name": "Alcampo, Calle Londres, Motril, Comarca de la Costa Granadina, Granada, Andalucía, 18600, España"
+    },
+    {
+        "place_id": 38646503,
+        "lat": "41.0709754",
+        "lon": "1.1496029",
+        "display_name": "Alcampo, 16, Carrer de d'Amposta, Salou, Tarragonés, Tarragona, Cataluña, 43840, España"
+    },
+    {
+        "place_id": 15361613, 
+        "lat": "42.2200948",
+        "lon": "-8.7451214",
+        "display_name": "Vilagarcía,(ALCAMPO), 1, Rúa do Grove, O Cruceiro, Coia, Vigo, Pontevedra, Galicia, 36209, España"
+    },
+    {
+        "place_id": 81504156,
+        "lat": "41.4463305",
+        "lon": "1.9764032",
+        "display_name": "Alcampo, Carrer del Rector Juanico, Casc Antic, Sant Andreu de la Barca, Bajo Llobregat, Barcelona, Cataluña, 08740, España"
+    },
+    {
+        "place_id": 284328648, 
+        "lat": "41.2355575",
+        "lon": "-0.045702166529068396",
+        "display_name": "Alcampo, Calle de Pablo Gargallo, Caspe, Bajo Aragón-Caspe, Zaragoza, Aragón, 50700, España"
+    },
+    {
+        "place_id": 63274690, 
+        "lat": "40.4893823",
+        "lon": "-3.8763957",
+        "display_name": "Alcampo, Calle Luarca, Las Rozas de Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28230, España"
+    },
+    {
+        "place_id": 182403538, 
+        "lat": "42.44268555",
+        "lon": "-2.4506136343248945",
+        "display_name": "Alcampo, 171, Avenida de Madrid, Montesoria, Logroño, La Rioja, 26007, España"
+    },
+    {
+        "place_id": 20380950,
+        "lat": "42.6873799",
+        "lon": "-2.941577",
+        "display_name": "Alcampo, Calle Arenal, La Charca, Allende, Miranda de Ebro, Burgos, Castilla y León, 09200, España"
+    },
+    {
+        "place_id": 663750,
+        "lat": "39.979574",
+        "lon": "-0.065265",
+        "display_name": "Alcampo, Avenida Ribesalbes, Grupo San Arturo, Castellón de la Plana, Plana Alta, Castellón, Comunidad Valenciana, 12006, España"
+    },
+    {
+        "place_id": 16077113, 
+        "lat": "40.4904086",
+        "lon": "-3.8974846",
+        "display_name": "Alcampo, Calle de los Biólogos, La Cumbre, Majadahonda, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28230, España"
+    },
+    {
+        "place_id": 508004,
+        "lat": "41.5285035",
+        "lon": "2.0896983",
+        "display_name": "Alcampo, Carrer de l'Estrella, Sant Quirze del Vallès, Vallés Occidental, Barcelona, Cataluña, 08192, España"
+    },
+    {
+        "place_id": 161149703,
+        "lat": "42.566106649999995",
+        "lon": "-2.8674190723629827",
+        "display_name": "Alcampo, Avenida de Santo Domingo de la Calzada, Haro, La Rioja, 26200, España"
+    },
+    {
+        "place_id": 271451292,
+        "lat": "40.6585561",
+        "lon": "-3.7536039948129734",
+        "display_name": "Alcampo, Avenida de la Libertad, Colmenar Viejo, Cuenca Alta del Manzanares, Comunidad de Madrid, 28770, España"
+    },
+    {
+        "place_id": 23974919,
+        "lat": "41.5287623",
+        "lon": "2.0910235",
+        "display_name": "Alcampo, Carrer de l'Estrella, Sant Quirze del Vallès, Vallés Occidental, Barcelona, Cataluña, 08192, España"
+    },
+    {
+        "place_id": 653751,
+        "lat": "43.164944",
+        "lon": "-2.620333",
+        "display_name": "Alcampo, Astola bidea, San Fausto, Durango, Vizcaya, País Vasco, 48200, España"
+    },
+    {
+        "place_id": 36689443, 
+        "lat": "42.5657394",
+        "lon": "-2.8669375",
+        "display_name": "Alcampo, Avenida de Santo Domingo de la Calzada, Haro, La Rioja, 26200, España"
+    },
+    {
+        "place_id": 5880744, 
+        "lat": "40.6587311",
+        "lon": "-3.7569277",
+        "display_name": "Alcampo, Glorieta de los Canteros, Colmenar Viejo, Cuenca Alta del Manzanares, Comunidad de Madrid, 28770, España"
+    },
+    {
+        "place_id": 46033275,
+        "lat": "41.5199606",
+        "lon": "0.336362",
+        "display_name": "Alcampo, Calle El Salvador, Fraga, Bajo Cinca, Huesca, Aragón, 22520, España"
+    },
+    {
+        "place_id": 67766021,
+        "lat": "40.3557917",
+        "lon": "-3.547458",
+        "display_name": "Alcampo, Avenida de los Almendros, Pablo Iglesias, Rivas Centro, Rivas-Vaciamadrid, Cuenca del Henares, Comunidad de Madrid, 28523, España"
+    },
+    {
+        "place_id": 6964059, 
+        "lat": "40.4751732",
+        "lon": "-3.4820823",
+        "display_name": "Alcampo, Calle del Comercio, Centro Comercial Parque Corredor, Los Villares y Correal, Torrejón de Ardoz, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28850, España"
+    },
+    {
+        "place_id": 14774081, 
+        "lat": "40.5681576",
+        "lon": "-3.9205423",
+        "display_name": "Alcampo, 1, Avenida de la Fontanilla, Urbanización Bellavista, Los Bomberos, Torrelodones, Cuenca del Guadarrama, Comunidad de Madrid, 28250, España"
+    },
+    {
+        "place_id": 210896030,
+        "lat": "40.4734993",
+        "lon": "-3.4809704952958147",
+        "display_name": "Gasolinera Alcampo Torrejón, Carretera Torrejón - Ajalvir, Centro Comercial Parque Corredor, Los Villares y Correal, Torrejón de Ardoz, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28850, España"
+    },
+    {
+        "place_id": 157745041, 
+        "lat": "38.08831615",
+        "lon": "-3.6465371832059974",
+        "display_name": "Alcampo, Avenida San Cristobal, Linares, Jaén, Andalucía, 23700, España"
+    },
+    {
+        "place_id": 666997, 
+        "lat": "38.0897807",
+        "lon": "-3.6473271",
+        "display_name": "Alcampo, Avenida San Cristobal, Linares, Jaén, Andalucía, 23700, España"
+    },
+    {
+        "place_id": 152905407, 
+        "lat": "40.596066750000006",
+        "lon": "-3.69984514425863",
+        "display_name": "Alcampo, Avenida de Viñuelas, Tres Cantos, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28760, España"
+    },
+    {
+        "place_id": 1063390,
+        "lat": "41.773357",
+        "lon": "-2.4975388",
+        "display_name": "Alcampo, Calle de la Música, Golmayo, Soria, Castilla y León, 42190, España"
+    },
+    {
+        "place_id": 279366288, 
+        "lat": "40.1661337",
+        "lon": "-3.6293002168690762",
+        "display_name": "Alcampo, Calle del Cedro, Polígono Industrial Los Huertecillos, Ciempozuelos, Las Vegas, Comunidad de Madrid, 28350, España"
+    },
+    {
+        "place_id": 279391890, 
+        "lat": "40.1662011",
+        "lon": "-3.6298565499999995",
+        "display_name": "Alcampo, Calle del Álamo, Polígono Industrial Los Huertecillos, Ciempozuelos, Las Vegas, Comunidad de Madrid, 28350, España"
+    },
+    {
+        "place_id": 47413910,
+        "lat": "42.7354472",
+        "lon": "-0.313042",
+        "display_name": "Mi Alcampo, Carretera de Francia, Escarrilla, Sallent de Gállego, Alto Gállego, Huesca, Aragón, 22660, España"
+    },
+    {
+        "place_id": 46954457, 
+        "lat": "42.7724133",
+        "lon": "-0.3304814",
+        "display_name": "Alcampo, 8, Calle Penazuela, Sallent de Gállego, Alto Gállego, Huesca, Aragón, 22640, España"
+    },
+    {
+        "place_id": 48805280,
+        "lat": "39.563188",
+        "lon": "-0.3315926",
+        "display_name": "Alcampo, Vía Xurra, Polígono Industrial Torruberos, Mahuella, Pobles del Nord, Museros, Huerta Norte, Valencia, Comunidad Valenciana, 46135, España"
+    },
+    {
+        "place_id": 140298354, 
+        "lat": "39.47106385",
+        "lon": "-0.4904195651892417",
+        "display_name": "Alcampo, Carrer Pessebret, Aldaya, Valencia, Comunidad Valenciana, 46960, España"
+    },
+    {
+        "place_id": 184795089, 
+        "lat": "39.4708248",
+        "lon": "-0.4848725414841084",
+        "display_name": "Alcampo, Avinguda Venta de l'Aire, Aldaya, Huerta Sur, Valencia, Comunidad Valenciana, 46960, España"
+    },
+    {
+        "place_id": 58059713,
+        "lat": "41.0745141",
+        "lon": "1.1805837",
+        "display_name": "Alcampo, Passeig de Pau Casals, la Pineda, Vila-seca, Tarragonés, Tarragona, Cataluña, 43480, España"
+    },
+    {
+        "place_id": 70727713,
+        "lat": "41.0825151",
+        "lon": "1.1827723",
+        "display_name": "Alcampo, Carrer d'Amadeus Vives, la Pineda, Vila-seca, Tarragonés, Tarragona, Cataluña, 43480, España"
+    },
+    {
+        "place_id": 44914761, 
+        "lat": "42.9944311",
+        "lon": "-3.0118645",
+        "display_name": "Alcampo, Lizarra kalea, Urduña - Orduña, Orduña, Vizcaya, País Vasco, 48460, España"
+    },
+    {
+        "place_id": 153969673, 
+        "lat": "38.779161450000004",
+        "lon": "-3.390108977587579",
+        "display_name": "Alcampo, Calle de Bodegas Sánchez Barba, Residencial Villas del Norte, Valdepeñas, La Mancha, Ciudad Real, Castilla-La Mancha, 13300, España"
+    },
+    {
+        "place_id": 151616557,
+        "lat": "43.35376495",
+        "lon": "-2.8390165657548136",
+        "display_name": "Alcampo, Aritz bidea, Munguía, Andraka, Vizcaya, País Vasco, 48620, España"
+    },
+    {
+        "place_id": 201213156, 
+        "lat": "43.354457350000004",
+        "lon": "-2.8399722000000063",
+        "display_name": "Alcampo, Aritz bidea, Munguía, Andraka, Vizcaya, País Vasco, 48620, España"
+    },
+    {
+        "place_id": 97123618, 
+        "lat": "43.3004722",
+        "lon": "-1.8827345",
+        "display_name": "Alcampo, Zuaznabar kalea, Ugaldetxo, Oyarzun, Comarca de San Sebastián, Guipúzcoa, País Vasco, 20180, España"
+    },
+    {
+        "place_id": 268459572, 
+        "lat": "43.302596550000004",
+        "lon": "-1.883111569923983",
+        "display_name": "Alcampo, GI-2132, Arragua, Oyarzun, Comarca de San Sebastián, Guipúzcoa, País Vasco, 20100, España"
+    },
+    {
+        "place_id": 239328586,
+        "lat": "42.5951558",
+        "lon": "-8.755647081106435",
+        "display_name": "Alcampo, Rúa Carrizo, Os Martices, Arealonga, Vilagarcía de Arousa, Salnés, Pontevedra, Galicia, 36600, España"
+    },
+    {
+        "place_id": 49652298, 
+        "lat": "43.2876114",
+        "lon": "-5.6303744",
+        "display_name": "Alcampo, Accesos al Centro Comercial, Perlá, San Martín del Rey Aurelio, Asturias, 33940, España"
+    },
+    {
+        "place_id": 190696633, 
+        "lat": "42.80473685",
+        "lon": "-3.9442385798295936",
+        "display_name": "Alcampo, 13, Avenida Cantabria, Polientes, Valderredible, Campoo-Los Valles, Cantabria, 39220, España"
+    },
+    {
+        "place_id": 229796974, 
+        "lat": "43.42512065",
+        "lon": "-4.040756297544204",
+        "display_name": "Alcampo, Calle Elena Soriano, Suances, Besaya, Cantabria, 39340, España"
+    },
+    {
+        "place_id": 211235114, 
+        "lat": "-34.4717005",
+        "lon": "-58.51434549725162",
+        "display_name": "Alcampo, 61, Belgrano, Barrio Carreras, San Isidro, Partido de San Isidro, Buenos Aires, B1642, Argentina"
+    },
+    {
+        "place_id": 60079134,
+        "lat": "28.3952956",
+        "lon": "-16.5474942",
+        "display_name": "Alcampo, Calle Molinos de Gofio, San Jerónimo, La Orotava, Santa Cruz de Tenerife, Canarias, 38312, España"
+    },
+    {
+        "place_id": 5792494,
+        "lat": "39.6164164",
+        "lon": "2.7056132",
+        "display_name": "Alcampo, Carrer de n'Andreu Ferrer, Son Ramonell, Marratxí, Raiguer, Islas Baleares, 07141, España"
+    },
+    {
+        "place_id": 12264916,
+        "lat": "40.5413419",
+        "lon": "-3.462615",
+        "display_name": "Alcampo, Avenida de la Circunvalación, Daganzo de Arriba, Cuenca del Medio Jarama, Comunidad de Madrid, 28814, España"
+    },
+    {
+        "place_id": 135483619, 
+        "lat": "28.01114305",
+        "lon": "-15.386752454053918",
+        "display_name": "Alcampo, Calle Camelia, La Pardilla, Telde, Las Palmas, Canarias, 35212, España"
+    },
+    {
+        "place_id": 76406543,
+        "lat": "41.4032182",
+        "lon": "2.1816499",
+        "display_name": "Alcampo, Carrer del Consell de Cent, la Sagrada Família, Eixample, Barcelona, Barcelonés, Barcelona, Cataluña, 08001, España"
+    },
+    {
+        "place_id": 16793064, 
+        "lat": "41.6422779",
+        "lon": "-0.8939874",
+        "display_name": "Alcampo, 26, Paseo de Fernando El Católico, Romareda, Universidad, Zaragoza, Aragón, 50006, España"
+    },
+    {
+        "place_id": 6168611, 
+        "lat": "38.0328079",
+        "lon": "-1.1494334",
+        "display_name": "Alcampo, Autovía del Mediterráneo, Churra, Pedanía de Churra, Murcia, Área Metropolitana de Murcia, Región de Murcia, 30110, España"
+    },
+    {
+        "place_id": 134684453, 
+        "lat": "41.352489500000004",
+        "lon": "-1.6332059868421078",
+        "display_name": "Alcampo, Avenida de las Fuerzas Armadas, Calatayud, Comunidad de Calatayud, Zaragoza, Aragón, 50300, España"
+    },
+    {
+        "place_id": 230479393,
+        "lat": "41.22189205",
+        "lon": "1.735777932652892",
+        "display_name": "Alcampo, 11, Carrer de la Piera, la Geltrú, Vilanova y Geltrú, Garraf, Barcelona, Cataluña, 08800, España"
+    },
+    {
+        "place_id": 71505708,
+        "lat": "40.3590796",
+        "lon": "-3.777405",
+        "display_name": "Alcampo, Calle Mondragón, La Fortuna, Leganés, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28917, España"
+    },
+    {
+        "place_id": 230821826,
+        "lat": "40.348522450000004",
+        "lon": "-3.8522090946428573",
+        "display_name": "Alcampo, Calle Luxemburgo, Parque Oeste, Suroeste, Alcorcón, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28932, España"
+    },
+    {
+        "place_id": 6895456, 
+        "lat": "39.5069342",
+        "lon": "-0.3232245",
+        "display_name": "Alcampo, Avenida del Mar, Port Saplaya, Alboraya, Huerta Norte, Valencia, Comunidad Valenciana, 46120, España"
+    },
+    {
+        "place_id": 665026,
+        "lat": "39.504528",
+        "lon": "-0.324472",
+        "display_name": "Alcampo, Acceso a la zona costanera norte de València, Port Saplaya, Alboraya, Huerta Norte, Valencia, Comunidad Valenciana, 46120, España"
+    },
+    {
+        "place_id": 265607376,
+        "lat": "40.40121035",
+        "lon": "-3.7078264920886093",
+        "display_name": "BM, Calle de Arganda, Las Acacias, Arganzuela, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28005, España"
+    },
+    {
+        "place_id": 298248302, 
+        "lat": "43.2889261",
+        "lon": "-5.6335426999999925",
+        "display_name": "Centro Comercial Valle del Nalón, Estación de Servicio, Perlá, San Martín del Rey Aurelio, Asturias, 33940, España"
+    }
+]
