@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
+    "create-clasess": "nodemon ./docs/jsons/create_classes.js"
     "scraping": "node ./scrapping/scrapping.js"
   },
   "repository": {
@@ -21,7 +22,7 @@
   },
   "homepage": "https://github.com/emeder0s/todoMusica#readme",
   "dependencies": {
-
+    "ejs": "^3.1.8",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "puppeteer": "^19.2.2",
