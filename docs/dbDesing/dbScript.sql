@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS users(
         isBuyer TINYINT,
         fk_id_address INT,
         PRIMARY KEY(id),
-        FOREIGN KEY (fk_id_address) REFERENCES addresses (id)
+        FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
  );
  
  CREATE TABLE IF NOT EXISTS orders(
@@ -61,3 +61,30 @@ CREATE TABLE IF NOT EXISTS users(
         FOREIGN KEY (fk_id_instrument) REFERENCES instruments(id),
         FOREIGN KEY (fk_id_order) REFERENCES orders(id) ON DELETE SET NULL
  );
+
+ CREATE TABLE IF NOT EXISTS deleted_users(
+        id INT AUTO_INCREMENT NOT NULL,
+        old_id INT,
+        first_name VARCHAR(50) NOT NULL, 
+        last_name VARCHAR(50) NOT NULL, 
+        dni VARCHAR(15),
+        email VARCHAR (40) UNIQUE NOT NULL,
+        phone VARCHAR(15),
+        birth_date DATE,
+        user_password VARCHAR(60),
+        isBuyer TINYINT,
+        fk_id_address INT,
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
+ );
+ 
+  DELIMITER //
+CREATE TRIGGER copiaSeguridadDelete
+BEFORE DELETE ON users
+FOR EACH ROW 
+BEGIN
+	
+	INSERT INTO deleted_users VALUES (NULL, OLD.id, OLD.first_name, OLD.last_name, OLD.dni, OLD.email, OLD.phone, OLD.birth_date, OLD.user_password, OLD.isBuyer, OLD.fk_id_address );
+    
+END //
+DELIMITER ;
