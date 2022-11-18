@@ -5,6 +5,7 @@ const instruments = {
     start: (req, res) => {
         res.render("../views/instrumentos.ejs");
     },
+    
     findInstruments: async (req, res) => {
         const instrumentos = await Instruments.findAll();
         sql.close();
