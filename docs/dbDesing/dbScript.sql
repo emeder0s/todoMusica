@@ -77,3 +77,14 @@ CREATE TABLE IF NOT EXISTS users(
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
  );
+ 
+  DELIMITER //
+CREATE TRIGGER copiaSeguridadDelete
+BEFORE DELETE ON users
+FOR EACH ROW 
+BEGIN
+	
+	INSERT INTO deleted_users VALUES (NULL, OLD.id, OLD.first_name, OLD.last_name, OLD.dni, OLD.email, OLD.phone, OLD.birth_date, OLD.user_password, OLD.isBuyer, OLD.fk_id_address );
+    
+END //
+DELIMITER ;
