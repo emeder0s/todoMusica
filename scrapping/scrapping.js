@@ -107,7 +107,6 @@ async function scrapInsert(page, category) {
     var resultado = []
     for (let i = 1; i < url_img_instrument.length; i++) {
         let element = {
-            // id: null,
             category: category,
             brand: brand_instrument[i],
             model: model_instrument[i],
