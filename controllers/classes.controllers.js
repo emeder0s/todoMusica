@@ -12,9 +12,9 @@ const _class = {
      */
     showAll: async (req, res) => {
         await mongoose.conn();
-        ClassModel.find({}, function(err, classes) {
-            if (!err) { 
-                res.render('all_classes.ejs', {allClasses: classes});
+        ClassModel.find({}, function (err, classes) {
+            if (!err) {
+                res.render('all_classes.ejs', { allClasses: classes });
             }
             else {
 
@@ -31,9 +31,9 @@ const _class = {
      */
     showByUser: async (req, res) => {
         await mongoose.conn();
-        ClassModel.find({students:req.params.id}, function(err, classes) {
-            if (!err) { 
-                res.render('./all_classes.ejs', {allClasses: classes});
+        ClassModel.find({ students: req.params.id }, function (err, classes) {
+            if (!err) {
+                res.render('./all_classes.ejs', { allClasses: classes });
             }
             else {
                 throw err;
@@ -52,12 +52,12 @@ const _class = {
         var centers = Object.values(await _center.getAll());
         var classes = await Promise.all(centers.map(async (center) => {
             var id = center._id.toString();
-            var classes = await ClassModel.find({fk_id_center:id});
-            var element = {center,classes}
-            
+            var classes = await ClassModel.find({ fk_id_center: id });
+            var element = { center, classes }
+
             return element;
         }))
-        res.json({classes});
+        res.json({ classes });
     },
 
     /**
@@ -67,8 +67,8 @@ const _class = {
      */
     edit: async (req, res) => {
         await mongoose.conn();
-        var _class = await ClassModel.findOne({_id:new ObjectId(req.params.id)});
-        if (_class){
+        var _class = await ClassModel.findOne({ _id: new ObjectId(req.params.id) });
+        if (_class) {
             //await ClassModel.findByIdAndUpdate(req.params.id,_class)
             console.log("hola");
         }
@@ -82,10 +82,10 @@ const _class = {
      */
     enroll: async (req, res) => {
         await mongoose.conn();
-        var _class = await ClassModel.findOne({_id:new ObjectId(req.params.idClass)});
-        if (_class.students.length < 4){
+        var _class = await ClassModel.findOne({ _id: new ObjectId(req.params.idClass) });
+        if (_class.students.length < 4) {
             _class.students.push(req.params.idUser);
-            await ClassModel.findByIdAndUpdate(req.params.idClass,_class)
+            await ClassModel.findByIdAndUpdate(req.params.idClass, _class)
         }
         res.json({});
     },
@@ -104,18 +104,18 @@ const _class = {
     //         }
     //     });
 
-        // filter = {fk_id_center}
-        // await mongoose.conn();
-        // ClassModel.find({students:req.params.id}, function(err, classes) {
-        //     if (!err) { 
-        //         res.render('./all_classes.ejs', {allClasses: classes});
-        //     }
-        //     else {
-        //         throw err;
-        //     }
-        // });
-        //mongoose.disconn();
-    },
+    // filter = {fk_id_center}
+    // await mongoose.conn();
+    // ClassModel.find({students:req.params.id}, function(err, classes) {
+    //     if (!err) { 
+    //         res.render('./all_classes.ejs', {allClasses: classes});
+    //     }
+    //     else {
+    //         throw err;
+    //     }
+    // });
+    //mongoose.disconn();
 }
+
 
 module.exports = _class;

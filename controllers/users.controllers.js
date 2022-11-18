@@ -10,7 +10,8 @@ const User = {
   },
   register: async (req, res) => {
     const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
-    user_password_hash = await bcyptjs.hash(user_password, 8);
+    console.log(req.body)
+    const user_password_hash = await bcyptjs.hash(user_password, 8);
     const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
     res.send("Usuario registrado")
   },
@@ -32,7 +33,9 @@ const User = {
   },
   login: async (req, res) => {
     const { email, user_password } = req.body;
-    const user = await Users.findOne({ email })
+    console.log(req.body)
+    const user = await Users.findOne( {where: {"email":req.body.email} })
+    console.log(user.dataValues)
     let hashSaved = user.dataValues.user_password;
     let compare = bcyptjs.compareSync(user_password, hashSaved);
     const infoJwt = jwt.sign({ email }, "m1c4s4", {
@@ -46,7 +49,7 @@ const User = {
   },
   getUser: async (req, res) => {
     const { email } = req.body;
-    const infoUser = await Users.findOne({ email });
+    const infoUser = await Users.findOne( {where: {"email":req.body.email}} );
     if (infoUser) {
       const infoJwt = jwt.sign({ email }, "m1c4s4", {
         expiresIn: "1000s",
