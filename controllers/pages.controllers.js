@@ -1,5 +1,6 @@
 const center = require("../controllers/centers.controllers");
 const instrument = require("../controllers/instruments.controllers")
+const admin = require("../controllers/admin.controllers")
 
 const pages = {
     home: (req, res) => {
@@ -32,8 +33,12 @@ const pages = {
     loginAdmin: (req,res)=>{
         res.render("./login_admin.ejs");
     },
-    loginAdmin: (req,res)=>{
-        res.render("./dashboard.ejs");
+    dashboard: (req,res)=>{
+        if(admin.isAdminAuthorized(req)){
+            res.render("./dashboard.ejs");
+        }else{
+            res.status(403).send("403 - FORBIDDEN - No tienes permisos para acceder aquí");
+        }   
     }, 
     contact: (req,res)=>{
         res.render("./contact.ejs")

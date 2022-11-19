@@ -17,6 +17,7 @@ router.get("/forgetpassword/:infoJwt", pages.newPassword) //Pagina para establec
 router.get("/login", pages.login) //Pagina que muestra el formulario de login
 router.get("/login-admin", pages.loginAdmin) //Pagina que muestra el formulario de login del administrador
 router.get("/contact", pages.contact)//Formulario de contacto
+router.get("/dashboard", pages.dashboard)//Formulario de contacto
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users
