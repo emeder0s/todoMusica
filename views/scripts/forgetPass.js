@@ -26,4 +26,4 @@ btn.addEventListener("click", () => {
         )[0].href = `http://localhost:3000/forgetpassword/${token}`;
       }
     });
-});s
+});

@@ -3,12 +3,6 @@ CREATE DATABASE IF NOT EXISTS todo_musica;
 
 USE todo_musica;
 
-CREATE TABLE IF NOT EXISTS address_type(
-        id INT AUTO_INCREMENT NOT NULL,
-        type VARCHAR(25) NOT NULL, 
-        PRIMARY KEY(id)
-);
-
 CREATE TABLE IF NOT EXISTS addresses(
         id INT AUTO_INCREMENT NOT NULL,
         way_type VARCHAR(25) NOT NULL, 
@@ -19,23 +13,22 @@ CREATE TABLE IF NOT EXISTS addresses(
         province VARCHAR(50),
         country VARCHAR(25),
         postal_code CHAR(5),
-        fk_id_address_type INT NOT NULL,
-        PRIMARY KEY(id),
-        FOREIGN KEY (fk_id_address_type) REFERENCES address_type (id)
+        PRIMARY KEY(id)
 );
 
 CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT NOT NULL,
         first_name VARCHAR(50) NOT NULL, 
         last_name VARCHAR(50) NOT NULL, 
+        dni VARCHAR(15) unique,
         email VARCHAR (40) UNIQUE NOT NULL,
         phone VARCHAR(15),
         birth_date DATE,
-        user_password VARCHAR(32),
-        isBuyer TINYINT,
+        user_password VARCHAR(60),
+        isbuyer TINYINT,
         fk_id_address INT,
         PRIMARY KEY(id),
-        FOREIGN KEY (fk_id_address) REFERENCES addresses (id)
+        FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
  );
  
  CREATE TABLE IF NOT EXISTS orders(
@@ -48,6 +41,8 @@ CREATE TABLE IF NOT EXISTS users(
         FOREIGN KEY (fk_id_user) REFERENCES users(id) ON DELETE SET NULL
  );
  
+
+ 
   CREATE TABLE IF NOT EXISTS instruments(
         id INT AUTO_INCREMENT NOT NULL,
         brand VARCHAR(40) NOT NULL, 
@@ -57,5 +52,39 @@ CREATE TABLE IF NOT EXISTS users(
         photo_path VARCHAR(512) NOT NULL, 
         PRIMARY KEY(id)
  );
+   CREATE TABLE IF NOT EXISTS orders_instruments(
+        id INT AUTO_INCREMENT NOT NULL,
+        qty_instrument int, 
+        fk_id_instrument INT,
+        fk_id_order INT,
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_instrument) REFERENCES instruments(id),
+        FOREIGN KEY (fk_id_order) REFERENCES orders(id) ON DELETE SET NULL
+ );
+
+ CREATE TABLE IF NOT EXISTS deleted_users(
+        id INT AUTO_INCREMENT NOT NULL,
+        old_id INT,
+        first_name VARCHAR(50) NOT NULL, 
+        last_name VARCHAR(50) NOT NULL, 
+        dni VARCHAR(15),
+        email VARCHAR (40) NOT NULL,
+        phone VARCHAR(15),
+        birth_date DATE,
+        user_password VARCHAR(60),
+        isbuyer TINYINT,
+        fk_id_address INT,
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
+ );
  
- 
+  DELIMITER //
+CREATE TRIGGER copiaSeguridadDelete
+BEFORE DELETE ON users
+FOR EACH ROW 
+BEGIN
+	
+	INSERT INTO deleted_users VALUES (NULL, OLD.id, OLD.first_name, OLD.last_name, OLD.dni, OLD.email, OLD.phone, OLD.birth_date, OLD.user_password, OLD.isbuyer, OLD.fk_id_address );
+    
+END //
+DELIMITER ;

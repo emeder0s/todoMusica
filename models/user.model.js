@@ -16,6 +16,10 @@ const Users = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    dni: {
+        type: DataTypes.STRING,
+        unique: true,
+    },
     email: {
         type: DataTypes.STRING,
         unique: true,
@@ -32,7 +36,7 @@ const Users = sequelize.define('users', {
     user_password: {
         type: DataTypes.STRING
     },
-    isBuyer: {
+    isbuyer: {
         type: DataTypes.BOOLEAN
     },
     fk_id_address: {

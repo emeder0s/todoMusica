@@ -6,7 +6,6 @@ const _center = {
         await mongoose.conn();
         var centers = await CenterModel.find({});
         return centers;
-        // mongoose.disconn();
     },
 
     
