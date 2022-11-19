@@ -27,7 +27,11 @@ const pages = {
     },
     login: (req,res)=>{
         res.render("./login.ejs")
+    },    
+    contact: (req,res)=>{
+        res.render("./contact.ejs")
     }
+
 };
 
 module.exports = pages;

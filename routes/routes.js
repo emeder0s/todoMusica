@@ -13,6 +13,7 @@ router.get("/address", pages.insertAddress)// pagina registro de direccion
 router.get("/passrecovery", pages.forgetPass) //Pagina para recuperar contraseña
 router.get("/forgetpassword/:infoJwt", pages.newPassword) //Pagina para establecer la nueva contraseña
 router.get("/login", pages.login) //Pagina que muestra el formulario de login
+router.get("/contact", pages.contact)//Formulario de contacto
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users
@@ -23,6 +24,7 @@ router.post("/getUser",user.getUser) //Funcion que devuelve el token con el usua
 router.post("/verificar", user.verificar) //funcion que verifica que un usuario es el que pide cambiar la contraseña
 router.post("/delete", user.delete) // borra usuario
 router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
+router.post("/contact", user.contact) //funcion que envia dos emails. uno al cliente y otro al centro de contacto
 
 
 //CLASSES
