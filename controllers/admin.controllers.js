@@ -10,6 +10,8 @@ const _admin = {
      */
     login:  async (req, res) => {
         const { user, password } = req.body;
+        console.log(user);
+        console.log(password);
         await mongoose.conn();
         var admin = await AdminModel.findOne({admin:user});
         if (admin){
@@ -17,12 +19,12 @@ const _admin = {
                 const infoJwt = jwt.sign({ admin }, "m1c4s4", {
                     expiresIn: "1800s",
                 });
-                res.cookie("infoJwt", infoJwt).render('./dashboard.ejs'); 
+                res.cookie("infoJwt", infoJwt).json("./dashboard"); 
             }else{
-                res.json("invalid login")
+                res.json(false);
             }    
         } else {
-          res.json("invalid login")
+            res.send(false);
         }
     }
 }

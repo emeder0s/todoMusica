@@ -30,9 +30,11 @@ const pages = {
 
     },
     loginAdmin: (req,res)=>{
-        res.render("./login_admin.ejs")
-
-    },    
+        res.render("./login_admin.ejs");
+    },
+    loginAdmin: (req,res)=>{
+        res.render("./dashboard.ejs");
+    }, 
     contact: (req,res)=>{
         res.render("./contact.ejs")
 

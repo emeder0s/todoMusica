@@ -40,7 +40,7 @@ router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 //router.get("/mostrar-por-centros-y-instrumento/",_class.showByCenter);
 
 //ADMIN
-router.post("/login-admin",_admin.login);
+router.post("/get-admin",_admin.login);
 
 //INSTRUMENTS
 
