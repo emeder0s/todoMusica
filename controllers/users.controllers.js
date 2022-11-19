@@ -4,12 +4,16 @@ const bcyptjs = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const sendemail = require("./email.controllers");
 const SendmailTransport = require("nodemailer/lib/sendmail-transport");
-const User = {
+const user = {
   findAll: async (req, res) => {
     const users = await Users.findAll();
     res.json(users);
   },
-
+  /**
+   * Registra un usuario en la base de datos, Encripta la contraseña.
+   * @param {*} req 
+   * @param {*} res 
+   */
   register: async (req, res) => {
 
     const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
@@ -18,14 +22,16 @@ const User = {
     const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
     res.send("Usuario registrado")
   },
-
+/**
+ * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
+ * @param {*} req 
+ * @param {*} res 
+ */
   set_address: async (req, res) => {
-    var cookies = req.cookies;
-    var token = cookies.infoJwt;
+    var logged = await user.isAuthorized(req, res); 
     try {
-      let jwtVerify = jwt.verify(token, "m1c4s4")
-      let email = jwtVerify.email;
-      if (jwtVerify) {
+      let email = logged.email;
+      if (logged) {
         const { way_type, address, a_number, additional_address, locality, province, country, postal_code } = req.body;
         const user_address = await Address.create({ way_type, address, a_number, additional_address, locality, province, country, postal_code });
         let user = await Users.update({ "fk_id_address": user_address.id }, { where: { email } })
@@ -36,12 +42,14 @@ const User = {
       res.json(error)
     }
   },
-
+/**
+ * Funcion que comprueba email y contraseña de usuario para iniciar sesion, al comprobar que es correcto inserta una cookie en el navegador.
+ * @param {*} req 
+ * @param {*} res 
+ */
   login: async (req, res) => {
     const { email, user_password } = req.body;
-    console.log(req.body)
     const user = await Users.findOne({ where: { "email": req.body.email } })
-    console.log(user.dataValues)
     let hashSaved = user.dataValues.user_password;
     let compare = bcyptjs.compareSync(user_password, hashSaved);
     const infoJwt = jwt.sign({ email }, "m1c4s4", {
@@ -53,7 +61,11 @@ const User = {
       res.json("no ok")
     }
   },
-
+/**
+ * Funcion que devuelve un Json Web Token que contiene la dirección de email del usuario para comprobar la identidad al cambiar la contraseña.
+ * @param {*} req 
+ * @param {*} res 
+ */
   getUser: async (req, res) => {
     const { email } = req.body;
     const infoUser = await Users.findOne({ where: { "email": req.body.email } });
@@ -67,7 +79,11 @@ const User = {
       res.json(false);
     }
   },
-  
+  /**
+   * Verifica la validez del json web token, recoge la nueva contraseña introducida por el usuario y la actualiza en la base de datos.
+   * @param {*} req 
+   * @param {*} res 
+   */
   verificar: async (req, res) => {
     let { token, password } = req.body;
     try {
@@ -82,7 +98,11 @@ const User = {
       res.json(false);
     }
   },
-
+  /**
+   * Borra a un usuario de la base de datos. Para realizar esta operación el usuario debe confirmar su identidad introduciendo sus credenciales.
+   * @param {*} req 
+   * @param {*} res 
+   */
   delete: async (req, res) => {
     const { email, user_password } = req.body;
     const user = await Users.findOne({ email })
@@ -95,9 +115,14 @@ const User = {
       res.json("no ok")
     }
   },
+/**
+ * Función que actualiza el campo isbuyer en la BD del usuario.
+ * @param {*} req 
+ * @param {*} res 
+ */
   isbuyer: async (req, res) => {
     try {
-      var logged = await isAuthorized(req, res);
+      var logged = await user.isAuthorized(req, res);
       let email = logged.email;
       if (logged) {
         let isbuyer = 1
@@ -109,24 +134,35 @@ const User = {
       res.json(false);
     }
   },
+/**
+ * Función que recoge los datos de contacto y envia los emails tanto al usuario con el feedback como al administrador con el contenido del mensaje.
+ * @param {*} req 
+ * @param {*} res 
+ */
   contact: async (req, res) => {
     const{first_name, last_name, email, text } = req.body;
     console.log(req.body)
 
     sendemail.contact(first_name,last_name,email,text);
     sendemail.contactfeedback(first_name, email);
-    res.alert("Contacto realizado con éxito")}
-,
-}
-async function isAuthorized(req, res) {
-  var cookies = req.cookies;
-  var token = cookies.infoJwt;
-  let jwtVerify = jwt.verify(token, "m1c4s4")
-  let email = jwtVerify.email;
-  if (jwtVerify) {
-    return jwtVerify
-  } else {
-    res.json("Usuario no loggeado")
+    res.json("Contacto realizado con éxito")
+  },
+/**
+ * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+  isAuthorized: (req, res) =>{
+    var cookies = req.cookies;
+    var token = cookies.infoJwt;
+    try{
+       let jwtVerify = jwt.verify(token, "m1c4s4")
+      res.json(jwtVerify)
+      return jwtVerify
+    } catch (error) {
+      res.json("Usuario no loggeado")
+    }
   }
 }
-module.exports = User;
+module.exports = user;
