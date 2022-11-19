@@ -1,6 +1,7 @@
 const mongoose = require("../databases/mongo.js");
 var ObjectId = require('mongodb').ObjectId;
 const ClassModel = require("../models/class.model.js");
+const CenterModel = require("../models/center.model.js");
 const _center = require("../controllers/centers.controllers");
 
 const _class = {
@@ -90,31 +91,13 @@ const _class = {
         res.json({});
     },
 
-    // getByCenterAndInstrument: async (req, res) => {
-    //     // const { center, instrument } = req.body;
-    //     await mongoose.conn();
-    //     var center = await ClassModel.findOne({center_name:req.body.center});
-    //     filter = {instrument:req.body.instrument, fk_id_center:center.}
-    //     ClassModel.find(filter, function(err, classes) {
-    //         if (!err) { 
-    //             res.render('./all_classes.ejs', {allClasses: classes});
-    //         }
-    //         else {
-    //             throw err;
-    //         }
-    //     });
-
-    // filter = {fk_id_center}
-    // await mongoose.conn();
-    // ClassModel.find({students:req.params.id}, function(err, classes) {
-    //     if (!err) { 
-    //         res.render('./all_classes.ejs', {allClasses: classes});
-    //     }
-    //     else {
-    //         throw err;
-    //     }
-    // });
-    //mongoose.disconn();
+    getByCenterAndInstrument: async (req, res) => {
+        await mongoose.conn();
+        var center = await CenterModel.findOne({center_name:req.body.center});
+        var classes = await ClassModel.find({instrument:req.body.instrument, fk_id_center:center._id.toString()});
+        res.render('./enroll_classes.ejs', {classes});
+        //mongoose.disconn();
+    }
 }
 
 
