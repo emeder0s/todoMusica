@@ -35,7 +35,14 @@ const pages = {
     },    
     contact: (req,res)=>{
         res.render("./contact.ejs")
+    },
 
+    instruments: (req,res)=>{
+        res.render("./instrumentos.ejs")
+    },
+
+    compra: (req,res)=>{
+        res.render("./compra.ejs")
     }
 
 };

@@ -11,56 +11,55 @@
 </head>
 
 <body>
-  <form action="/setAddres" method="POST" style="display: flex; flex-direction: column; justify-content: center;">
-    
-      
-        <label for="way_type">Tipo via:</label>
-        <select name="way_type" id="way_type">
-          <option value="Calle">Calle</option>
-          <option value="Avenida">Avenida</option>
-          <option value="Paseo">Paseo</option>
-          <option value="Carretera">Carretera</option>
-          <option value="Travesia">Travesia</option>
-          <option value="Glorieta">Glorieta</option>
-          <option value="Pasaje">Pasaje</option>
-          <option value="Plaza">Plaza</option>
-          <option value="Ronda">Ronda</option>
-          <option value="Via">Via</option>
-        </select>
-      
+  <form action="/setAddress" method="POST" style="display: flex; flex-direction: column; justify-content: center;">
 
-          <label for="adress">Via</label>
-          <input type="text" name="adress" id="adress" placeholder="Direccion">
+    <label for="way_type">Tipo via:</label>
+    <select name="way_type" id="way_type">
+      <option value="Calle">Calle</option>
+      <option value="Avenida">Avenida</option>
+      <option value="Paseo">Paseo</option>
+      <option value="Carretera">Carretera</option>
+      <option value="Travesia">Travesia</option>
+      <option value="Glorieta">Glorieta</option>
+      <option value="Pasaje">Pasaje</option>
+      <option value="Plaza">Plaza</option>
+      <option value="Ronda">Ronda</option>
+      <option value="Via">Via</option>
+    </select>
 
 
-          <label for="additional_address">Informacion Adicional</label>
-          <input type="text" name="additional_address" id="additional_address" placeholder="Escalera/Piso/Puerta">
+    <label for="adress">Via</label>
+    <input type="text" name="adress" id="adress" placeholder="Direccion">
 
 
-          <label for="a_number">Número</label>
-          <input type="text" name="a_number" id="a_number" placeholder="Número">
-
-  
-
-  
-
-            <label for="city">Localidad / Municipio</label>
-            <input type="text" name="city" id="city" placeholder="Localidad / Municipio">
-  
+    <label for="additional_address">Informacion Adicional</label>
+    <input type="text" name="additional_address" id="additional_address" placeholder="Escalera/Piso/Puerta">
 
 
-          <label for="province">Provincia</label>
-          <input type="text" name="province" id="province" placeholder="Provincia">
+    <label for="a_number">Número</label>
+    <input type="text" name="a_number" id="a_number" placeholder="Número">
 
 
-          <label for="postal_code">Codigo Postal</label>
-          <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal">
 
 
-          <label for="country">Pais</label>
-          <input type="text" name="country" id="country" placeholder="Pais">
 
-        <button id="btn" class="btn btn-primary">Registro</button>
+    <label for="city">Localidad / Municipio</label>
+    <input type="text" name="city" id="city" placeholder="Localidad / Municipio">
+
+
+
+    <label for="province">Provincia</label>
+    <input type="text" name="province" id="province" placeholder="Provincia">
+
+
+    <label for="postal_code">Codigo Postal</label>
+    <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal">
+
+
+    <label for="country">Pais</label>
+    <input type="text" name="country" id="country" placeholder="Pais">
+
+    <button id="btn" class="btn btn-primary">Registro</button>
   </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
