@@ -19,11 +19,7 @@ btn.addEventListener("click", () => {
         document.getElementsByTagName("p")[0].innerText =
           "El email no existe en la BD";
       } else {
-        document.getElementsByTagName("p")[0].innerText = "";
-        document.getElementsByTagName("a")[0].style.display = "block";
-        document.getElementsByTagName(
-          "a"
-        )[0].href = `http://localhost:3000/forgetpassword/${token}`;
+        document.getElementsByTagName("p")[0].innerText = "La solicitud de cambio de contraseña se ha realizado con éxito. Hemos enviado un email con un enlace de recuperacion. Muchas gracias.";
       }
     });
 });
