@@ -20,12 +20,12 @@ CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT NOT NULL,
         first_name VARCHAR(50) NOT NULL, 
         last_name VARCHAR(50) NOT NULL, 
-        dni VARCHAR(15),
+        dni VARCHAR(15) unique,
         email VARCHAR (40) UNIQUE NOT NULL,
         phone VARCHAR(15),
         birth_date DATE,
         user_password VARCHAR(60),
-        isBuyer TINYINT,
+        isbuyer TINYINT,
         fk_id_address INT,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
@@ -68,11 +68,11 @@ CREATE TABLE IF NOT EXISTS users(
         first_name VARCHAR(50) NOT NULL, 
         last_name VARCHAR(50) NOT NULL, 
         dni VARCHAR(15),
-        email VARCHAR (40) UNIQUE NOT NULL,
+        email VARCHAR (40) NOT NULL,
         phone VARCHAR(15),
         birth_date DATE,
         user_password VARCHAR(60),
-        isBuyer TINYINT,
+        isbuyer TINYINT,
         fk_id_address INT,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
@@ -84,7 +84,7 @@ BEFORE DELETE ON users
 FOR EACH ROW 
 BEGIN
 	
-	INSERT INTO deleted_users VALUES (NULL, OLD.id, OLD.first_name, OLD.last_name, OLD.dni, OLD.email, OLD.phone, OLD.birth_date, OLD.user_password, OLD.isBuyer, OLD.fk_id_address );
+	INSERT INTO deleted_users VALUES (NULL, OLD.id, OLD.first_name, OLD.last_name, OLD.dni, OLD.email, OLD.phone, OLD.birth_date, OLD.user_password, OLD.isbuyer, OLD.fk_id_address );
     
 END //
 DELIMITER ;
