@@ -243,6 +243,8 @@ function comprar() {
     }).then((res) => res.json()).then(json => {
         if(json == "Usuario no loggeado") {
             alert("Tienes que loggearte");
+        } else {
+            window.location.href = "http://localhost:3000/compra";
         }
     });
 }
