@@ -15,6 +15,7 @@ router.get("/forgetpassword/:infoJwt", pages.newPassword) //Pagina para establec
 router.get("/login", pages.login) //Pagina que muestra el formulario de login
 router.get("/contact", pages.contact)//Formulario de contacto
 
+
 //USER
 router.post("/register", user.register); //funcion que inserta en users
 router.get("/findAll", user.findAll) //funcion que muestra todos los usuarios
@@ -25,6 +26,7 @@ router.post("/verificar", user.verificar) //funcion que verifica que un usuario 
 router.post("/delete", user.delete) // borra usuario
 router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
 router.post("/contact", user.contact) //funcion que envia dos emails. uno al cliente y otro al centro de contacto
+router.get("/isAuthorized", user.isAuthorized)//funcion que devuelve el token de la cookie para ver si el usuario tiene la sesion iniciada.
 
 
 //CLASSES
