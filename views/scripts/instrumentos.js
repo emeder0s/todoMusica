@@ -224,8 +224,14 @@ function pintaCarrito(instrumentos) {
         });
 
         let comprar = document.createElement("button");
+        comprar.setAttribute("id", "comprar");
         comprar.innerHTML = "Comprar";
+        comprar.setAttribute("onclick()", "comprar()");
         comprar.setAttribute("class", "btn btn-dark");
         body_carrito.appendChild(comprar);
     }
 };
+
+function comprar() {
+
+}
