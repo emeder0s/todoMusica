@@ -36,7 +36,10 @@ const pages = {
     contact: (req,res)=>{
         res.render("./contact.ejs")
 
-    }
+    },
+    showmap: (req,res)=>{
+        res.render("./map.ejs")
+    },
 
 };
 

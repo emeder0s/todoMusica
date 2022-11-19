@@ -2,24 +2,25 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../databases/mysql');
 
 
-const Order = sequelize.define('orders', {
+const Orders_instrument = sequelize.define('orders_instruments', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    fk_id_user: {
+    qty_instrument: {
+        type: DataTypes.STRING
+    },
+    fk_id_instrument: {
         type: DataTypes.INTEGER,
         allowNull: false
     },    
-    fk_id_address: {
-        type: DataTypes.INTEGER
-    },
-    pickup_address: {
-        type: DataTypes.STRING
+    fk_id_order: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps: false
     
 });
-module.exports = Order;
+module.exports = Orders_instrument;
