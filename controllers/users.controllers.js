@@ -79,6 +79,7 @@ const user = {
       res.json(false);
     }
   },
+
   /**
    * Verifica la validez del json web token, recoge la nueva contraseña introducida por el usuario y la actualiza en la base de datos.
    * @param {*} req 
@@ -115,6 +116,7 @@ const user = {
       res.json("no ok")
     }
   },
+
 /**
  * Función que actualiza el campo isbuyer en la BD del usuario.
  * @param {*} req 
@@ -134,19 +136,20 @@ const user = {
       res.json(false);
     }
   },
+
 /**
  * Función que recoge los datos de contacto y envia los emails tanto al usuario con el feedback como al administrador con el contenido del mensaje.
  * @param {*} req 
  * @param {*} res 
  */
   contact: async (req, res) => {
-    const{first_name, last_name, email, text } = req.body;
-    console.log(req.body)
-
-    sendemail.contact(first_name,last_name,email,text);
+    const { first_name, last_name, email, text } = req.body;
+    console.log(req.body);
+    sendemail.contact(first_name, last_name, email, text);
     sendemail.contactfeedback(first_name, email);
     res.json("Contacto realizado con éxito")
   },
+
 /**
  * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
  * @param {*} req 
@@ -165,4 +168,5 @@ const user = {
     }
   }
 }
+
 module.exports = user;

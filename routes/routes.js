@@ -30,6 +30,7 @@ router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario
 router.post("/contact", user.contact) //funcion que envia dos emails. uno al cliente y otro al centro de contacto
 router.get("/isAuthorized", user.isAuthorized)//funcion que devuelve el token de la cookie para ver si el usuario tiene la sesion iniciada.
 
+
 //CLASSES
 router.get("/mostrar-clases",_class.showAll);
 router.get("/clases-estudiante/:id",_class.showByUser);
