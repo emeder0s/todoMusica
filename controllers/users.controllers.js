@@ -4,12 +4,16 @@ const bcyptjs = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const sendemail = require("./email.controllers");
 const SendmailTransport = require("nodemailer/lib/sendmail-transport");
-const User = {
+const user = {
   findAll: async (req, res) => {
     const users = await Users.findAll();
     res.json(users);
   },
-
+  /**
+   * Registra un usuario en la base de datos, Encripta la contraseña.
+   * @param {*} req 
+   * @param {*} res 
+   */
   register: async (req, res) => {
 
     const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
@@ -39,9 +43,7 @@ const User = {
 
   login: async (req, res) => {
     const { email, user_password } = req.body;
-    console.log(req.body)
     const user = await Users.findOne({ where: { "email": req.body.email } })
-    console.log(user.dataValues)
     let hashSaved = user.dataValues.user_password;
     let compare = bcyptjs.compareSync(user_password, hashSaved);
     const infoJwt = jwt.sign({ email }, "m1c4s4", {
@@ -67,7 +69,7 @@ const User = {
       res.json(false);
     }
   },
-  
+
   verificar: async (req, res) => {
     let { token, password } = req.body;
     try {
@@ -95,9 +97,10 @@ const User = {
       res.json("no ok")
     }
   },
+
   isbuyer: async (req, res) => {
     try {
-      var logged = await isAuthorized(req, res);
+      var logged = await user.isAuthorized(req, res);
       let email = logged.email;
       if (logged) {
         let isbuyer = 1
@@ -109,24 +112,32 @@ const User = {
       res.json(false);
     }
   },
-  contact: async (req, res) => {
-    const{first_name, last_name, email, text } = req.body;
-    console.log(req.body)
 
-    sendemail.contact(first_name,last_name,email,text);
+  contact: async (req, res) => {
+    const { first_name, last_name, email, text } = req.body;
+    console.log(req.body);
+    sendemail.contact(first_name, last_name, email, text);
     sendemail.contactfeedback(first_name, email);
-    res.alert("Contacto realizado con éxito")}
-,
-}
-async function isAuthorized(req, res) {
-  var cookies = req.cookies;
-  var token = cookies.infoJwt;
-  let jwtVerify = jwt.verify(token, "m1c4s4")
-  let email = jwtVerify.email;
-  if (jwtVerify) {
-    return jwtVerify
-  } else {
-    res.json("Usuario no loggeado")
+    res.alert("Contacto realizado con éxito");
+  },
+
+  /**
+ * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+  isAuthorized: (req, res) => {
+    var cookies = req.cookies;
+    var token = cookies.infoJwt;
+    try {
+      let jwtVerify = jwt.verify(token, "m1c4s4")
+      res.json(jwtVerify)
+      return jwtVerify
+    } catch (error) {
+      res.json("Usuario no loggeado")
+    }
   }
 }
-module.exports = User;
+
+module.exports = user;

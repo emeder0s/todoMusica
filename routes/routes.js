@@ -25,6 +25,7 @@ router.post("/verificar", user.verificar) //funcion que verifica que un usuario 
 router.post("/delete", user.delete) // borra usuario
 router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
 router.post("/contact", user.contact) //funcion que envia dos emails. uno al cliente y otro al centro de contacto
+router.get("/isAuthorized", user.isAuthorized) 
 
 
 //CLASSES

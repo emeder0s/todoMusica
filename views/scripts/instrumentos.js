@@ -226,12 +226,23 @@ function pintaCarrito(instrumentos) {
         let comprar = document.createElement("button");
         comprar.setAttribute("id", "comprar");
         comprar.innerHTML = "Comprar";
-        comprar.setAttribute("onclick()", "comprar()");
+        comprar.setAttribute("onclick", "comprar()");
         comprar.setAttribute("class", "btn btn-dark");
         body_carrito.appendChild(comprar);
     }
 };
 
 function comprar() {
-
+    fetch("/isAuthorized", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    }).then((res) => res.json()).then(json => {
+        if(json == "Usuario no loggeado") {
+            alert("Tienes que loggearte");
+        }
+    });
 }
