@@ -9,13 +9,16 @@ const User = {
     const users = await Users.findAll();
     res.json(users);
   },
+
   register: async (req, res) => {
+
     const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
     console.log(req.body)
     const user_password_hash = await bcyptjs.hash(user_password, 8);
     const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
     res.send("Usuario registrado")
   },
+
   set_address: async (req, res) => {
     var cookies = req.cookies;
     var token = cookies.infoJwt;
@@ -33,6 +36,7 @@ const User = {
       res.json(error)
     }
   },
+
   login: async (req, res) => {
     const { email, user_password } = req.body;
     console.log(req.body)
@@ -49,6 +53,7 @@ const User = {
       res.json("no ok")
     }
   },
+
   getUser: async (req, res) => {
     const { email } = req.body;
     const infoUser = await Users.findOne({ where: { "email": req.body.email } });
@@ -62,6 +67,7 @@ const User = {
       res.json(false);
     }
   },
+  
   verificar: async (req, res) => {
     let { token, password } = req.body;
     try {

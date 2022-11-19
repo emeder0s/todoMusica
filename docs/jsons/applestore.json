@@ -1,0 +1,68 @@
+[
+    {
+        "place_id": 43369421,
+        "lat": "40.4168855",
+        "lon": "-3.7022602",
+        "display_name": "Apple Store, 4, Puerta del Sol, Barrio de los Austrias, Sol, Centro, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28013, España"
+    },
+    {
+        "place_id": 63383434,
+        "lat": "41.4396495",
+        "lon": "2.1986756",
+        "display_name": "Apple Store, Carrer de São Paulo, el Bon Pastor, Sant Andreu, Barcelona, Barcelonés, Barcelona, Cataluña, 08001, España"
+    },
+    {
+        "place_id": 339506509,
+        "lat": "41.6159021",
+        "lon": "0.6270439",
+        "display_name": "Apple Store, 8, Plaça de Sant Joan, el Canyeret, Lérida, Segriá, Lérida, Cataluña, 25007, España"
+    },
+    {
+        "place_id": 21505381,
+        "lat": "36.5221399",
+        "lon": "-4.8739361",
+        "display_name": "Apple Store, Autovía del Mediterráneo, Serrania, Marbella, Costa del Sol Occidental, Málaga, Andalucía, 29603, España"
+    },
+    {
+        "place_id": 67337407,
+        "lat": "40.3403419",
+        "lon": "-3.7316335",
+        "display_name": "Apple Store, Carretera de Villaverde, El Carrascal, Leganés, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28919, España"
+    },
+    {
+        "place_id": 51859461,
+        "lat": "41.6280638",
+        "lon": "-4.7849729",
+        "display_name": "Apple Store, Calle del Comercio, Centro Comercial Río Shopping, La Flecha, Arroyo de la Encomienda, Valladolid, Castilla y León, 47195, España"
+    },
+    {
+        "place_id": 23890063,
+        "lat": "41.3879538",
+        "lon": "2.169488",
+        "display_name": "Apple Store, 1, Passeig de Gràcia, la Dreta de l'Eixample, Eixample, Barcelona, Barcelonés, Barcelona, Cataluña, 08007, España"
+    },
+    {
+        "place_id": 344996900,
+        "lat": "39.4690839",
+        "lon": "-0.3723058",
+        "display_name": "Apple Store Calle Colón, 25, Calle de Colón, Sant Francesc, Ciudad Vieja, Valencia, Comarca de Valencia, Valencia, Comunidad Valenciana, 46004, España"
+    },
+    {
+        "place_id": 80629520,
+        "lat": "38.0394214",
+        "lon": "-1.1488052",
+        "display_name": "Apple Store Nueva Condomina, Avenida Rotary Internacional, Pedanía de Churra, Murcia, Área Metropolitana de Murcia, Región de Murcia, 30110, España"
+    },
+    {
+        "place_id": 97049465,
+        "lat": "40.4725252",
+        "lon": "-3.7090297",
+        "display_name": "MAE Recovery, 25, Calle de Ribadavia, Altamira, El Pilar, Fuencarral-El Pardo, Madrid, Área metropolitana de Madrid y Corredor del Henares, Comunidad de Madrid, 28029, España"
+    },
+    {
+        "place_id": 75339591,
+        "lat": "38.3428279",
+        "lon": "-0.4910672",
+        "display_name": "QuartCom, 2, Calle Arquitecto Morell, Ensanche, Alicante, El Alacantí, Alicante, Comunidad Valenciana, 03003, España"
+    }
+]

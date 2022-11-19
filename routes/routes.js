@@ -36,7 +36,9 @@ router.post("/matricularse/:idClass/:idUser",_class.enroll);
 //router.get("/mostrar-por-centros-y-instrumento/",_class.showByCenter);
 //ADMIN
 // router.get("/login-admin/:id",_admin.login);
+
 //INSTRUMENTS
+
 router.get("/instruments", instrument.start);
 router.get("/findInstruments", instrument.findInstruments);
 router.post("/findCategory", instrument.findByCategory);
