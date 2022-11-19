@@ -20,6 +20,7 @@ router.get("/login-admin", pages.loginAdmin) //Pagina que muestra el formulario 
 router.get("/contact", pages.contact)//Formulario de contacto
 router.get("/instruments", pages.instruments)//Vista de los intrumentos 
 router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
+router.get("/map", pages.showmap)
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users

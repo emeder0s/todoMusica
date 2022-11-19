@@ -40,9 +40,13 @@ const pages = {
     instruments: (req,res)=>{
         res.render("./instrumentos.ejs")
     },
-
+    
     compra: (req,res)=>{
         res.render("./compra.ejs")
+    },
+    
+    showmap: (req,res)=>{
+        res.render("./map.ejs")
     }
 
 };
