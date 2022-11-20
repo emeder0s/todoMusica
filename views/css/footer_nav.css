@@ -16,6 +16,7 @@ footer div#links{
 footer div#copyright{
     display:flex;
     flex-direction: column-reverse;
+    font-size: 9px;
 }
 
 footer div#social{
@@ -80,6 +81,7 @@ nav p{
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:visited {

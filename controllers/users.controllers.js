@@ -141,10 +141,9 @@ const user = {
    */
   contact: async (req, res) => {
     const { first_name, last_name, email, text } = req.body;
-    console.log(req.body);
     sendemail.contact(first_name, last_name, email, text);
     sendemail.contactfeedback(first_name, email);
-    res.json("Contacto realizado con éxito")
+    res.render("./sentContactForm.ejs")
   },
 
   /**

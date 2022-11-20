@@ -6,3 +6,23 @@ function logout(){
         window.location.href="/";
     })
 }
+
+(() =>{
+
+    fetch("/isAuthorized", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    }).then((res) => res.json()).then(json => {
+        console.log("hola");
+        if(json == "Usuario no loggeado") {
+            document.getElementById("nav-login").style.display="block";
+        } else {
+            document.getElementById("nav-logout").style.display="block";
+        }
+    });
+    
+ })();
