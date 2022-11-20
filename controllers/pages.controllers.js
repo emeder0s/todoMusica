@@ -56,6 +56,10 @@ const pages = {
     
     showmap: (req,res)=>{
         res.render("./map.ejs")
+    },
+
+    pay: (req,res)=>{
+        res.render("./pago.pug")
     }
 
 };
