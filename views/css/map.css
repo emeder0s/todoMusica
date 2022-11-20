@@ -1,5 +1,4 @@
-
- section {
+section {
 
     display: flex;
     justify-content: center;
@@ -15,10 +14,11 @@
     border: 1px solid black;
 }
 
-input , button{
+/* input,
+button {
     padding: 5%;
-}
- 
+} */
+
 
 button {
     width: 50%;

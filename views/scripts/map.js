@@ -3,7 +3,7 @@
 navigator.geolocation.getCurrentPosition((position) => {
     localStorage.setItem("coords", JSON.stringify([position.coords.latitude, position.coords.longitude]))
 });
-var coords = JSON.parse(localStorage.coords)
+var coords = JSON.parse(localStorage.getItem("coords"));
 console.log(coords)
 const mapId = "map";                                       //* Id index del mapa
 const initialCoordinates = coords;       //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
