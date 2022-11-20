@@ -1,6 +1,8 @@
-function sendRequest(button, requestStatus){
-    console.log(button);
-    console.log(requestStatus);
+function sendRequest(button, request_status){
+    var request_id = button.getAttribute("request-id");
+    var user_email = button.getAttribute("user_email");
+    // fetch('https://example.com?' + new URLSearchParams({request_id,request_status
+    // })).then((res) => res.json())
 }
 
 (() =>{
@@ -31,8 +33,10 @@ function sendRequest(button, requestStatus){
             reject_request.setAttribute("class","btn btn-danger btn-sm");
             accept_request.setAttribute("onclick","sendRequest(this,'accepted')");
             reject_request.setAttribute("onclick","sendRequest(this,'rejected')");
-            accept_request.setAttribute("request-id",request.request_id));
+            accept_request.setAttribute("request-id",request.request_id);
             reject_request.setAttribute("request-id",request.request_id);
+            accept_request.setAttribute("user-email",request.user_email);
+            reject_request.setAttribute("user-email",request.user_email);
 
             user.innerHTML = `Usuario: ${request.user_email}`
             isbuyer.innerHTML = (request.isbuyer) ? "COMPRADOR" : "";
