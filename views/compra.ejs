@@ -17,11 +17,22 @@
 </head>
 
 <body>
-    <h2></h2>
-    Envío a domicilio
-    </h2>
-    <p> <strong>Intruduzca la dirección a la que quiere que le llegue su pedido</strong> </p>
-    <form action="/setAddress" method="POST" style="display: flex; flex-direction: column; justify-content: center;">
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseOne">
+                    Envío a domicilio
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                    <p> <strong>Intruduzca la dirección a la que quiere que le llegue su pedido</strong> </p>
+                    <form style="display: flex; flex-direction: column; justify-content: center;">
+
 
         <label for="way_type">Tipo via:</label>
         <select name="way_type" id="way_type">
@@ -38,8 +49,10 @@
         </select>
 
 
-        <label for="adress">Via</label>
-        <input type="text" name="adress" id="address" placeholder="Direccion">
+
+                        <label for="adress">Via</label>
+                        <input type="text" name="address" id="address" placeholder="Direccion">
+
 
 
         <label for="additional_address">Informacion Adicional</label>
@@ -69,19 +82,34 @@
         <label for="country">País</label>
         <input type="text" name="country" id="country" placeholder="Pais">
 
-        <button id="btn" class="btn btn-dark">Siguiente</button>
-    </form>
 
-    <h2>Punto de recogida
-    </h2>
 
-    <section>
-        <div class="searchMap" style="display: flex; justify-content:space-between;">
-            <button class="btn btn-dark" onclick="showAlcampo();">Mostrar Alcampos</button>
-            <button class="btn btn-dark" onclick="showApple();">Mostrar Apple Stores</button>
+                    </form>
+                    <button id="btn" class="btn btn-dark" onclick="createOrder_adress();">Siguiente</button>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseTwo" onclick="acordeonMap();">
+                    Punto de recogida
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingTwo">
+
+            </div>
+        </div>
+    </div>
+    <div id="map_container">
+        <div class="searchMap">
+            <button onclick="showAlcampo();" class="btn btn-dark">Mostrar Alcampos</button>
+            <button onclick="showApple();" class="btn btn-dark">Mostrar Apple Stores</button>
         </div>
         <div id="map"></div>
-    </section>
+    </div>
 
     <script src="./scripts/map.js"></script>
     <script src="./scripts/compra.js"></script>
