@@ -16,38 +16,50 @@ const bill = {
     to_pdf: async (req, res) => {
         try {
             var order = await Orders.findOne({ where: { "id": req.body.order } })
-            console.log(order)
             var orders_instruments = await Orders_Instruments.findAll({ where: { "fk_id_order": req.body.order } })
-            console.log(orders_instruments)
-
             let tabla = "";
             let subtotal = 0;
-            for (const producto of orders_instruments) {
-                let instrument = await Instruments.findOne({where:{"id": producto.dataValues.fk_id_instrument}})
-                console.log(instrument)
-                const totalProducto = producto.dataValues.qty_instrument * instrument.dataValues.precio;
+            for await (var producto of orders_instruments) {
+                let instrument = await Instruments.findOne({ where: { "id": producto.dataValues.fk_id_instrument } })
+                let price = instrument.dataValues.price
+                let nprice = parseInt(price.split(" ")[0])
+                const totalProducto = producto.dataValues.qty_instrument * nprice;
+                console.log("Precio Unitario: " + nprice)
                 subtotal += totalProducto;
                 // Y concatenar los productos
-/*                 tabla += `<tr>
-     <td>${producto.descripcion}</td>
-     <td>${producto.cantidad}</td>
-     <td>${producto.precio + " €"}</td>
-     <td>${totalProducto + " €"}</td>
-     </tr>`; */
+                tabla += `<tr>
+                <td>${instrument.dataValues.model}</td>
+                <td>${producto.dataValues.qty_instrument}</td>
+                <td>${nprice + " €"}</td>
+                <td>${totalProducto + " €"}</td>
+                </tr>`;
             }
             const descuento = 0;
             const subtotalConDescuento = subtotal - descuento;
             const impuestos = subtotalConDescuento * 0.21
             const total = subtotalConDescuento + impuestos;
             // Remplazar el valor {{tablaProductos}} por el verdadero valor
-            var order_date = "22/11/2022";
-            var user_name = "Fulano Mengano"
-            var order_number = "La100001"
+            var order_date = order.dataValues.order_date;
+            var user = await Users.findOne({ where: { "id": order.dataValues.fk_id_user } })
+            var user_name = user.dataValues.first_name + " " + user.dataValues.last_name
+            var order_number = order.dataValues.order_number
+            var address = await Address.findOne({ where: { "id": order.dataValues.fk_id_address } })
+            var pickup_address = order.dataValues.pickup_address
+            var addressv = address.dataValues
+            var user_address = `${addressv.way_type}/ ${addressv.address}, ${addressv.a_number}, ${addressv.additional_address}. ${addressv.locality + " " + addressv.province + " " + addressv.postal_code + " " + addressv.country}`
+            var email = user.dataValues.email
+            var phone_number = user.dataValues.phone
+            var dni = user.dataValues.dni
+            console.log(user)
             contenidoHtml = contenidoHtml.replace("{{tablaProductos}}", tabla);
             contenidoHtml = contenidoHtml.replace("{{NumeroDeOrden}}", order_number);
             contenidoHtml = contenidoHtml.replace("{{nombreCliente}}", user_name);
+            contenidoHtml = contenidoHtml.replace("{{direccion}}", user_address);
+            contenidoHtml = contenidoHtml.replace("{{direccionRecogida}}", pickup_address);
+            contenidoHtml = contenidoHtml.replace("{{email}}", email);
+            contenidoHtml = contenidoHtml.replace("{{dni}}", dni);
+            contenidoHtml = contenidoHtml.replace("{{telefono}}", phone_number);
             contenidoHtml = contenidoHtml.replace("{{Fecha}}", order_date);
-
             // Y también los otros valores
 
             contenidoHtml = contenidoHtml.replace("{{subtotal}}", subtotal + " €");
@@ -55,70 +67,19 @@ const bill = {
             contenidoHtml = contenidoHtml.replace("{{subtotalConDescuento}}", subtotalConDescuento + " €");
             contenidoHtml = contenidoHtml.replace("{{impuestos}}", impuestos + " €");
             contenidoHtml = contenidoHtml.replace("{{total}}", total + " €");
-            pdf.create(contenidoHtml).toFile("salida.pdf", (error) => {
+            console.log("Antes de crear pdf")
+            pdf.create(contenidoHtml).toFile(`./pdf_pedidos/${order_number}.pdf`, (error) => {
                 if (error) {
                     console.log("Error creando PDF: " + error)
                 } else {
                     console.log("PDF creado correctamente");
+                    sendemail.invoice(email, user_name, order_number, order_date)
                 }
             });
-            res.json({order, orders_instruments})
-        } catch (error) { res.json(error)}
+            
+            res.json({ order, orders_instruments })
+        } catch (error) { res.json(error) }
     },
-    to_email: async (req, res) => {
-        var order = await Orders.findOne({ where: { "id": req.body.order } })
-        console.log(order)
-        var orders_instruments = await Orders_Instruments.findAll({ where: { "fk_id_order": req.body.order } })
-        console.log(orders_instruments)
-        /*  producto: {
-              descripcion: "Nintendo Switch",
-              cantidad: 2,
-              precio: 9000,
-          } */
-        const productos = [];
-        let tabla = "";
-        let subtotal = 0;
-        for (const producto of productos) {
-            // Aumentar el total
-            const totalProducto = producto.cantidad * producto.precio;
-            subtotal += totalProducto;
-            // Y concatenar los productos
-            tabla += `<tr>
-         <td>${producto.descripcion}</td>
-         <td>${producto.cantidad}</td>
-         <td>${producto.precio + " €"}</td>
-         <td>${totalProducto + " €"}</td>
-         </tr>`;
-        }
-        const descuento = 0;
-        const subtotalConDescuento = subtotal - descuento;
-        const impuestos = subtotalConDescuento * 0.21
-        const total = subtotalConDescuento + impuestos;
-        // Remplazar el valor {{tablaProductos}} por el verdadero valor
-        var order_date = "22/11/2022";
-        var user_name = "Fulano Mengano"
-        var order_number = "La100001"
-        contenidoHtml = contenidoHtml.replace("{{tablaProductos}}", tabla);
-        contenidoHtml = contenidoHtml.replace("{{NumeroDeOrden}}", order_number);
-        contenidoHtml = contenidoHtml.replace("{{nombreCliente}}", user_name);
-        contenidoHtml = contenidoHtml.replace("{{Fecha}}", order_date);
-
-        // Y también los otros valores
-
-        contenidoHtml = contenidoHtml.replace("{{subtotal}}", subtotal + " €");
-        contenidoHtml = contenidoHtml.replace("{{descuento}}", descuento + " €");
-        contenidoHtml = contenidoHtml.replace("{{subtotalConDescuento}}", subtotalConDescuento + " €");
-        contenidoHtml = contenidoHtml.replace("{{impuestos}}", impuestos + " €");
-        contenidoHtml = contenidoHtml.replace("{{total}}", total + " €");
-        pdf.create(contenidoHtml).toStream((error, stream) => {
-            if (error) {
-                res.end("Error creando PDF: " + error)
-            } else {
-                res.setHeader("Content-Type", "application/pdf");
-                stream.pipe(res);
-            }
-        });
-    }
 }
 module.exports = bill
 
