@@ -166,6 +166,14 @@ const user = {
     } catch (error) {
       res.json("Usuario no loggeado")
     }
+  },
+  /**
+   * Funcion que devuelve un usuario que se busca por su email.
+   * @param {*} req
+   * @param {*} res
+   */
+   returnUserByEmail: async (email) => {
+     return await Users.findOne({ where: { "email": email } });
   }
 }
 

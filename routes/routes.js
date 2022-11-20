@@ -51,5 +51,6 @@ router.post("/findCategory", instrument.findByCategory);
 
 //ENROLL REQUEST
 router.post("/send-enroll-request/:classId",enrollRequest.add);
+router.get("/get-all-requests",enrollRequest.getAll);
 
 module.exports = router;

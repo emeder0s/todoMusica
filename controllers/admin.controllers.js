@@ -36,10 +36,19 @@ const _admin = {
     isAdminAuthorized: (req) =>{
         var cookie = req.cookies;
         if (JSON.stringify(cookie) === "{}") {
+            onsole.log("no hay cokkie");
            return false;
             
         }else{
-            return true
+            try{
+               var token = cookies.infoJwt;
+               let jwtVerify = jwt.verify(token, "m1m0t0");
+               console.log("todo bien");
+               return true;
+            } finally{
+                console.log("toke expirado");
+               return false;
+            }
         }
      }
 }

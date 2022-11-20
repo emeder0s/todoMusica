@@ -34,11 +34,12 @@ const pages = {
         res.render("./login_admin.ejs");
     },
     dashboard: (req,res)=>{
-        if(admin.isAdminAuthorized(req)){
-            res.render("./dashboard.ejs");
-        }else{
-            res.status(403).send("403 - FORBIDDEN - No tienes permisos para acceder aquí");
-        }   
+        res.render("./dashboard.ejs");
+        // if(admin.isAdminAuthorized(req)){
+        //     res.render("./dashboard.ejs");
+        // }else{
+        //     res.status(403).send("403 - FORBIDDEN - No tienes permisos para acceder aquí");
+        // }   
     }, 
     contact: (req,res)=>{
         res.render("./contact.ejs")
