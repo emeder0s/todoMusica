@@ -1,5 +1,6 @@
 const mongoose = require("../databases/mongo.js");
 const AdminModel = require("../models/admin.model.js");
+const bcyptjs = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 
 const _admin = {
@@ -14,17 +15,43 @@ const _admin = {
         var admin = await AdminModel.findOne({admin:user});
         if (admin){
             if (admin.password == password && admin.admin == user){
-                const infoJwt = jwt.sign({ admin }, "m1c4s4", {
+                const infoJwt = jwt.sign({ admin }, "m1m0t0", {
                     expiresIn: "1800s",
                 });
-                res.cookie("infoJwt", infoJwt).render('./dashboard.ejs'); 
+                res.cookie("infoJwt", infoJwt).json("./dashboard"); 
             }else{
-                res.json("invalid login")
+                res.json(false);
             }    
         } else {
-          res.json("invalid login")
+            res.send(false);
         }
-    }
+    },
+
+    /**
+     * Función que comprueba que un admin tiene la sesion iniciada recogiendo el Json web token de las cookies.
+     * @param {*} req 
+     * @param {*} res 
+     * @returns 
+     */
+    isAdminAuthorized: (req) =>{
+        var cookie = req.cookies;
+        if (JSON.stringify(cookie) === "{}") {
+            onsole.log("no hay cokkie");
+           return false;
+            
+        }else{
+            try{
+               var token = cookies.infoJwt;
+               let jwtVerify = jwt.verify(token, "m1m0t0");
+               console.log("todo bien");
+               return true;
+            } finally{
+                console.log("toke expirado");
+               return false;
+            }
+        }
+     }
 }
+
 
 module.exports = _admin;
