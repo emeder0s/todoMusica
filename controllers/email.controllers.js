@@ -1,5 +1,7 @@
 var nodemailer = require('nodemailer');
 const Users = require("../models/user.model");
+const fs = require("fs")
+const path = require("path")
 const smtpConfig = {
   host: 'smtp.ionos.es',
   port: 587,
@@ -76,8 +78,39 @@ const email = {
   neworder: (req, res) => {
 
   },
-  invoice: (req, res) => {
-
+  invoice: (user_email, first_name, order_number, order_date) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com' ,
+      to: user_email,
+      subject: `Confirmación de pedido y factura: ${order_number}`,
+      text: "",
+      attachments: [{
+        filename: `${order_number}.pdf`,
+        path: `./pdf_pedidos/${order_number}.pdf`,
+      }],
+      html: `<!doctype html>
+          <html ⚡4email>
+            <head>
+              <meta charset="utf-8">
+            </head>
+            <body>
+            <h2>TodoMúsica/h2>
+              <h1>En marcha!</h1>
+              <h4>Muchas gracias ${first_name}!!<h4>
+              <p>Hemos procesado su solicitud del pedido: ${order_number} con fecha ${order_date} y estamos trabajando para enviarlo lo antes posible.
+              <p>Puedes encontrar tu factura adjunta en este Email.</p>
+            </body>
+          </html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted + " Factura enviada")
+      }
+      return info
+    })
   },
   classconfirm: (req, res) => {
 
