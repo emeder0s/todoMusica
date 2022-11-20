@@ -17,3 +17,5 @@ function checkIfLogued(){
     });
 
 }
+
+console.log(document.referrer);
