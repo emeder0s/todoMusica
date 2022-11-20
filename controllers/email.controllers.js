@@ -98,7 +98,7 @@ const email = {
               <h1>En marcha!</h1>
               <h4>Muchas gracias ${first_name}!!<h4>
               <p>Hemos procesado su solicitud del pedido: ${order_number} con fecha ${order_date} y estamos trabajando para enviarlo lo antes posible.
-              <p>Puedes encontrar tu factura adjunta en este Email.</p>
+              <p>Puedes encontrar tu factura adjunta en este Email. Si lo deseas tambien puedes descargarla desde <a href="http://127.0.0.1:3000/descargar/${order_number}.pdf">Este enlace</a></p>
             </body>
           </html>`
     };

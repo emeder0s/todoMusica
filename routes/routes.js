@@ -59,6 +59,7 @@ router.post("/createAddress", address.createAddress);
 
 //ORDER
 router.post("/bill_pdf", bill.to_pdf)
+router.get("/descargar/:file", bill.billdownload)
 
 //ADMIN
 router.post("/get-admin",_admin.login);
