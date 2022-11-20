@@ -16,6 +16,7 @@ footer div#links{
 footer div#copyright{
     display:flex;
     flex-direction: column-reverse;
+    font-size: 9px;
 }
 
 footer div#social{
@@ -55,6 +56,12 @@ nav img#logo {
     height: 41px;
 }
 
+nav p{
+    margin: 0;
+    width: 100%;
+    text-align: right;
+}
+
 .container {
     padding: 30px;
 
@@ -74,10 +81,11 @@ nav img#logo {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:visited {
-    color:white
+    color:black;
 }
 
 .column-align-center{

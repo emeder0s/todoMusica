@@ -4,9 +4,11 @@ const classModel = require("../models/class.model.js");
 const centerModel = require("../models/center.model.js"); 
 const userModel = require("../models/user.model.js");
 const userController = require("../controllers/users.controllers"); 
-const emailController = require("../controllers/email.controllers"); 
+const emailController = require("../controllers/email.controllers");
+const pageController = require("../controllers/pages.controllers"); 
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
+const pages = require("./pages.controllers.js");
 
 const enrollRequest = {
     /**
@@ -25,7 +27,7 @@ const enrollRequest = {
             user_email:email,
             request_status: "pending"
           })
-        res.json({})
+        pageController.sentEnrollRequest(req,res);
     },
 
     /**
