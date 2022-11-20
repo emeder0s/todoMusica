@@ -6,6 +6,7 @@ const _admin = require("../controllers/admin.controllers");
 const _center = require("../controllers/centers.controllers");
 const pages = require("../controllers/pages.controllers");
 const enrollRequest = require("../controllers/enroll.request.controllers");
+const address = require("../controllers/address.controllers");
 
 
 //PAGES
@@ -18,6 +19,10 @@ router.get("/login", pages.login) //Pagina que muestra el formulario de login
 router.get("/login-admin", pages.loginAdmin) //Pagina que muestra el formulario de login del administrador
 router.get("/contact", pages.contact)//Formulario de contacto
 router.get("/dashboard", pages.dashboard)//Formulario de contacto
+router.get("/instruments", pages.instruments)//Vista de los intrumentos 
+router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
+router.get("/map", pages.showmap)
+
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users
@@ -30,7 +35,7 @@ router.post("/delete", user.delete) // borra usuario
 router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
 router.post("/contact", user.contact) //funcion que envia dos emails. uno al cliente y otro al centro de contacto
 router.get("/isAuthorized", user.isAuthorized)//funcion que devuelve el token de la cookie para ver si el usuario tiene la sesion iniciada.
-
+router.post("/getUserByEmail", user.getUserByEmail) //funcion que devuelve el usuario por su email
 
 //CLASSES
 router.get("/mostrar-clases",_class.showAll);
@@ -40,12 +45,14 @@ router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 //router.get("/mostrar-por-instrumento/",_class.showByCenter);
 //router.get("/mostrar-por-centros-y-instrumento/",_class.showByCenter);
 
+//ADDRESS
+router.post("/getAddress", address.findAdressById);
+
 //ADMIN
 router.post("/get-admin",_admin.login);
 
 //INSTRUMENTS
 
-router.get("/instruments", instrument.start);
 router.get("/findInstruments", instrument.findInstruments);
 router.post("/findCategory", instrument.findByCategory);
 

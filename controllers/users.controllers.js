@@ -22,31 +22,30 @@ const user = {
     const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
     res.send("Usuario registrado")
   },
-/**
- * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
- * @param {*} req 
- * @param {*} res 
- */
+  /**
+   * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
+   * @param {*} req 
+   * @param {*} res 
+   */
   set_address: async (req, res) => {
-    var logged = await user.isAuthorized(req, res); 
+    var logged = await user.isAuthorized(req, res);
     try {
       let email = logged.email;
       if (logged) {
         const { way_type, address, a_number, additional_address, locality, province, country, postal_code } = req.body;
         const user_address = await Address.create({ way_type, address, a_number, additional_address, locality, province, country, postal_code });
-        let user = await Users.update({ "fk_id_address": user_address.id }, { where: { email } })
-        res.json({ way_type, address, a_number, additional_address, locality, province, country, postal_code, cookies })
+        let user = await Users.update({ "fk_id_address": user_address.id }, { where: { email } });
+        res.json({ way_type, address, a_number, additional_address, locality, province, country, postal_code, cookies });
       }
-    }
-    catch (error) {
-      res.json(error)
+    } catch (error) {
+      res.json(error);
     }
   },
-/**
- * Funcion que comprueba email y contraseña de usuario para iniciar sesion, al comprobar que es correcto inserta una cookie en el navegador.
- * @param {*} req 
- * @param {*} res 
- */
+  /**
+   * Funcion que comprueba email y contraseña de usuario para iniciar sesion, al comprobar que es correcto inserta una cookie en el navegador.
+   * @param {*} req 
+   * @param {*} res 
+   */
   login: async (req, res) => {
     const { email, user_password } = req.body;
     const user = await Users.findOne({ where: { "email": req.body.email } })
@@ -61,11 +60,11 @@ const user = {
       res.json("no ok")
     }
   },
-/**
- * Funcion que devuelve un Json Web Token que contiene la dirección de email del usuario para comprobar la identidad al cambiar la contraseña.
- * @param {*} req 
- * @param {*} res 
- */
+  /**
+   * Funcion que devuelve un Json Web Token que contiene la dirección de email del usuario para comprobar la identidad al cambiar la contraseña.
+   * @param {*} req 
+   * @param {*} res 
+   */
   getUser: async (req, res) => {
     const { email } = req.body;
     const infoUser = await Users.findOne({ where: { "email": req.body.email } });
@@ -117,11 +116,11 @@ const user = {
     }
   },
 
-/**
- * Función que actualiza el campo isbuyer en la BD del usuario.
- * @param {*} req 
- * @param {*} res 
- */
+  /**
+   * Función que actualiza el campo isbuyer en la BD del usuario.
+   * @param {*} req 
+   * @param {*} res 
+   */
   isbuyer: async (req, res) => {
     try {
       var logged = await user.isAuthorized(req, res);
@@ -137,11 +136,11 @@ const user = {
     }
   },
 
-/**
- * Función que recoge los datos de contacto y envia los emails tanto al usuario con el feedback como al administrador con el contenido del mensaje.
- * @param {*} req 
- * @param {*} res 
- */
+  /**
+   * Función que recoge los datos de contacto y envia los emails tanto al usuario con el feedback como al administrador con el contenido del mensaje.
+   * @param {*} req 
+   * @param {*} res 
+   */
   contact: async (req, res) => {
     const { first_name, last_name, email, text } = req.body;
     console.log(req.body);
@@ -150,17 +149,17 @@ const user = {
     res.json("Contacto realizado con éxito")
   },
 
-/**
- * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
- * @param {*} req 
- * @param {*} res 
- * @returns 
- */
-  isAuthorized: (req, res) =>{
+  /**
+   * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
+   * @param {*} req 
+   * @param {*} res 
+   * @returns 
+   */
+  isAuthorized: (req, res) => {
     var cookies = req.cookies;
     var token = cookies.infoJwt;
-    try{
-       let jwtVerify = jwt.verify(token, "m1c4s4")
+    try {
+      let jwtVerify = jwt.verify(token, "m1c4s4")
       res.json(jwtVerify)
       return jwtVerify
     } catch (error) {
@@ -174,6 +173,13 @@ const user = {
    */
    returnUserByEmail: async (email) => {
      return await Users.findOne({ where: { "email": email } });
+     
+  /**    
+   * @param {*} req 
+   * @param {*} res 
+   */
+  getUserByEmail: async (req, res) => {
+    res.json(await Users.findOne({ where: { "email": req.body.email } }));
   }
 }
 

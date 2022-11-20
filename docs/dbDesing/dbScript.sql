@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT NOT NULL,
         order_number CHAR(10) UNIQUE NOT NULL, 
         fk_id_user INT,
+        pickup_addres VARCHAR(300),
         fk_id_address INT,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_address) REFERENCES addresses(id),
@@ -55,8 +56,8 @@ CREATE TABLE IF NOT EXISTS users(
    CREATE TABLE IF NOT EXISTS orders_instruments(
         id INT AUTO_INCREMENT NOT NULL,
         qty_instrument int, 
-        fk_id_instrument INT,
-        fk_id_order INT,
+        fk_id_instrument INT NOT NULL,
+        fk_id_order INT NOT NULL,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_instrument) REFERENCES instruments(id),
         FOREIGN KEY (fk_id_order) REFERENCES orders(id) ON DELETE SET NULL
