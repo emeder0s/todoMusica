@@ -15,10 +15,9 @@ const _class = {
         await mongoose.conn();
         ClassModel.find({}, function (err, classes) {
             if (!err) {
-                res.render('all_classes.ejs', { allClasses: classes });
+                res.json({ classes });
             }
             else {
-
                 throw err;
             }
         });

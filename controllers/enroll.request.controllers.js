@@ -4,6 +4,7 @@ const classModel = require("../models/class.model.js");
 const centerModel = require("../models/center.model.js"); 
 const userModel = require("../models/user.model.js");
 const userController = require("../controllers/users.controllers"); 
+const emailController = require("../controllers/email.controllers"); 
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
 
@@ -43,7 +44,6 @@ const enrollRequest = {
                 var center_id = new ObjectId(_class.fk_id_center);
                 var _center = await centerModel.findOne({_id:center_id});
                 var user =  await userController.returnUserByEmail(request.user_email);
-                console.log(user)
                 var response = {
                     id_request: request._id.toString(),
                     user_email: request.user_email,
@@ -62,6 +62,24 @@ const enrollRequest = {
         );
         res.json(response);
     },
+    sendRequest:async (req, res) => {
+        await mongoose.conn();
+        var request_id = new ObjectId(req.query.request_id);
+        var _request = await enrollRequestModel.findOneAndUpdate({_id:request_id}, {request_status:req.query.request_status})
+        var class_id = new ObjectId(_request.class_id);
+        var _class = await classModel.findOne({_id:class_id});
+        var center_id = new ObjectId(_class.fk_id_center);
+        var _center = await centerModel.findOne({_id:center_id}); 
+
+        if (req.query.request_status = "accepted"){
+            emailController.enrollRequestAccepted(req.query.user_email,_class,_center);
+        }else{
+            emailController.enrollRequestRejected(req.query.user_email,_class,_center);
+        }
+
+        res.json({request_id:req.query.request_id});
+    }
+
 }
 
 module.exports = enrollRequest;

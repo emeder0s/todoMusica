@@ -21,3 +21,8 @@ div.accordion-item {
 .buttons-request-container button{
     margin-right: 10px;;
 }
+
+.is-buyer{
+    font-weight: bold;
+    color:black;
+}

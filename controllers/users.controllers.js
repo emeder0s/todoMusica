@@ -55,7 +55,7 @@ const user = {
       expiresIn: "1800s",
     });
     if (compare) {
-      res.cookie("infoJwt", infoJwt).send('Cookie is set');
+      res.cookie("infoJwt", infoJwt).redirect(req.query.url);
     } else {
       res.json("no ok")
     }
@@ -173,6 +173,7 @@ const user = {
    */
    returnUserByEmail: async (email) => {
      return await Users.findOne({ where: { "email": email } });
+   },
      
   /**    
    * @param {*} req 
