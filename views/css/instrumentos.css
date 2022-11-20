@@ -76,3 +76,8 @@ div.div_datos {
 div.offcanvas-body{
     background-color: #f3f3f3;
 }
+
+#h1container{
+    display: flex;
+    justify-content: space-around;
+}

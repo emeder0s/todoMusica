@@ -8,6 +8,12 @@ const pages = require("../controllers/pages.controllers");
 const enrollRequest = require("../controllers/enroll.request.controllers");
 const address = require("../controllers/address.controllers");
 
+const bill = require("../controllers/bill.controllers")
+
+const order = require("../controllers/order.controllers");
+const order_instrument = require("../controllers/orders_instruments.controllers");
+
+
 
 //PAGES
 router.get("/", pages.home);//pagina de inicio
@@ -34,7 +40,7 @@ router.post("/setAddress", user.set_address) // comprueba la cookie e inserta en
 router.post("/getUser",user.getUser) //Funcion que devuelve el token con el usuario y el email.
 router.post("/verificar", user.verificar) //funcion que verifica que un usuario es el que pide cambiar la contraseña
 router.post("/delete", user.delete) // borra usuario
-router.post("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
+router.get("/isbuyer", user.isbuyer) //funcion que escribe en BD que el usuario ha hecho una compra
 router.post("/contact", user.contact) //funcion que envia dos emails. uno al cliente y otro al centro de contacto
 router.get("/isAuthorized", user.isAuthorized)//funcion que devuelve el token de la cookie para ver si el usuario tiene la sesion iniciada.
 router.post("/getUserByEmail", user.getUserByEmail) //funcion que devuelve el usuario por su email
@@ -49,6 +55,10 @@ router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 
 //ADDRESS
 router.post("/getAddress", address.findAdressById);
+router.post("/createAddress", address.createAddress);
+
+//ORDER
+router.post("/bill_pdf", bill.to_pdf)
 
 //ADMIN
 router.post("/get-admin",_admin.login);
@@ -62,5 +72,12 @@ router.post("/findCategory", instrument.findByCategory);
 router.post("/send-enroll-request/:classId",enrollRequest.add);
 router.get("/get-all-requests",enrollRequest.getAll);
 router.get("/send-request",enrollRequest.sendRequest);
+
+//ORDER
+router.post("/new_order_address", order.new_order_address);
+router.post("/new_order_pickup", order.new_order_pickup);
+
+//ORDER INSTRUMENTS
+router.post("/new_order_instru", order_instrument.new_order_instru);
 
 module.exports = router;

@@ -35,7 +35,6 @@ const user = {
         const { way_type, address, a_number, additional_address, locality, province, country, postal_code } = req.body;
         const user_address = await Address.create({ way_type, address, a_number, additional_address, locality, province, country, postal_code });
         let user = await Users.update({ "fk_id_address": user_address.id }, { where: { email } });
-        res.json({ way_type, address, a_number, additional_address, locality, province, country, postal_code, cookies });
       }
     } catch (error) {
       res.json(error);
@@ -128,7 +127,6 @@ const user = {
       if (logged) {
         let isbuyer = 1
         const infoUser = await Users.update({ isbuyer }, { where: { email } });
-        res.json(true)
       }
     }
     catch (error) {
@@ -171,10 +169,12 @@ const user = {
    * @param {*} req
    * @param {*} res
    */
+
    returnUserByEmail: async (email) => {
      return await Users.findOne({ where: { "email": email } });
    },
      
+
   /**    
    * @param {*} req 
    * @param {*} res 
