@@ -20,7 +20,7 @@ const user = {
     console.log(req.body)
     const user_password_hash = await bcyptjs.hash(user_password, 8);
     const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
-    res.send("Usuario registrado")
+    res.render("/");
   },
   /**
    * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
@@ -141,10 +141,9 @@ const user = {
    */
   contact: async (req, res) => {
     const { first_name, last_name, email, text } = req.body;
-    console.log(req.body);
     sendemail.contact(first_name, last_name, email, text);
     sendemail.contactfeedback(first_name, email);
-    res.json("Contacto realizado con éxito")
+    res.render("./sentContactForm.ejs")
   },
 
   /**
@@ -181,6 +180,14 @@ const user = {
    */
   getUserByEmail: async (req, res) => {
     res.json(await Users.findOne({ where: { "email": req.body.email } }));
+  },
+
+  logout: (req, res) => {
+    var cookies = req.cookies;
+    if (cookies){
+      var token = cookies.infoJwt;
+      res.json(token);
+    }
   }
 }
 

@@ -56,7 +56,12 @@ const pages = {
     
     showmap: (req,res)=>{
         res.render("./map.ejs")
+    },
+
+    sentEnrollRequest: (req,res)=>{
+        res.render("./sentEnrollRequest.ejs")
     }
+    
 
 };
 
