@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS users(
  CREATE TABLE IF NOT EXISTS orders(
         id INT AUTO_INCREMENT NOT NULL,
         order_number CHAR(10) UNIQUE NOT NULL, 
+        order_date DATE DEFAULT (CURRENT_DATE),
         fk_id_user INT,
         pickup_address VARCHAR(300),
         fk_id_address INT,

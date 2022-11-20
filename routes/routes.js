@@ -7,8 +7,12 @@ const _center = require("../controllers/centers.controllers");
 const pages = require("../controllers/pages.controllers");
 const enrollRequest = require("../controllers/enroll.request.controllers");
 const address = require("../controllers/address.controllers");
+
+const bill = require("../controllers/bill.controllers")
+
 const order = require("../controllers/order.controllers");
 const order_instrument = require("../controllers/orders_instruments.controllers");
+
 
 
 //PAGES
@@ -50,6 +54,9 @@ router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 //ADDRESS
 router.post("/getAddress", address.findAdressById);
 router.post("/createAddress", address.createAddress);
+
+//ORDER
+router.post("/bill_pdf", bill.to_pdf)
 
 //ADMIN
 router.post("/get-admin",_admin.login);

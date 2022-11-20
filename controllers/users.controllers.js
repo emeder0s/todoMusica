@@ -127,7 +127,6 @@ const user = {
       if (logged) {
         let isbuyer = 1
         const infoUser = await Users.update({ isbuyer }, { where: { email } });
-        //res.json(true)
       }
     }
     catch (error) {

@@ -57,6 +57,7 @@ function autocompletaAddress(address) {
     document.getElementById("country").value = address.country;
 }
 
+
 async function createOrder_adress() {
     let orden;
     if (mismoAddress()) {
@@ -182,3 +183,4 @@ function acordeonMap() {
         map.style.display = "flex";
     }
 }
+

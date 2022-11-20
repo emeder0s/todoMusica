@@ -7,8 +7,10 @@ var coords = JSON.parse(localStorage.getItem("coords"));
 console.log(coords)
 const mapId = "map";                                       //* Id index del mapa
 var initialCoordinates = [];
+
 if (coords == null) {
     initialCoordinates = [40.4214943, -3.6927735]
+
 } else {
     initialCoordinates = coords;
 }      //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
@@ -79,6 +81,7 @@ function showTodomusica() {
 
         });
 }
+
 
 /*-------------------------------------CREAR ORDEN A PARTIR DE UN PUNTO DE RECOGIDA------------------------------*/
 
