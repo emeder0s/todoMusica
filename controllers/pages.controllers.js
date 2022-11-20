@@ -60,7 +60,8 @@ const pages = {
     
     pay: (req,res)=>{
         res.render("./pago.pug")
-
+    },
+    
     sentEnrollRequest: (req,res)=>{
         res.render("./sentEnrollRequest.ejs")
     }

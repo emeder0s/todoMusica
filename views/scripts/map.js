@@ -84,7 +84,12 @@ function showTodomusica() {
 
 
 /*-------------------------------------CREAR ORDEN A PARTIR DE UN PUNTO DE RECOGIDA------------------------------*/
-
+/**
+ * Funcion que recibe como parametro el punto en el cual el usuario quiere recibir un pedido
+ * y que con ella inserta en la base de datos un registro en la tabla orders. Ademas llama a funciones
+ * que completan la orden (estan definidas en compra.js) y resirige a la siguiente pagina.
+ * @param {*} address_tienda 
+ */
 async function selectstore(address_tienda) {
     let orden = {
             order_number: generarOrderNumber(),
