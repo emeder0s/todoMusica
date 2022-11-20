@@ -57,12 +57,14 @@ const pages = {
     showmap: (req,res)=>{
         res.render("./map.ejs")
     },
+    
+    pay: (req,res)=>{
+        res.render("./pago.pug")
 
     sentEnrollRequest: (req,res)=>{
         res.render("./sentEnrollRequest.ejs")
     }
     
-
 };
 
 module.exports = pages;

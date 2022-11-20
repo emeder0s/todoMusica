@@ -12,7 +12,7 @@ h1#categorias {
     justify-content: space-around;
 }
 
-button.instrumentos img{
+button.instrumentos img {
     width: 30%;
     margin-left: 5%;
 }
@@ -28,12 +28,13 @@ button.instrumentos {
     border-bottom: 0.25px solid rgba(128, 128, 128, 0.649);
 }
 
-button.instrumentos p{
+button.instrumentos p {
     margin-left: 15%;
     padding-top: 8%;
 }
 
-div#contenedor_instrumentos img, div.elemento_carrito img {
+div#contenedor_instrumentos img,
+div.elemento_carrito img {
     width: 30%;
     margin-left: 5%;
 }
@@ -48,7 +49,8 @@ span {
     font-weight: 500;
 }
 
-div.instrumento_comprar, div.elemento_carrito{
+div.instrumento_comprar,
+div.elemento_carrito {
     background-color: white;
     padding: 8px;
     margin: 8px 8px;
@@ -60,6 +62,7 @@ button.compra {
     font-size: 13px;
     padding: 4px;
     margin-left: 10px;
+    width: 145px;
 }
 
 div.div_datos {
@@ -73,11 +76,29 @@ div.div_datos {
     grid-template-columns: 80% 20%;
 }
 
-div.offcanvas-body{
+div.offcanvas-body {
     background-color: #f3f3f3;
 }
 
-#h1container{
+#h1container {
     display: flex;
     justify-content: space-around;
 }
+
+.foto_carrito {
+    width: 25px;
+}
+
+#offcanvasRight>div.offcanvas-body>div>div>div>button>img {
+    width: 20px;
+}
+
+#offcanvasRight>div.offcanvas-body>div>div>div>button {
+    margin-left: 40px;
+}
+
+#contenedor_instrumentos>div>div>div>button>img {
+    width: 20px;
+    margin-right: 5px;
+}
+

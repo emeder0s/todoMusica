@@ -85,14 +85,14 @@ function showTodomusica() {
 
 /*-------------------------------------CREAR ORDEN A PARTIR DE UN PUNTO DE RECOGIDA------------------------------*/
 
-function selectstore(address_tienda) {
+async function selectstore(address_tienda) {
     let orden = {
             order_number: generarOrderNumber(),
             fk_id_user: user_busq.id,
             pickup_address: address_tienda
         }
         
-    fetch("/new_order_pickup", {
+    await fetch("/new_order_pickup", {
         method: "POST",
         body: JSON.stringify(orden),
         mode: "cors",
@@ -104,4 +104,5 @@ function selectstore(address_tienda) {
         createOrderInstrument(json.id);
         userToBuyer();
     });
+    window.location.href = "http://localhost:3000/pay";
 }
