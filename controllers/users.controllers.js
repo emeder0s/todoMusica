@@ -181,6 +181,14 @@ const user = {
    */
   getUserByEmail: async (req, res) => {
     res.json(await Users.findOne({ where: { "email": req.body.email } }));
+  },
+
+  logout: (req, res) => {
+    var cookies = req.cookies;
+    if (cookies){
+      var token = cookies.infoJwt;
+      res.json(token);
+    }
   }
 }
 
