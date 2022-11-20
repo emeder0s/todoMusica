@@ -1,29 +1,37 @@
 body {
-    background-color: rgb(48, 45, 97);
+    background-color: #f3f3f3;
 }
+
 #form-email{
     display: flex;
     justify-content: center;
 }
-#container {
+
+/* #container {
     width: 20%;
     background-color: rgb(111, 107, 175);
     padding: 10px;
     border-radius: 10px;
+} */
+
+form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
 }
-h4 {
-    color: white;
-    text-align: center;
-}
+
 #cont-body {
     display       : flex;
     flex-direction: column;
 }
-p,a{
-    margin-top: 5%;
-    text-align: center;
-    color:rgb(233, 173, 173)
-}
+
 a{
-text-decoration: none;
+    text-decoration: none;
+    font-weight: bold;
+    color:black
 }
+
+p{
+    margin-bottom:3px;
+}
+

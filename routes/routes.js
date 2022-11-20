@@ -16,6 +16,7 @@ const order_instrument = require("../controllers/orders_instruments.controllers"
 
 
 //PAGES
+router.get("/", pages.home);//pagina de inicio
 router.get("/select-center-instrument",pages.startEnroll);//pagina para seleccionar el centro y el instrumento de las clases a mostrar
 router.get("/signin", pages.signin) //pagina del registro de usuario
 router.get("/address", pages.insertAddress)// pagina registro de direccion
@@ -28,6 +29,7 @@ router.get("/dashboard", pages.dashboard)//Formulario de contacto
 router.get("/instruments", pages.instruments)//Vista de los intrumentos 
 router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
+
 
 
 //USER
@@ -44,7 +46,7 @@ router.get("/isAuthorized", user.isAuthorized)//funcion que devuelve el token de
 router.post("/getUserByEmail", user.getUserByEmail) //funcion que devuelve el usuario por su email
 
 //CLASSES
-router.get("/mostrar-clases",_class.showAll);
+router.get("/show-classes",_class.showAll);
 router.get("/clases-estudiante/:id",_class.showByUser);
 router.post("/matricularse/:idClass/:idUser",_class.enroll);
 router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
@@ -69,6 +71,7 @@ router.post("/findCategory", instrument.findByCategory);
 //ENROLL REQUEST
 router.post("/send-enroll-request/:classId",enrollRequest.add);
 router.get("/get-all-requests",enrollRequest.getAll);
+router.get("/send-request",enrollRequest.sendRequest);
 
 //ORDER
 router.post("/new_order_address", order.new_order_address);

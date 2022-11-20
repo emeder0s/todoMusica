@@ -1,10 +1,11 @@
 const center = require("../controllers/centers.controllers");
 const instrument = require("../controllers/instruments.controllers")
 const admin = require("../controllers/admin.controllers")
+const user = require("../controllers/users.controllers")
 
 const pages = {
     home: (req, res) => {
-        //   res.render("index");
+           res.render("./index.ejs");
     },
 
     startEnroll: async (req, res) => {

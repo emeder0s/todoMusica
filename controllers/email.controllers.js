@@ -136,7 +136,69 @@ const email = {
       }
       return info
     })
-  }
+  },
+  enrollRequestAccepted: async (user_email,_class,_center) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Resultado de solicitud de matriculación',
+      text: "",
+      html: `<!doctype html>
+          <html ⚡4email>
+            <head>
+              <meta charset="utf-8">
+            </head>
+            <body>
+              <h1>¡Felicidades! - Ha sido ACEPTADO</h1>
+              <h3>TodoMúsica</h3>
+              <p>Nos complace comunicarle que ha sido aceptado en la clase de ${_class.instrument} - ${_class.schedule}</p>
+              <p>Para terminar el proceso de matriculación deberá ponerse en contacto con el centro donde se imparten sus clases para que le expliquen las opciones de pago:</p>
+              <p>Centro: ${_center.center_name} </p>
+              <p>Telefono: ${_center.phone_number} </p>
+              <p>Gracias por confiar en TodoMúsica.</p>
+            </body>
+          </html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    });
+  },
+
+  enrollRequestRejected: async (user_email,_class,_center) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Resultado de solicitud de matriculación',
+      text: "",
+      html: `<!doctype html>
+          <html ⚡4email>
+            <head>
+              <meta charset="utf-8">
+            </head>
+            <body>
+              <h1>Lo sentimos - No ha sido aceptado</h1>
+              <h3>TodoMúsica</h3>
+              <p>Lamentamos comunicarle que no ha sido aceptado en la clase de ${_class.instrument} - ${_class.schedule} en el centro  ${_center.center_name}</p>
+              <p>Gracias por confiar en TodoMúsica.</p>
+            </body>
+          </html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    });
+  },
 };
 
 module.exports = email;

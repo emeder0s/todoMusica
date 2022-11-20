@@ -1,8 +1,11 @@
 function sendRequest(button, request_status){
     var request_id = button.getAttribute("request-id");
-    var user_email = button.getAttribute("user_email");
-    // fetch('https://example.com?' + new URLSearchParams({request_id,request_status
-    // })).then((res) => res.json())
+    var user_email = button.getAttribute("user-email");
+    fetch('/send-request?' + new URLSearchParams({request_id,request_status,user_email}))
+    .then((res) => res.json())
+    .then((data) => {
+        document.getElementById(data.request_id).style.display="none";
+    })
 }
 
 (() =>{
@@ -23,29 +26,31 @@ function sendRequest(button, request_status){
             var schedule = document.createElement("p");
             var seats = document.createElement("p");
 
-
             request_cont.setAttribute("class","request-container");
-            user.setAttribute("class","resquest-paragrapj");
-            isbuyer.setAttribute("class","resquest-paragrapj");
+            request_cont.setAttribute("id",request.id_request);
+            user.setAttribute("class","request-paragraph");
+            isbuyer.setAttribute("class","request-paragraph is-buyer");
             class_cont.setAttribute("class","class-request-container");
             buttons_cont.setAttribute("class","buttons-request-container");
             accept_request.setAttribute("class","btn btn-success btn-sm");
             reject_request.setAttribute("class","btn btn-danger btn-sm");
             accept_request.setAttribute("onclick","sendRequest(this,'accepted')");
             reject_request.setAttribute("onclick","sendRequest(this,'rejected')");
-            accept_request.setAttribute("request-id",request.request_id);
-            reject_request.setAttribute("request-id",request.request_id);
+            accept_request.setAttribute("request-id",request.id_request);
+            reject_request.setAttribute("request-id",request.id_request);
             accept_request.setAttribute("user-email",request.user_email);
             reject_request.setAttribute("user-email",request.user_email);
 
             user.innerHTML = `Usuario: ${request.user_email}`
-            isbuyer.innerHTML = (request.isbuyer) ? "COMPRADOR" : "";
+
+            isbuyer.innerHTML = (request.is_buyer) ? "COMPRADOR" : "";
             accept_request.innerHTML = "Aceptar";
             reject_request.innerHTML = "Rechazar";
             center_name.innerHTML = `Centro: ${request.center}`
             instrument.innerHTML = `Instrumento: ${request.instrument}`
             schedule.innerHTML = `Horario: ${request.schedule}`
-            seats.innerHTML = `Num. plazas: ${request.students.length}`
+            var seatsAvailables = 4 - request.students.length;
+            seats.innerHTML = `Num. plazas disponibles: ${seatsAvailables}`
 
             buttons_cont.appendChild(accept_request);
             buttons_cont.appendChild(reject_request);
@@ -53,14 +58,20 @@ function sendRequest(button, request_status){
             class_cont.appendChild(instrument);
             class_cont.appendChild(schedule);
             class_cont.appendChild(seats);
-            request_cont.appendChild(user);
             request_cont.appendChild(isbuyer);
+            request_cont.appendChild(user);
             request_cont.appendChild(class_cont);
             request_cont.appendChild(buttons_cont);
 
             container.appendChild(request_cont);
-
-            
         })
+    });
+})();
+
+(() =>{
+    fetch("/show-classes")
+    .then((res) => res.json())
+    .then((classes) => {
+        console.log(classes);
     });
 })()

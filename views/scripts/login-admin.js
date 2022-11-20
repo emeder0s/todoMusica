@@ -16,7 +16,6 @@ form.addEventListener("submit", e => {
     fetch("/get-admin", info)
     .then((res) => res.json())
     .then(data =>{
-        console.log(data)
         if (data){
             window.location.href = data;
         }else{
