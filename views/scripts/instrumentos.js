@@ -109,7 +109,10 @@ function muestraIntrumentos(instrumentos, categoria) {
         div_botones.style.justifyContent = "flex-end";
         boton_carrito.setAttribute("class", "btn btn-dark compra");
         boton_carrito.setAttribute("idinstrumento", instrument.id);
-        boton_carrito.innerText = "Añadir al carrito";
+        let carritoadd = document.createElement("img");
+        carritoadd.setAttribute("src", "http://127.0.0.1:3000/img/carritoadd.png");
+        boton_carrito.appendChild(carritoadd);
+        boton_carrito.appendChild(document.createTextNode("Añadir al carrito"));
         intrumentosAlLocalStorage(boton_carrito, instrumentos);
     });
 }
@@ -158,10 +161,11 @@ function preparaBotonCarrito(boton) {
     boton.setAttribute("data-bs-toggle", "offcanvas");
     boton.setAttribute("data-bs-target", "#offcanvasRight");
     boton.setAttribute("aria-controls", "offcanvasRight");
+    boton.style.padding = "0";
     let img = document.createElement("img");
-    //img.setAttribute("src", "/views/img/carrito");
-    //boton.appendChild(img);
-    boton.innerHTML = "🛒";
+    img.setAttribute("src", "http://127.0.0.1:3000/img/carrito.png");
+    img.setAttribute("class", "foto_carrito");
+    boton.appendChild(img);
 }
 
 function pintaCarrito(instrumentos) {
@@ -212,8 +216,12 @@ function pintaCarrito(instrumentos) {
             div_2.appendChild(unidades);
             sacar = document.createElement("button");
             sacar.setAttribute("class", "btn btn-dark");
-            sacar.innerHTML = "Sacar del carrito";
-            div.appendChild(sacar);
+            
+            let papelera = document.createElement("img");
+            papelera.setAttribute("class", "papelera");
+            papelera.setAttribute("src", "http://127.0.0.1:3000/img/papelera.png");
+            sacar.appendChild(papelera)
+            div_2.appendChild(sacar);
             sacar.addEventListener("click", () => {
                 let carri = JSON.parse(localStorage.getItem("carrito"));
                 let i = buscaEnCarrito(carri, element.id);

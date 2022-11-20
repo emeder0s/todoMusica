@@ -13,6 +13,7 @@ app.set("view engine", "pug");
 app.set("view engine", "ejs");
 app.use(express.static("./views"));
 app.use("/jsons", express.static("./docs/jsons"))
+app.use("/img", express.static("./views/img"))
 app.use("/", router);
 
 
