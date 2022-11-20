@@ -6,7 +6,12 @@ navigator.geolocation.getCurrentPosition((position) => {
 var coords = JSON.parse(localStorage.getItem("coords"));
 console.log(coords)
 const mapId = "map";                                       //* Id index del mapa
-const initialCoordinates = coords;       //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
+var initialCoordinates = [];
+if(coords == null){
+    initialCoordinates = [40.4214943,-3.6927735]
+} else {
+    initialCoordinates = coords;
+}      //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
 const map = L.map(mapId).setView(initialCoordinates, 13);
 //* const Map = (Nos inserta el mapa en el div "map").(Centrada en la cordenada inicial, Zoom = 5)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -76,5 +81,5 @@ function showTodomusica() {
 }
 
 function selectstore(id_tienda){
-    
+    console.log("selecionada tienda")
 }

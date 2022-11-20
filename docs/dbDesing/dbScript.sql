@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS users(
         phone VARCHAR(15),
         birth_date DATE,
         user_password VARCHAR(60),
-        isbuyer TINYINT,
+        isbuyer TINYINT DEFAULT 0,
         fk_id_address INT,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_address) REFERENCES addresses(id)
@@ -34,14 +34,15 @@ CREATE TABLE IF NOT EXISTS users(
  CREATE TABLE IF NOT EXISTS orders(
         id INT AUTO_INCREMENT NOT NULL,
         order_number CHAR(10) UNIQUE NOT NULL, 
+        order_date DATE DEFAULT (CURRENT_DATE),
         fk_id_user INT,
-        pickup_addres VARCHAR(300),
+        pickup_address VARCHAR(300),
         fk_id_address INT,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_address) REFERENCES addresses(id),
         FOREIGN KEY (fk_id_user) REFERENCES users(id) ON DELETE SET NULL
  );
- 
+
 
  
   CREATE TABLE IF NOT EXISTS instruments(
@@ -60,16 +61,16 @@ CREATE TABLE IF NOT EXISTS users(
         fk_id_order INT NOT NULL,
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_instrument) REFERENCES instruments(id),
-        FOREIGN KEY (fk_id_order) REFERENCES orders(id) ON DELETE SET NULL
+        FOREIGN KEY (fk_id_order) REFERENCES orders(id)
  );
 
  CREATE TABLE IF NOT EXISTS deleted_users(
         id INT AUTO_INCREMENT NOT NULL,
         old_id INT,
-        first_name VARCHAR(50) NOT NULL, 
-        last_name VARCHAR(50) NOT NULL, 
+        first_name VARCHAR(50), 
+        last_name VARCHAR(50), 
         dni VARCHAR(15),
-        email VARCHAR (40) NOT NULL,
+        email VARCHAR (40),
         phone VARCHAR(15),
         birth_date DATE,
         user_password VARCHAR(60),

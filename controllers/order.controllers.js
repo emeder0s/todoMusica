@@ -11,6 +11,6 @@ const order = {
     },    
     new_order_address: (req,res)=>{
 
-    },
+    }
 }
 module.exports = order
