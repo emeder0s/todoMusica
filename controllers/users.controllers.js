@@ -20,7 +20,7 @@ const user = {
     console.log(req.body)
     const user_password_hash = await bcyptjs.hash(user_password, 8);
     const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
-    res.send("Usuario registrado")
+    res.render("/");
   },
   /**
    * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.

@@ -55,6 +55,12 @@ nav img#logo {
     height: 41px;
 }
 
+nav p{
+    margin: 0;
+    width: 100%;
+    text-align: right;
+}
+
 .container {
     padding: 30px;
 

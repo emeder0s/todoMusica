@@ -30,8 +30,6 @@ router.get("/instruments", pages.instruments)//Vista de los intrumentos
 router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
 
-
-
 //USER
 router.post("/register", user.register); //funcion que inserta en users
 router.get("/findAll", user.findAll) //funcion que muestra todos los usuarios

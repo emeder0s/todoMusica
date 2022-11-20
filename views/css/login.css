@@ -7,13 +7,6 @@ body {
     justify-content: center;
 }
 
-/* #container {
-    width: 20%;
-    background-color: rgb(111, 107, 175);
-    padding: 10px;
-    border-radius: 10px;
-} */
-
 form div{
     display: flex;
     flex-direction: column;
