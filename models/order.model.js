@@ -11,7 +11,9 @@ const Order = sequelize.define('orders', {
     order_number: {
         type: DataTypes.STRING
     },
-
+    order_date: {
+        type: DataTypes.DATE
+    },
     fk_id_user: {
         type: DataTypes.INTEGER,
         allowNull: false
