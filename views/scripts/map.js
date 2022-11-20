@@ -6,7 +6,12 @@ navigator.geolocation.getCurrentPosition((position) => {
 var coords = JSON.parse(localStorage.getItem("coords"));
 console.log(coords)
 const mapId = "map";                                       //* Id index del mapa
-const initialCoordinates = coords;       //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
+var initialCoordinates = [];
+if (coords == null) {
+    initialCoordinates = [40.4214943, -3.6927735]
+} else {
+    initialCoordinates = coords;
+}      //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
 const map = L.map(mapId).setView(initialCoordinates, 13);
 //* const Map = (Nos inserta el mapa en el div "map").(Centrada en la cordenada inicial, Zoom = 5)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -17,25 +22,25 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var appleIcon = L.icon({
     iconUrl: './img/apple.png',
     iconSize: [38, 38], // size of the icon
-    shadowSize: [0,0], // size of the shadow
-    iconAnchor: [20,20], // point of the icon which will correspond to marker's location
-    popupAnchor: [0,0] // point from which the popup should open relative to the iconAnchor
+    shadowSize: [0, 0], // size of the shadow
+    iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
 });
 var alcampoIcon = L.icon({
     iconUrl: './img/alcampo.png',
     iconSize: [38, 38], // size of the icon
-    shadowSize: [0,0], // size of the shadow
-    iconAnchor: [20,20], // point of the icon which will correspond to marker's location
-    popupAnchor: [0,0] // point from which the popup should open relative to the iconAnchor
+    shadowSize: [0, 0], // size of the shadow
+    iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
 });
 var todomusicaIcon = L.icon({
     iconUrl: './img/todomusica.png',
 
 
     iconSize: [38, 38], // size of the icon
-    shadowSize: [0,0], // size of the shadow
-    iconAnchor: [20,20], // point of the icon which will correspond to marker's location
-    popupAnchor: [0,0] // point from which the popup should open relative to the iconAnchor
+    shadowSize: [0, 0], // size of the shadow
+    iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
 });
 
 function showAlcampo() {
@@ -45,7 +50,7 @@ function showAlcampo() {
             console.log(res)
             for (let i = 0; i < res.length; i++) {
                 var marker = L.marker([res[i].lat, res[i].lon], { icon: alcampoIcon }).addTo(map);
-                marker.bindPopup(`<b>${res[i].display_name}</b><br><a onclick="selectstore(${res[i].place_id})">Selecionar Punto de Recogida</a>`);
+                marker.bindPopup(`<b>${res[i].display_name}</b><br><a onclick="selectstore('${res[i].display_name}');">Selecionar Punto de Recogida</a>`);
             }
 
         });
@@ -57,7 +62,7 @@ function showApple() {
             console.log(res)
             for (let i = 0; i < res.length; i++) {
                 var marker = L.marker([res[i].lat, res[i].lon], { icon: appleIcon }).addTo(map);
-                marker.bindPopup(`<b>${res[i].display_name}</b><br><a <a onclick="selectstore(${res[i].place_id})">Selecionar Punto de Recogida</a>`);
+                marker.bindPopup(`<b>${res[i].display_name}</b><br><a <a onclick="selectstore('${res[i].display_name}')">Selecionar Punto de Recogida</a>`);
             }
 
         });
@@ -68,13 +73,32 @@ function showTodomusica() {
         .then((res) => {
             console.log(res)
             for (let i = 0; i < res.length; i++) {
-                var marker = L.marker([res[i].coordinates.split(", ")[0],res[i].coordinates.split(", ")[1]], { icon: todomusicaIcon }).addTo(map);
+                var marker = L.marker([res[i].coordinates.split(", ")[0], res[i].coordinates.split(", ")[1]], { icon: todomusicaIcon }).addTo(map);
                 marker.bindPopup(`<b>${res[i].center_name}</b><p>${res[i].address + " " + res[i].phone_number}</p><br><a onclick="selectstore(${res[i]._id.$oid})">Selecionar Punto de Recogida</a>`);
             }
 
         });
 }
 
-function selectstore(id_tienda){
-    
+/*-------------------------------------CREAR ORDEN A PARTIR DE UN PUNTO DE RECOGIDA------------------------------*/
+
+function selectstore(address_tienda) {
+    let orden = {
+            order_number: generarOrderNumber(),
+            fk_id_user: user_busq.id,
+            pickup_address: address_tienda
+        }
+        
+    fetch("/new_order_pickup", {
+        method: "POST",
+        body: JSON.stringify(orden),
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    }).then((res) => res.json()).then(json => { 
+        createOrderInstrument(json.id);
+        userToBuyer();
+    });
 }

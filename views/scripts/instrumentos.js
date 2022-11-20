@@ -22,6 +22,7 @@ var allInstruments;
 
     buttons.forEach(boton => {
         boton.addEventListener("click", () => {
+            document.getElementById("carritoIni").style.display = "none";
             let info = {
                 method: "POST",
                 body: JSON.stringify({
@@ -66,6 +67,7 @@ function muestraIntrumentos(instrumentos, categoria) {
     boton.innerHTML = "Ver todas las categorías";
     boton.setAttribute("class", "btn btn-dark");
     boton.addEventListener("click", () => {
+        document.getElementById("carritoIni").style.display = "";
         document.getElementById("categorias").innerText = "Nuestras categorías";
         categorias.style.display = "flex";
         div.innerHTML = "";
@@ -101,17 +103,14 @@ function muestraIntrumentos(instrumentos, categoria) {
         div_botones = document.createElement("div");
         div_datos.appendChild(div_botones);
         div_datos.setAttribute("class", "div_datos");
-        boton_compra = document.createElement("button");
         boton_carrito = document.createElement("button");
-        div_botones.appendChild(boton_compra);
         div_botones.appendChild(boton_carrito);
+        div_botones.style.display = "flex";
+        div_botones.style.justifyContent = "flex-end";
         boton_carrito.setAttribute("class", "btn btn-dark compra");
         boton_carrito.setAttribute("idinstrumento", instrument.id);
-        boton_compra.setAttribute("class", "btn btn-dark compra");
         boton_carrito.innerText = "Añadir al carrito";
-        boton_compra.innerText = "Comprar";
         intrumentosAlLocalStorage(boton_carrito, instrumentos);
-        boton_compra.style.marginLeft = "0";
     });
 }
 
@@ -133,6 +132,7 @@ function intrumentosAlLocalStorage(boton, instrumentos) {
         pintaCarrito(allInstruments);
     });
 }
+
 function buscaEnCarrito(carrito, id) {
     var index;
     for (let i = 0; i < carrito.length; i++) {
@@ -159,7 +159,7 @@ function preparaBotonCarrito(boton) {
     boton.setAttribute("data-bs-target", "#offcanvasRight");
     boton.setAttribute("aria-controls", "offcanvasRight");
     let img = document.createElement("img");
-    //img.setAttribute("src", "http://localhost:3000/views/img/carrito");
+    //img.setAttribute("src", "/views/img/carrito");
     //boton.appendChild(img);
     boton.innerHTML = "🛒";
 }
