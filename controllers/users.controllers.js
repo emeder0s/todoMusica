@@ -26,23 +26,36 @@ const user = {
       res.json("Email o DNI repetido");
     }
   },
-    /**
-   * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
-   * @param {*} req 
-   * @param {*} res 
-   * @returns 
-   */
-     isAuthorized: (req, res) => {
-      var cookies = req.cookies;
-      var token = cookies.infoJwt;
-      try {
-        let jwtVerify = jwt.verify(token, "m1c4s4")
-        res.json(jwtVerify)
-        return jwtVerify
-      } catch (error) {
-        res.json("Usuario no loggeado")
-      }
-    },
+  update: async (req, res) => {
+    console.log(req.body)
+    try {
+      console.log("hola")
+      const { first_name, last_name, dni, email, phone, birth_date } = req.body;
+      const userr = await Users.findOne({where:{email}})
+      userr.update({ first_name, last_name, dni, email, phone, birth_date })
+      userr.save();
+      res.redirect("back");
+    } catch (ValidationError) {
+      res.json("Email o DNI repetido");
+    }
+  },
+  /**
+ * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+  isAuthorized: (req, res) => {
+    var cookies = req.cookies;
+    var token = cookies.infoJwt;
+    try {
+      let jwtVerify = jwt.verify(token, "m1c4s4")
+      res.json(jwtVerify)
+      return jwtVerify
+    } catch (error) {
+      res.json("Usuario no loggeado")
+    }
+  },
   /**
    * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
    * @param {*} req 

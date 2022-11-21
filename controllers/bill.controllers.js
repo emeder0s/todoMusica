@@ -35,6 +35,7 @@ const bill = {
                 const totalProducto = producto.dataValues.qty_instrument * nprice;
                 console.log("Precio Unitario: " + nprice)
                 subtotal += totalProducto;
+                
                 // Y concatenar los productos
                 tabla += `<tr>
                 <td>${instrument.dataValues.model}</td>
@@ -49,23 +50,40 @@ const bill = {
             const impuestos = subtotalConDescuento * 0.21
             const total = subtotalConDescuento + impuestos;
             var order_date = order.dataValues.order_date;
+            var order_number = order.dataValues.order_number
+
+            //Busca los datos del usuario.
             var user = await Users.findOne({ where: { "id": order.dataValues.fk_id_user } })
             var user_name = user.dataValues.first_name + " " + user.dataValues.last_name
-            var order_number = order.dataValues.order_number
-            var address = await Address.findOne({ where: { "id": order.dataValues.fk_id_address } })
-            var pickup_address = order.dataValues.pickup_address
-            var addressv = address.dataValues
-            var user_address = `${addressv.way_type}/ ${addressv.address}, ${addressv.a_number}, ${addressv.additional_address}. ${addressv.locality + " " + addressv.province + " " + addressv.postal_code + " " + addressv.country}`
             var email = user.dataValues.email
             var phone_number = user.dataValues.phone
             var dni = user.dataValues.dni
+
+            //Busca la dirección del usuario que hay registrada en la base de datos.
+            var userAddress = "N/A"
+            if(user.dataValues.fk_id_address){
+            var reqUserAddress = await Address.findOne({ where: { "id": user.dataValues.fk_id_address } })
+            var userAddressv = reqUserAddress.dataValues
+            var userAddress = `${userAddressv.way_type}/ ${userAddressv.address}, ${userAddressv.a_number}, ${userAddressv.additional_address}. ${userAddressv.locality + " " + userAddressv.province + " " + userAddressv.postal_code + " " + userAddressv.country}`    
+            }
+
+            //Busca la dirección de envio solicitada en el pedido.
+            if(order.dataValues.fk_id_address){
+                var orderAddress = await Address.findOne({ where: { "id": order.dataValues.fk_id_address } })
+                var addressv = orderAddress.dataValues
+                var finalAddress = `${addressv.way_type}/ ${addressv.address}, ${addressv.a_number}, ${addressv.additional_address}. ${addressv.locality + " " + addressv.province + " " + addressv.postal_code + " " + addressv.country}`    
+            }
+           else{ 
+               var finalAddress = order.dataValues.pickup_address
+            }
+            
 
             //Insertamos las variables en la plantilla:
             contenidoHtml = contenidoHtml.replace("{{tablaProductos}}", tabla);
             contenidoHtml = contenidoHtml.replace("{{NumeroDeOrden}}", order_number);
             contenidoHtml = contenidoHtml.replace("{{nombreCliente}}", user_name);
-            contenidoHtml = contenidoHtml.replace("{{direccion}}", user_address);
-            contenidoHtml = contenidoHtml.replace("{{direccionRecogida}}", pickup_address);
+            contenidoHtml = contenidoHtml.replace("{{direccion}}", userAddress);
+            contenidoHtml = contenidoHtml.replace("{{direccionEnvio}}", finalAddress);
             contenidoHtml = contenidoHtml.replace("{{email}}", email);
             contenidoHtml = contenidoHtml.replace("{{dni}}", dni);
             contenidoHtml = contenidoHtml.replace("{{telefono}}", phone_number);
