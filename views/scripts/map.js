@@ -91,7 +91,7 @@ async function selectstore(address_tienda) {
             fk_id_user: user_busq.id,
             pickup_address: address_tienda
         }
-        
+    var id_order;   
     await fetch("/new_order_pickup", {
         method: "POST",
         body: JSON.stringify(orden),
@@ -102,7 +102,8 @@ async function selectstore(address_tienda) {
         }
     }).then((res) => res.json()).then(json => { 
         createOrderInstrument(json.id);
+        id_order=json.id
         userToBuyer();
     });
-    window.location.href = "http://localhost:3000/pay";
+    window.location.href = `http://localhost:3000/pay/${id_order}`;
 }

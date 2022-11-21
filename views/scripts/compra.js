@@ -60,7 +60,7 @@ function autocompletaAddress(address) {
 
 async function createOrder_adress() {
     let orden;
-    if (mismoAddress()) {
+    if (user_address && mismoAddress()) {
         orden = {
             order_number: generarOrderNumber(),
             fk_id_user: user_busq.id,
@@ -73,6 +73,7 @@ async function createOrder_adress() {
             fk_id_address: await creaNuevoAddres()
         }
     }
+    var id_order;
     await fetch("/new_order_address", {
         method: "POST",
         body: JSON.stringify(orden),
@@ -83,9 +84,10 @@ async function createOrder_adress() {
         }
     }).then((res) => res.json()).then(json => { 
         createOrderInstrument(json.id);
+        id_order=json.id
         userToBuyer();
     });
-    window.location.href = "http://localhost:3000/pay";
+    window.location.href = `http://localhost:3000/pay/${id_order}`;
 }
 
 function generarOrderNumber() {

@@ -59,8 +59,9 @@ const pages = {
     },
     
     pay: (req,res)=>{
-        res.render("./pago.pug")
-
+        
+        res.render("./pago.pug", {id_order: req.params.id_order})
+    },
     sentEnrollRequest: (req,res)=>{
         res.render("./sentEnrollRequest.ejs")
     }
