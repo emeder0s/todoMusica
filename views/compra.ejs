@@ -15,7 +15,6 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
-
 <body>
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
@@ -30,9 +29,10 @@
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
                     <p> <strong>Intruduzca la dirección a la que quiere que le llegue su pedido</strong> </p>
-                    <form style="display: flex; flex-direction: column; justify-content: center;">
-                        <label for="way_type">Tipo via:</label>
-                        <select name="way_type" id="way_type">
+
+                    <form id="form-address" style="display: flex; flex-direction: column; justify-content: center;">
+                        <label for="way_type">Tipo via: *</label>
+                        <select class="custom-select" name="way_type" id="way_type" required>
                             <option value="Calle">Calle</option>
                             <option value="Avenida">Avenida</option>
                             <option value="Paseo">Paseo</option>
@@ -59,8 +59,7 @@
                         <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal">
                         <label for="country">País</label>
                         <input type="text" name="country" id="country" placeholder="Pais">
-                    </form>
-                    <button id="btn" class="btn btn-dark" onclick="createOrder_adress();">Siguiente</button>
+                    </form>                   
                 </div>
             </div>
         </div>

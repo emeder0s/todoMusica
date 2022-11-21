@@ -14,7 +14,9 @@ const user = {
    * @param {*} req 
    * @param {*} res 
    */
-   register: async (req, res) => {
+
+  register: async (req, res) => {
+
     try {
       const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
       console.log(req.body)
@@ -68,16 +70,17 @@ const user = {
   login: async (req, res) => {
     console.log(req.query.url);
     const { email, user_password } = req.body;
-    const user = await Users.findOne({ where: { "email": req.body.email } })
+    const user = await Users.findOne({ where: { "email": req.body.email } });
     let hashSaved = user.dataValues.user_password;
     let compare = bcyptjs.compareSync(user_password, hashSaved);
     const infoJwt = jwt.sign({ email }, "m1c4s4", {
       expiresIn: "1800s",
     });
     if (compare) {
-      res.cookie("infoJwt", infoJwt).redirect(req.query.url);
+      res.cookie("infoJwt", infoJwt);
+      res.json("ok");
     } else {
-      res.json("no ok")
+      res.json("no ok");
     }
   },
   /**
@@ -173,10 +176,10 @@ const user = {
    * @param {*} res
    */
 
-   returnUserByEmail: async (email) => {
-     return await Users.findOne({ where: { "email": email } });
-   },
-     
+  returnUserByEmail: async (email) => {
+    return await Users.findOne({ where: { "email": email } });
+  },
+
   /**    
    * @param {*} req 
    * @param {*} res 
@@ -187,7 +190,7 @@ const user = {
 
   logout: (req, res) => {
     var cookies = req.cookies;
-    if (cookies){
+    if (cookies) {
       var token = cookies.infoJwt;
       res.json(token);
     }
