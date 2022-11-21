@@ -76,37 +76,40 @@ function autocompletaAddress(address) {
  * le pone a la orden el id de esta direccion. En caso contrario, se crea una nueva direccion
  * se añade a la base de datos y se le asigna su id a la orden.
  */
-async function createOrder_adress() {
-    let orden;
-    if (user_address && mismoAddress()) {
-        orden = {
-            order_number: generarOrderNumber(),
-            fk_id_user: user_busq.id,
-            fk_id_address: user_busq.fk_id_address
+(async function createOrder_adress() {
+    document.getElementById("form-address").addEventListener("submit", async e => {
+        e.preventDefault();
+        let orden;
+        if (user_address && mismoAddress()) {
+            orden = {
+                order_number: generarOrderNumber(),
+                fk_id_user: user_busq.id,
+                fk_id_address: user_busq.fk_id_address
+            }
+        } else {
+            orden = {
+                order_number: generarOrderNumber(),
+                fk_id_user: user_busq.id,
+                fk_id_address: await creaNuevoAddres()
+            }
         }
-    } else {
-        orden = {
-            order_number: generarOrderNumber(),
-            fk_id_user: user_busq.id,
-            fk_id_address: await creaNuevoAddres()
-        }
-    }
-    var id_order;
-    await fetch("/new_order_address", {
-        method: "POST",
-        body: JSON.stringify(orden),
-        mode: "cors",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-type": "application/json"
-        }
-    }).then((res) => res.json()).then(json => { 
-        createOrderInstrument(json.id);
-        id_order=json.id
-        userToBuyer();
-    });
-    window.location.href = `http://localhost:3000/pay/${id_order}`;
-}
+        var id_order;
+        await fetch("/new_order_address", {
+            method: "POST",
+            body: JSON.stringify(orden),
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "application/json"
+            }
+        }).then((res) => res.json()).then(json => {
+            createOrderInstrument(json.id);
+            id_order = json.id
+            userToBuyer();
+        });
+        window.location.href = `http://localhost:3000/pay/${id_order}`;
+    })
+})();
 
 /**
  * Funcion que genera un numero de pedido
@@ -222,7 +225,7 @@ async function userToBuyer() {
  */
 function acordeonMap() {
     let map = document.getElementById("map_container");
-    if(map.style.display == "flex") {
+    if (map.style.display == "flex") {
         map.style.display = "none";
     } else {
         map.style.display = "flex";
