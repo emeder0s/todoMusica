@@ -31,8 +31,10 @@ router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
 router.get("/pay/:id_order", pages.pay)
 router.get("/user-account",pages.userAccount)//página del perfil de usuario
+router.get("/sendOrder",pages.sendOrder)
 router.get("/user-classes",pages.userClasses)//página que muestra las clases matriculadas del usuario
 router.get("/profile", pages.profile)
+
 
 
 //USER
@@ -72,7 +74,6 @@ router.get("/is-admin-authorized",_admin.isAdminAuthorized);
 
 
 //INSTRUMENTS
-
 router.get("/findInstruments", instrument.findInstruments);
 router.post("/findCategory", instrument.findByCategory);
 

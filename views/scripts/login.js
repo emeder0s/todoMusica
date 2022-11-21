@@ -1,3 +1,9 @@
+
+/**
+ * Funcion que se ejecuta automaticamente y que se encarga de realizar el inicio
+ * de sesion. En caso de que el usuario o la contraseña no sean validos muestra
+ * un mensaje de error.
+ */
 (() => {
    document.getElementById("alert").style.display = "none";
    document.getElementById("login-form").addEventListener("submit", e => {
