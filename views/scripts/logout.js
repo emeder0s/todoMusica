@@ -16,7 +16,6 @@ function logout(){
             "Content-type": "application/json"
         }
     }).then((res) => res.json()).then(json => {
-        console.log(json)
         if(json == "Usuario no loggeado") {
             document.getElementById("nav-login").style.display="flex";
         } else {

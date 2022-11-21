@@ -2,6 +2,7 @@ const center = require("../controllers/centers.controllers");
 const instrument = require("../controllers/instruments.controllers")
 const admin = require("../controllers/admin.controllers")
 const user = require("../controllers/users.controllers")
+const _class = require("../controllers/classes.controllers")
 const jwt = require("jsonwebtoken");
 
 const pages = {
@@ -77,24 +78,24 @@ const pages = {
               let jwtVerify = jwt.verify(token, "m1c4s4");
               res.render("./userAccount.ejs");
             } catch (error) {
-              res.redirect('back');
+              res.redirect('./login');
             }
         }
     },
 
-    userClasses:(req, res) => {
+    userClasses: async (req, res) => {
         var cookies = req.cookies;
         if(cookies){
             var token = cookies.infoJwt;
             try {
               let jwtVerify = jwt.verify(token, "m1c4s4");
-              res.render("./userClasses.ejs");
+              var classes = await _class.getByUser(token);
+              res.render("./userClasses.ejs",{classes})
             } catch (error) {
-              res.redirect('back');
+                res.render("./login")
             }
         }
     }
-    
 };
 
 module.exports = pages;

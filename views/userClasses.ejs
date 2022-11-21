@@ -12,7 +12,15 @@
     <%- include('partials/nav'); %>
     <%- include('partials/nav-logout'); %>
     <div class="container">
-        
+        <% for(var i=0; i<classes.length; i++) {%>
+            <div class="class-container">
+                <p>Instrumento: <%= classes[i].instrument %></p>
+                <p>Horario: <%= classes[i].schedule %></p>
+                <p>Profesor: <%= classes[i].teacher %></p>
+                <p>Año: <%= classes[i].year %></p>
+            </div>
+           <br>
+        <% } %> 
     </div>
     <%- include('partials/footer'); %>
     <script src="./scripts/logout.js"></script>
