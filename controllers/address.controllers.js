@@ -19,6 +19,10 @@ const address = {
         const { way_type, address, a_number, additional_address, locality, province, country, postal_code } = req.body;
         const new_address = await Address.create({ way_type, address, a_number, additional_address, locality, province, country, postal_code });
         res.json(new_address);
+    },
+
+    returnAddressById: async (id) => {
+        res.json(await Address.findOne({ where: { "id": id } }));
     }
 }
 
