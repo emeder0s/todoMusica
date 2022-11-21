@@ -47,6 +47,10 @@ footer a {
     background-image: url(../img/twitter.png);
 }
 
+nav{
+    display:flex;
+}
+
 nav.navbar {
     padding: 2px 10px;
     background-color:darkgray;

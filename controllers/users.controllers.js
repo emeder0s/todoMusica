@@ -46,6 +46,7 @@ const user = {
    * @param {*} res 
    */
   login: async (req, res) => {
+    console.log(req.query.url);
     const { email, user_password } = req.body;
     const user = await Users.findOne({ where: { "email": req.body.email } })
     let hashSaved = user.dataValues.user_password;
@@ -173,7 +174,6 @@ const user = {
      return await Users.findOne({ where: { "email": email } });
    },
      
-
   /**    
    * @param {*} req 
    * @param {*} res 
@@ -189,6 +189,7 @@ const user = {
       res.json(token);
     }
   }
+
 }
 
 module.exports = user;
