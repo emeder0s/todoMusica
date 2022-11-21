@@ -68,7 +68,10 @@ nav p{
 
 .container {
     padding: 30px;
+}
 
+body {
+    background-color: #f3f3f3;
 }
 
 .container-button{
@@ -101,4 +104,12 @@ a:visited {
 button {
     width: 100%;
 }
+
+.class-container {
+    border-radius: 5px;
+    border: 1px solid #c8c8c8;
+    background-color: white;
+    padding: 5px;
+}
+
 

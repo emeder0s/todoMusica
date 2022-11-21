@@ -3,6 +3,8 @@ var ObjectId = require('mongodb').ObjectId;
 const ClassModel = require("../models/class.model.js");
 const CenterModel = require("../models/center.model.js");
 const _center = require("../controllers/centers.controllers");
+const _user = require("../controllers/users.controllers");
+const jwt = require("jsonwebtoken");
 
 const _class = {
 
@@ -95,6 +97,20 @@ const _class = {
         var classes = await ClassModel.find({instrument:req.body.instrument, fk_id_center:center._id.toString()});
         res.render('./enroll_classes.ejs', {classes});
         //mongoose.disconn();
+    },
+
+    getByUser: async (token) => {
+            let jwtVerify = jwt.verify(token, "m1c4s4")
+            let email = jwtVerify.email; 
+            console.log(email)
+            var user =   await _user.returnUserByEmail(email);
+            var user_id = user.dataValues.id;
+            var filter = {students:user_id.toString()};
+            await mongoose.conn();
+            var classes = await ClassModel.find(filter);
+
+            return classes;
+        //  mongoose.disconn();
     }
 }
 

@@ -8,7 +8,6 @@ function logout(){
 }
 
 (() =>{
-
     fetch("/isAuthorized", {
         method: "GET",
         mode: "cors",
