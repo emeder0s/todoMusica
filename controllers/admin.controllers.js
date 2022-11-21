@@ -28,30 +28,22 @@ const _admin = {
     },
 
     /**
-     * Función que comprueba que un admin tiene la sesion iniciada recogiendo el Json web token de las cookies.
+     * Comprueba si el adinistrador está logueado o no 
      * @param {*} req 
      * @param {*} res 
-     * @returns 
      */
-    isAdminAuthorized: (req) =>{
-        var cookie = req.cookies;
-        if (JSON.stringify(cookie) === "{}") {
-            onsole.log("no hay cokkie");
-           return false;
-            
-        }else{
-            try{
-               var token = cookies.infoJwt;
-               let jwtVerify = jwt.verify(token, "m1m0t0");
-               console.log("todo bien");
-               return true;
-            } finally{
-                console.log("toke expirado");
-               return false;
+    isAdminAuthorized: (req, res) => {
+        var cookies = req.cookies;
+        if (cookies){
+            var token = cookies.infoJwt;
+            try {
+              let jwtVerify = jwt.verify(token, "m1m0t0")
+              res.json(true)
+            } catch (error) {
+              res.json(false)
             }
         }
-     }
+      },
 }
-
 
 module.exports = _admin;

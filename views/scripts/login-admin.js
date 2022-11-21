@@ -23,6 +23,23 @@ form.addEventListener("submit", e => {
         }
     })
 
-})
+});
+
+(() =>{
+  fetch("is-admin-authorized", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-type": "application/json"
+      }
+  }).then((res) => res.json()).then(json => {
+      if(json) {            
+          document.getElementById("nav-logout").style.display="flex";
+      } else {
+          document.getElementById("nav-login").style.display="flex";
+      }
+  });
+})()
 
 
