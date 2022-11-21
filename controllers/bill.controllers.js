@@ -13,10 +13,19 @@ const ubicacionPlantilla = require.resolve("../views/plantillas/factura.html");
 let contenidoHtml = fs.readFileSync(ubicacionPlantilla, 'utf8')
 
 const bill = {
+    /**
+     * Función que genera la factura de un pedido en formato pdf y la envia por correo electronico al usuario.
+     * @param {*} req 
+     * @param {*} res 
+     */
     to_pdf: async (req, res) => {
         try {
+
+            //Consultamos la id de la orden de la que queremos generar el pedido.
             var order = await Orders.findOne({ where: { "id": req.body.order } })
+            //Consultamos la cantidad de cada instrumento que está en el pedido.
             var orders_instruments = await Orders_Instruments.findAll({ where: { "fk_id_order": req.body.order } })
+            //Generamos las filas con los datos (modelo, cantidad y precio) de cada instrumento.
             let tabla = "";
             let subtotal = 0;
             for await (var producto of orders_instruments) {
@@ -34,11 +43,11 @@ const bill = {
                 <td>${totalProducto + " €"}</td>
                 </tr>`;
             }
+            //Declaramos las variables que se van a insertar en la plantilla HTML.
             const descuento = 0;
             const subtotalConDescuento = subtotal - descuento;
             const impuestos = subtotalConDescuento * 0.21
             const total = subtotalConDescuento + impuestos;
-            // Remplazar el valor {{tablaProductos}} por el verdadero valor
             var order_date = order.dataValues.order_date;
             var user = await Users.findOne({ where: { "id": order.dataValues.fk_id_user } })
             var user_name = user.dataValues.first_name + " " + user.dataValues.last_name
@@ -50,7 +59,8 @@ const bill = {
             var email = user.dataValues.email
             var phone_number = user.dataValues.phone
             var dni = user.dataValues.dni
-            console.log(user)
+
+            //Insertamos las variables en la plantilla:
             contenidoHtml = contenidoHtml.replace("{{tablaProductos}}", tabla);
             contenidoHtml = contenidoHtml.replace("{{NumeroDeOrden}}", order_number);
             contenidoHtml = contenidoHtml.replace("{{nombreCliente}}", user_name);
@@ -60,19 +70,19 @@ const bill = {
             contenidoHtml = contenidoHtml.replace("{{dni}}", dni);
             contenidoHtml = contenidoHtml.replace("{{telefono}}", phone_number);
             contenidoHtml = contenidoHtml.replace("{{Fecha}}", order_date);
-            // Y también los otros valores
-
             contenidoHtml = contenidoHtml.replace("{{subtotal}}", subtotal + " €");
             contenidoHtml = contenidoHtml.replace("{{descuento}}", descuento + " €");
             contenidoHtml = contenidoHtml.replace("{{subtotalConDescuento}}", subtotalConDescuento + " €");
             contenidoHtml = contenidoHtml.replace("{{impuestos}}", impuestos + " €");
             contenidoHtml = contenidoHtml.replace("{{total}}", total + " €");
-            console.log("Antes de crear pdf")
+
+            //Generamos el archivo pdf.
             pdf.create(contenidoHtml).toFile(`./pdf_pedidos/${order_number}.pdf`, (error) => {
                 if (error) {
                     console.log("Error creando PDF: " + error)
                 } else {
                     console.log("PDF creado correctamente");
+                    //Enviamos el archivo via email pasando los parametros necesarios.
                     sendemail.invoice(email, user_name, order_number, order_date)
                 }
             });
@@ -80,6 +90,11 @@ const bill = {
             res.json({ order, orders_instruments })
         } catch (error) { res.json(error) }
     },
+    /**
+     * Funcion que permite descargar el archivo pdf con la factura que se haya solicitado.
+     * @param {*} req 
+     * @param {*} res 
+     */
     billdownload: (req,res)=>{
         res.download(__dirname + `/../pdf_pedidos/` + req.params.file, 
         req.params.file, function(err){

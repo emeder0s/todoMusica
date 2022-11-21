@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 
-
 const sequelize =  new Sequelize('todo_musica', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql',

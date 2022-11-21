@@ -14,14 +14,34 @@ const user = {
    * @param {*} req 
    * @param {*} res 
    */
-  register: async (req, res) => {
-
-    const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
-    console.log(req.body)
-    const user_password_hash = await bcyptjs.hash(user_password, 8);
-    const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
-    res.render("/");
+   register: async (req, res) => {
+    try {
+      const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
+      console.log(req.body)
+      const user_password_hash = await bcyptjs.hash(user_password, 8);
+      const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
+      res.json("ok");
+    } catch (ValidationError) {
+      res.json("Email o DNI repetido");
+    }
   },
+    /**
+   * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
+   * @param {*} req 
+   * @param {*} res 
+   * @returns 
+   */
+     isAuthorized: (req, res) => {
+      var cookies = req.cookies;
+      var token = cookies.infoJwt;
+      try {
+        let jwtVerify = jwt.verify(token, "m1c4s4")
+        res.json(jwtVerify)
+        return jwtVerify
+      } catch (error) {
+        res.json("Usuario no loggeado")
+      }
+    },
   /**
    * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
    * @param {*} req 
@@ -147,23 +167,6 @@ const user = {
     res.render("./sentContactForm.ejs")
   },
 
-  /**
-   * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
-   * @param {*} req 
-   * @param {*} res 
-   * @returns 
-   */
-  isAuthorized: (req, res) => {
-    var cookies = req.cookies;
-    var token = cookies.infoJwt;
-    try {
-      let jwtVerify = jwt.verify(token, "m1c4s4")
-      res.json(jwtVerify)
-      return jwtVerify
-    } catch (error) {
-      res.json("Usuario no loggeado")
-    }
-  },
   /**
    * Funcion que devuelve un usuario que se busca por su email.
    * @param {*} req
