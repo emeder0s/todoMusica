@@ -29,7 +29,7 @@ router.get("/dashboard", pages.dashboard)//Formulario de contacto
 router.get("/instruments", pages.instruments)//Vista de los intrumentos 
 router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
-router.get("/pay", pages.pay)
+router.get("/pay/:id_order", pages.pay)
 router.get("/user-account",pages.userAccount)//página del perfil de usuario
 
 //USER

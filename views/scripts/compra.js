@@ -91,6 +91,7 @@ async function createOrder_adress() {
             fk_id_address: await creaNuevoAddres()
         }
     }
+    var id_order;
     await fetch("/new_order_address", {
         method: "POST",
         body: JSON.stringify(orden),
@@ -101,9 +102,10 @@ async function createOrder_adress() {
         }
     }).then((res) => res.json()).then(json => { 
         createOrderInstrument(json.id);
+        id_order=json.id
         userToBuyer();
     });
-    window.location.href = "http://localhost:3000/pay";
+    window.location.href = `http://localhost:3000/pay/${id_order}`;
 }
 
 /**
