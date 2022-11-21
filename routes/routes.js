@@ -31,7 +31,9 @@ router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
 router.get("/pay/:id_order", pages.pay)
 router.get("/user-account",pages.userAccount)//página del perfil de usuario
+router.get("/sendOrder",pages.sendOrder)
 router.get("/user-classes",pages.userClasses)//página que muestra las clases matriculadas del usuario
+
 
 
 //USER
@@ -60,7 +62,7 @@ router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 router.post("/getAddress", address.findAdressById);
 router.post("/createAddress", address.createAddress);
 
-//ORDER
+//BILL
 router.post("/bill_pdf", bill.to_pdf)
 router.get("/descargar/:file", bill.billdownload)
 
@@ -70,7 +72,6 @@ router.get("/is-admin-authorized",_admin.isAdminAuthorized);
 
 
 //INSTRUMENTS
-
 router.get("/findInstruments", instrument.findInstruments);
 router.post("/findCategory", instrument.findByCategory);
 
