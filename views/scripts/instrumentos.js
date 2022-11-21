@@ -1,4 +1,4 @@
-var allInstruments;
+var allInstruments; //variable que almacena un array con todos los instrumentos en la base de datos.
 /**
  * Funcion que se ejecuta automaticamente al abrir la pagina instrumentos.js.
  * Recorre todos los botones de las categorias y cuando hacemos click en uno de ellos
@@ -117,6 +117,13 @@ function muestraIntrumentos(instrumentos, categoria) {
     });
 }
 
+/**
+ * Funcion que controla que al hacer click en un boton "añadir al carrito", añada al local storage
+ * el instrumento asociado a ese boton. En el local storage se guarda un array de jsons que contienen
+ * el id del instrumento y el numero de veces que se ha añadido al carrito.
+ * @param {*} boton 
+ * @param {*} instrumentos 
+ */
 function intrumentosAlLocalStorage(boton, instrumentos) {
     boton.addEventListener("click", () => {
         var id_instru = boton.getAttribute("idinstrumento");
@@ -136,6 +143,13 @@ function intrumentosAlLocalStorage(boton, instrumentos) {
     });
 }
 
+/**
+ * Funcion que busca un instrumento cuyo id se pasa como parametro dentro del 
+ * carrito que tambien se pasa como parametro.
+ * @param {*} carrito 
+ * @param {*} id 
+ * @returns Retorna la posicion en la que se encuentra el instrumento dentro del carrito.
+ */
 function buscaEnCarrito(carrito, id) {
     var index;
     for (let i = 0; i < carrito.length; i++) {
@@ -146,6 +160,13 @@ function buscaEnCarrito(carrito, id) {
     return index;
 }
 
+/**
+ * Busca un instrumento cuyo id se pasa como parametro dentro de un array
+ * de instrumentos que tambien se pasa como parametro.
+ * @param {*} instrumentos 
+ * @param {*} id 
+ * @returns retorna el instrumento cuyo id se pasa como parametro.
+ */
 function buscaInstrumento(instrumentos, id) {
     let instrumento
     instrumentos.forEach(instru => {
@@ -156,6 +177,11 @@ function buscaInstrumento(instrumentos, id) {
     return instrumento;
 }
 
+/**
+ * Funcion que crea el boton que permite visualiza el carrito con
+ * los instrumentos seleccionados.
+ * @param {*} boton 
+ */
 function preparaBotonCarrito(boton) {
     boton.setAttribute("class", "btn btn-dark");
     boton.setAttribute("data-bs-toggle", "offcanvas");
@@ -168,6 +194,11 @@ function preparaBotonCarrito(boton) {
     boton.appendChild(img);
 }
 
+/**
+ * Funcion que muestra en el carrito todos los elementos alamacenados en 
+ * el carrito del local storage
+ * @param {*} instrumentos 
+ */
 function pintaCarrito(instrumentos) {
     const body_carrito = document.getElementsByClassName("offcanvas-body")[0];
     body_carrito.innerHTML = "";
@@ -240,6 +271,11 @@ function pintaCarrito(instrumentos) {
     }
 };
 
+/**
+ * Funcion que comprueba que el usuario tenga la sesion iniciada
+ * y en ese caso permite pasar al siguiente paso para comprar los elementos del 
+ * carrito.
+ */
 function comprar() {
     fetch("/isAuthorized", {
         method: "GET",
