@@ -30,6 +30,7 @@ router.get("/instruments", pages.instruments)//Vista de los intrumentos
 router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
 router.get("/pay", pages.pay)
+router.get("/user-account",pages.userAccount)//página del perfil de usuario
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users
@@ -59,6 +60,7 @@ router.post("/createAddress", address.createAddress);
 
 //ORDER
 router.post("/bill_pdf", bill.to_pdf)
+router.get("/descargar/:file", bill.billdownload)
 
 //ADMIN
 router.post("/get-admin",_admin.login);

@@ -80,6 +80,14 @@ const bill = {
             res.json({ order, orders_instruments })
         } catch (error) { res.json(error) }
     },
+    billdownload: (req,res)=>{
+        res.download(__dirname + `/../pdf_pedidos/` + req.params.file, 
+        req.params.file, function(err){
+            if (err){
+                console.log(err)
+            }else{console.log("bien")}
+        })
+    }
 }
 module.exports = bill
 

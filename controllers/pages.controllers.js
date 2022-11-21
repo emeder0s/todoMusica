@@ -14,11 +14,9 @@ const pages = {
         res.render("./enroll.ejs", { centers, instruments });
     },
     newPassword: (req, res) => {
-        console.log("vamos a paginapasword")
         res.render("./newPass.ejs");
     },
     forgetPass: (req, res) => {
-        console.log("vamos a recovery")
         res.render("./forgetPass.ejs");
     },
     insertAddress: (req, res) => {
@@ -61,9 +59,13 @@ const pages = {
     pay: (req,res)=>{
         res.render("./pago.pug")
     },
-    
+
     sentEnrollRequest: (req,res)=>{
         res.render("./sentEnrollRequest.ejs")
+    },
+
+    userAccount:(req, res) => {
+        res.render("./userAccount.ejs")
     }
     
 };
