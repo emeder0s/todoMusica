@@ -70,7 +70,6 @@ const _class = {
         var _class = await ClassModel.findOne({ _id: new ObjectId(req.params.id) });
         if (_class) {
             //await ClassModel.findByIdAndUpdate(req.params.id,_class)
-            console.log("hola");
         }
         res.json({});
     },
