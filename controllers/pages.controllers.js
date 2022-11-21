@@ -2,6 +2,8 @@ const center = require("../controllers/centers.controllers");
 const instrument = require("../controllers/instruments.controllers")
 const admin = require("../controllers/admin.controllers")
 const user = require("../controllers/users.controllers")
+const _class = require("../controllers/classes.controllers")
+const jwt = require("jsonwebtoken");
 
 const pages = {
     home: (req, res) => {
@@ -33,12 +35,16 @@ const pages = {
         res.render("./login_admin.ejs");
     },
     dashboard: (req,res)=>{
-        res.render("./dashboard.ejs");
-        // if(admin.isAdminAuthorized(req)){
-        //     res.render("./dashboard.ejs");
-        // }else{
-        //     res.status(403).send("403 - FORBIDDEN - No tienes permisos para acceder aquí");
-        // }   
+        var cookies = req.cookies;
+        if(cookies){
+            var token = cookies.infoJwt;
+            try {
+              let jwtVerify = jwt.verify(token, "m1m0t0");
+              res.render("./dashboard.ejs");
+            } catch (error) {
+                res.status(403).send("403 - FORBIDDEN - No tienes permisos para acceder aquí");
+            }
+        }
     }, 
     contact: (req,res)=>{
         res.render("./contact.ejs")
@@ -65,9 +71,31 @@ const pages = {
     },
 
     userAccount:(req, res) => {
-        res.render("./userAccount.ejs")
+        var cookies = req.cookies;
+        if(cookies){
+            var token = cookies.infoJwt;
+            try {
+              let jwtVerify = jwt.verify(token, "m1c4s4");
+              res.render("./userAccount.ejs");
+            } catch (error) {
+              res.redirect('./login');
+            }
+        }
+    },
+
+    userClasses: async (req, res) => {
+        var cookies = req.cookies;
+        if(cookies){
+            var token = cookies.infoJwt;
+            try {
+              let jwtVerify = jwt.verify(token, "m1c4s4");
+              var classes = await _class.getByUser(token);
+              res.render("./userClasses.ejs",{classes})
+            } catch (error) {
+                res.render("./login")
+            }
+        }
     }
-    
 };
 
 module.exports = pages;
