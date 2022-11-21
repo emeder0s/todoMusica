@@ -78,7 +78,7 @@ function autocompletaAddress(address) {
  */
 async function createOrder_adress() {
     let orden;
-    if (mismoAddress()) {
+    if (user_address && mismoAddress()) {
         orden = {
             order_number: generarOrderNumber(),
             fk_id_user: user_busq.id,
