@@ -28,13 +28,14 @@ const user = {
     }
   },
   update: async (req, res) => {
+    console.log(req.body)
     try {
+      console.log("hola")
       const { first_name, last_name, dni, email, phone, birth_date } = req.body;
-      console.log(req.body)
-      const user = await Users.findOne({where:{email}})
-      user.update({ first_name, last_name, dni, email, phone, birth_date })
-      user.save();
-      res.json("ok");
+      const userr = await Users.findOne({where:{email}})
+      userr.update({ first_name, last_name, dni, email, phone, birth_date })
+      userr.save();
+      res.redirect("back");
     } catch (ValidationError) {
       res.json("Email o DNI repetido");
     }

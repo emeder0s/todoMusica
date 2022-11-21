@@ -16,7 +16,9 @@ button.instrumentos img {
     width: 30%;
     margin-left: 5%;
 }
-
+button#carritoIni {
+    width: 30%;
+}
 #guitarras_electricas {
     border-top: 0.25px solid rgba(128, 128, 128, 0.649);
 }

@@ -48,6 +48,7 @@ var user_address; //variable que almacena el address del usuario en la sesion.
                     }).then((res) => res.json()).then((address) => {
                         autocompletaAddress(address);
                         user_address = address;
+                        console.log("Carga finalizada")
                     })
                 }
             });
@@ -75,7 +76,7 @@ function autocompletaAddress(address) {
  * los datos del usuario que tiene la sesion inciada.
  * @param {*} user 
  */
-function autocompletaDatos(user){
+function autocompletaDatos(user) {
     document.getElementById("first_name").value = user.first_name;
     document.getElementById("last_name").value = user.last_name;
     document.getElementById("dni").value = user.dni;
@@ -89,7 +90,6 @@ function autocompletaDatos(user){
  * @returns el id de la direccion insertada.
  */
 async function creaNuevoAddres() {
-    var address_id;
     await fetch("/setAddress", {
         method: "POST",
         body: JSON.stringify({
@@ -107,10 +107,29 @@ async function creaNuevoAddres() {
             "Access-Control-Allow-Origin": "*",
             "Content-type": "application/json"
         }
-    }).then((res) => res.json()).then(address => { address_id = address.id });
-    return address_id;
+    }).then((res) => res.json()).then(e=>console.log(e))
 }
-
+/* async function updateData() {
+    document.getElementById("regis-form").addEventListener("submit", async e => {
+        e.preventDefault();
+    console.log("Guardando Datos")
+    await fetch("/update", {
+        method: "POST",
+        body: JSON.stringify({
+            first_name: document.getElementById("first_name").value,
+            last_name: document.getElementById("last_name").value,
+            dni: document.getElementById("dni").value,
+            birth_date: document.getElementById("birth_date").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value
+        }),
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    }).then((res) => res.json()).then(e=>console.log(e))
+})} */
 
 
 

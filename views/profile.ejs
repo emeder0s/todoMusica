@@ -28,7 +28,7 @@
             <div class="accordion-body">
               <p> <strong>Intruduzca su dirección postal</strong> </p>
               <h1>Información personal</h1>
-              <form id="regis-form" style="display: flex; flex-direction: column; justify-content: center;">
+              <form action="/update" method="POST" id="regis-form" style="display: flex; flex-direction: column; justify-content: center;">
                 <label for="first_name">Nombre</label>
                 <input  type="text" name="first_name" id="first_name" placeholder="Nombre" required pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
                 <small>* Este campo es obligatorio.</small>
@@ -47,7 +47,7 @@
                 <small>* Este campo es obligatorio.</small>
                 <small id="emailHelp" class="form-text text-muted">No compartiremos tu direccion de
                   email.</small>
-                <button id="updateData" onclick="updateData()">Guardar Datos</button>
+                <button id="updateData" type="submit">Guardar Datos</button>
               </form>
             </div>
           </div>
