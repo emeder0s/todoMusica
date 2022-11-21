@@ -91,24 +91,30 @@ function showTodomusica() {
  * @param {*} address_tienda 
  */
 async function selectstore(address_tienda) {
-    let orden = {
+    document.getElementById("map_container").style.display = "none";
+    document.getElementById("acordeon3").click();
+    document.getElementById("pago-form").addEventListener("submit", async e => {
+        e.preventDefault();
+        let orden = {
             order_number: generarOrderNumber(),
             fk_id_user: user_busq.id,
             pickup_address: address_tienda
         }
-    var id_order;   
-    await fetch("/new_order_pickup", {
-        method: "POST",
-        body: JSON.stringify(orden),
-        mode: "cors",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-type": "application/json"
-        }
-    }).then((res) => res.json()).then(json => { 
-        createOrderInstrument(json.id);
-        id_order=json.id
-        userToBuyer();
-    });
-    window.location.href = `http://localhost:3000/pay/${id_order}`;
+        var id_order;
+        await fetch("/new_order_pickup", {
+            method: "POST",
+            body: JSON.stringify(orden),
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "application/json"
+            }
+        }).then((res) => res.json()).then(json => {
+            createOrderInstrument(json.id);
+            id_order = json.id
+            userToBuyer();
+            sendPDF(json.id);
+        });
+        window.location.href = `http://localhost:3000/sendOrder`;
+    })
 }

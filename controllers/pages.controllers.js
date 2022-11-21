@@ -66,6 +66,10 @@ const pages = {
 
     userAccount:(req, res) => {
         res.render("./userAccount.ejs")
+    },
+
+    sendOrder: (req, res) => {
+        res.render("./sendOrder.ejs")
     }
     
 };

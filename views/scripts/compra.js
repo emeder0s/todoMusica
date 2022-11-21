@@ -1,5 +1,15 @@
 var user_busq; //variable que almacena el usuario que tiene la sesion iniciada.
 var user_address; //variable que almacena el address del usuario en la sesion.
+var address_boolean = false;
+(function () {
+    document.getElementById("form-address").addEventListener("submit", (e) => {
+        address_boolean = true;
+        e.preventDefault();
+        document.getElementById("acordeon1").click();
+        acordeonMap();
+        document.getElementById("acordeon3").click();
+    })
+})();
 
 /**
  * Funcion que se ejecuta automaticamente y que busca cual es el usuario
@@ -77,39 +87,55 @@ function autocompletaAddress(address) {
  * se añade a la base de datos y se le asigna su id a la orden.
  */
 (async function createOrder_adress() {
-    document.getElementById("form-address").addEventListener("submit", async e => {
-        e.preventDefault();
-        let orden;
-        if (user_address && mismoAddress()) {
-            orden = {
-                order_number: generarOrderNumber(),
-                fk_id_user: user_busq.id,
-                fk_id_address: user_busq.fk_id_address
+    document.getElementById("pago-form").addEventListener("submit", async e => {
+        if (address_boolean) {
+            e.preventDefault();
+            let orden;
+            if (user_address && mismoAddress()) {
+                orden = {
+                    order_number: generarOrderNumber(),
+                    fk_id_user: user_busq.id,
+                    fk_id_address: user_busq.fk_id_address
+                }
+            } else {
+                orden = {
+                    order_number: generarOrderNumber(),
+                    fk_id_user: user_busq.id,
+                    fk_id_address: await creaNuevoAddres()
+                }
             }
-        } else {
-            orden = {
-                order_number: generarOrderNumber(),
-                fk_id_user: user_busq.id,
-                fk_id_address: await creaNuevoAddres()
-            }
+            var id_order;
+            await fetch("/new_order_address", {
+                method: "POST",
+                body: JSON.stringify(orden),
+                mode: "cors",
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-type": "application/json"
+                }
+            }).then((res) => res.json()).then(json => {
+                createOrderInstrument(json.id);
+                id_order = json.id
+                userToBuyer();
+                sendPDF(json.id);
+            });
+            window.location.href = `http://localhost:3000/sendOrder`;
         }
-        var id_order;
-        await fetch("/new_order_address", {
-            method: "POST",
-            body: JSON.stringify(orden),
-            mode: "cors",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Content-type": "application/json"
-            }
-        }).then((res) => res.json()).then(json => {
-            createOrderInstrument(json.id);
-            id_order = json.id
-            userToBuyer();
-        });
-        window.location.href = `http://localhost:3000/pay/${id_order}`;
     })
+
 })();
+
+async function sendPDF(id_order) {
+    await fetch("//bill_pdf", {
+        method: "POST",
+        body: JSON.stringify({order: id_order}),
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    });
+}
 
 /**
  * Funcion que genera un numero de pedido
@@ -221,7 +247,7 @@ async function userToBuyer() {
 }
 
 /**
- * Funcion que permite esconder y mostrar el mata en la pagina.
+ * Funcion que permite esconder y mostrar el mapa en la pagina.
  */
 function acordeonMap() {
     let map = document.getElementById("map_container");

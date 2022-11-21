@@ -13,19 +13,20 @@ body
     div(id="cards") 
         img(src="http://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Visa-icon.png")
         img(src="http://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Master-Card-icon.png")
-    div(id="form")
-        label(for="cardholder") Nombre del titular
-        input(type="text")
-        label(for="cardnumber") Número de tarjeta
-        input(type="text")
+    form 
+        div(id="form")
+            label(for="cardholder") Nombre del titular *
+            input(type="text" required)
+            label(for="cardnumber") Número de tarjeta *
+            input(type="text" required)
         
-        div(id="fechaCVV")
-            div(id="date")
-                label(for="date") Fecha de expedición
-                div
-                    input(type="text" placeholder="MM")
-                    input(type="text" placeholder="YY")
-            div(id="CVV")
-                label(for="CVV") CVV
-                input(type="text")
-        button(class="btn btn-dark") Finalizar
+            div(id="fechaCVV")
+                div(id="date")
+                    label(for="date") Fecha de expedición *
+                    div
+                        input(type="text" placeholder="MM" required)
+                        input(type="text" placeholder="YY" required)
+                div(id="CVV")
+                    label(for="CVV") CVV *
+                    input(type="text" required)
+            button(class="btn btn-dark") Finalizar

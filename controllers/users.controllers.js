@@ -17,7 +17,6 @@ const user = {
   register: async (req, res) => {
     try {
       const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
-      console.log(req.body)
       const user_password_hash = await bcyptjs.hash(user_password, 8);
       const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
       res.json("ok");
