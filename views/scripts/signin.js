@@ -26,7 +26,7 @@
                 if(json == "Email o DNI repetido"){
                     document.getElementById("alert").style.display = "block";
                 } else {
-                    window.location.href = "http://localhost:3000/signin"
+                    window.location.href = "http://localhost:3000/login"
                 }
             });
     })
