@@ -14,6 +14,11 @@ const smtpConfig = {
 const transporter = nodemailer.createTransport(smtpConfig);
 
 const email = {
+  /**
+   * Envia un correo electrónico con el enlace de recuperación de contraseña
+   * @param {*} infoJwt - json web token generado con el email del usuario
+   * @param {*} user_email - dirección de email del usuario que ha solicitado la contraseña.
+   */
   passrequest: async (infoJwt, user_email) => {
     var mailOptions = {
       from: 'todomusicathebridge@gmail.com',
@@ -45,7 +50,10 @@ const email = {
     });
 
   },
-
+/**
+ * Envia un email de confirmación de cambio de contraseña.
+ * @param {*} user_email - dirección de email del usuario.
+ */
   passconfirm: async (user_email) => {
     var mailOptions = {
       from: 'todomusicathebridge@gmail.com',
@@ -78,6 +86,14 @@ const email = {
   neworder: (req, res) => {
 
   },
+
+  /**
+   * Envia por email la factura correspondiente a un pedido.
+   * @param {*} user_email - Email del usuario.
+   * @param {*} first_name - Nombre del usuario.
+   * @param {*} order_number - Número de pedido.
+   * @param {*} order_date - Fecha del pedido.
+   */
   invoice: (user_email, first_name, order_number, order_date) => {
     var mailOptions = {
       from: 'todomusicathebridge@gmail.com' ,
@@ -115,6 +131,13 @@ const email = {
   classconfirm: (req, res) => {
 
   },
+  /**
+   * Envia un email al administrador con el mensaje y los datos del usuario que solicita contacto
+   * @param {*} first_name - Nombre del usuario que solicita contacto.
+   * @param {*} last_name - Apellidos del usuario que solicita contacto.
+   * @param {*} user_email - Email del usuario que solicita contacto.
+   * @param {*} text - Mensaje de contacto.
+   */
   contact: async (first_name, last_name, user_email, text) => {
     var mailOptions = {
       from: user_email ,
@@ -142,6 +165,11 @@ const email = {
       return info
     })
   },
+  /**
+   * Envia un email confirmando que la solicitud de contacto ha sido recibida.
+   * @param {*} first_name - Nombre del usuario que solicita contacto.
+   * @param {*} user_email - Email del usuario que solicita contacto.
+   */
   contactfeedback: async (first_name, user_email) => {
     var mailOptions = {
       from: 'todomusicathebridge@gmail.com',

@@ -15,9 +15,7 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
-
 <body>
-
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -31,8 +29,8 @@
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
                     <p> <strong>Intruduzca la dirección a la que quiere que le llegue su pedido</strong> </p>
-                    <form id="form-address" style="display: flex; flex-direction: column; justify-content: center;">
 
+                    <form id="form-address" style="display: flex; flex-direction: column; justify-content: center;">
                         <label for="way_type">Tipo via: *</label>
                         <select class="custom-select" name="way_type" id="way_type" required>
                             <option value="Calle">Calle</option>
@@ -44,34 +42,24 @@
                             <option value="Pasaje">Pasaje</option>
                             <option value="Plaza">Plaza</option>
                             <option value="Ronda">Ronda</option>
-                            <option value="Via">Vía</option>
+                            <option value="Via">Via</option>
                         </select>
-
-                        <label for="address">Vía *</label>
-                        <input type="text" name="address" id="address" placeholder="Direccion" required>
-
-                        <label for="additional_address">Información Adicional *</label>
+                        <label for="address">Via</label>
+                        <input type="text" name="address" id="address" placeholder="Direccion">
+                        <label for="additional_address">Informacion Adicional</label>
                         <input type="text" name="additional_address" id="additional_address"
-                            placeholder="Escalera/Piso/Puerta" required>
-
-                        <label for="a_number">Número *</label>
-                        <input type="number" name="a_number" id="a_number" placeholder="Número" required>
-
-                        <label for="city">Localidad / Municipio *</label>
-                        <input type="text" name="city" id="city" placeholder="Localidad / Municipio" required>
-
-                        <label for="province">Provincia *</label>
-                        <input type="text" name="province" id="province" placeholder="Provincia" required>
-
-                        <label for="postal_code">Código Postal *</label>
-                        <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal" required pattern="^[0-9][0-9][0-9][0-9][0-9]">
-
-                        <label for="country">País *</label>
-                        <input type="text" name="country" id="country" placeholder="Pais" required>
-
-                        <button type="submit" id="btn" class="btn btn-dark">Siguiente</button>
-                    </form>
-                    
+                            placeholder="Escalera/Piso/Puerta">
+                        <label for="a_number">Número</label>
+                        <input type="text" name="a_number" id="a_number" placeholder="Número">
+                        <label for="city">Localidad / Municipio</label>
+                        <input type="text" name="city" id="city" placeholder="Localidad / Municipio">
+                        <label for="province">Provincia</label>
+                        <input type="text" name="province" id="province" placeholder="Provincia">
+                        <label for="postal_code">Codigo Postal</label>
+                        <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal">
+                        <label for="country">País</label>
+                        <input type="text" name="country" id="country" placeholder="Pais">
+                    </form>                   
                 </div>
             </div>
         </div>
@@ -85,7 +73,6 @@
             </h2>
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingTwo">
-
             </div>
         </div>
     </div>
@@ -96,7 +83,6 @@
         </div>
         <div id="map"></div>
     </div>
-
     <script src="./scripts/map.js"></script>
     <script src="./scripts/compra.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
