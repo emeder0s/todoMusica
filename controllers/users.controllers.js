@@ -20,7 +20,7 @@ const user = {
       console.log(req.body)
       const user_password_hash = await bcyptjs.hash(user_password, 8);
       const user = await Users.create({ first_name, last_name, dni, email, phone, birth_date, "user_password": user_password_hash })
-      res.render("/");
+      res.json("ok");
     } catch (ValidationError) {
       res.json("Email o DNI repetido");
     }
@@ -51,16 +51,17 @@ const user = {
   login: async (req, res) => {
     console.log(req.query.url);
     const { email, user_password } = req.body;
-    const user = await Users.findOne({ where: { "email": req.body.email } })
+    const user = await Users.findOne({ where: { "email": req.body.email } });
     let hashSaved = user.dataValues.user_password;
     let compare = bcyptjs.compareSync(user_password, hashSaved);
     const infoJwt = jwt.sign({ email }, "m1c4s4", {
       expiresIn: "1800s",
     });
     if (compare) {
-      res.cookie("infoJwt", infoJwt).redirect(req.query.url);
+      res.cookie("infoJwt", infoJwt);
+      res.json("ok");
     } else {
-      res.json("no ok")
+      res.json("no ok");
     }
   },
   /**
