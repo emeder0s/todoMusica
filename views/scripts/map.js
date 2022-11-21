@@ -109,7 +109,7 @@ async function selectstore(address_tienda) {
                 "Access-Control-Allow-Origin": "*",
                 "Content-type": "application/json"
             }
-        }).then((res) => res.json()).then(json => {
+        }).then((res) => res.json()).then(async json => {
             createOrderInstrument(json.id);
             id_order = json.id
             userToBuyer();

@@ -113,7 +113,7 @@ function autocompletaAddress(address) {
                     "Access-Control-Allow-Origin": "*",
                     "Content-type": "application/json"
                 }
-            }).then((res) => res.json()).then(json => {
+            }).then((res) => res.json()).then( async json => {
                 createOrderInstrument(json.id);
                 id_order = json.id
                 userToBuyer();
@@ -126,15 +126,15 @@ function autocompletaAddress(address) {
 })();
 
 async function sendPDF(id_order) {
-    await fetch("//bill_pdf", {
+    await fetch("/bill_pdf", {
         method: "POST",
-        body: JSON.stringify({order: id_order}),
+        body: JSON.stringify({"order": id_order}),
         mode: "cors",
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-type": "application/json"
         }
-    });
+    }).then((res) => res.json()).then((json) => console.log(json));
 }
 
 /**
