@@ -4,6 +4,7 @@ function sendRequest(button, request_status){
     fetch('/send-request?' + new URLSearchParams({request_id,request_status,user_email}))
     .then((res) => res.json())
     .then((data) => {
+        console.log(data);
         document.getElementById(data.request_id).style.display="none";
     })
 }
@@ -68,10 +69,27 @@ function sendRequest(button, request_status){
     });
 })();
 
+// (() =>{
+//     fetch("/show-classes")
+//     .then((res) => res.json())
+//     .then((classes) => {
+//         console.log(classes);
+//     });
+// })()
+
 (() =>{
-    fetch("/show-classes")
-    .then((res) => res.json())
-    .then((classes) => {
-        console.log(classes);
+    fetch("is-admin-authorized", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    }).then((res) => res.json()).then(json => {
+        if(json) {            
+            document.getElementById("nav-login").style.display="flex";
+        } else {
+            document.getElementById("nav-logout").style.display="flex";
+        }
     });
 })()
