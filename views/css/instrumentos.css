@@ -71,6 +71,8 @@ div.div_datos {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 #grid_botones {
@@ -104,3 +106,7 @@ div.offcanvas-body {
     margin-right: 5px;
 }
 
+.btn-papelera {
+    padding: 0;
+    width: 50px;
+}
