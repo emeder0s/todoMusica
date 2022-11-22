@@ -69,14 +69,6 @@ function sendRequest(button, request_status){
     });
 })();
 
-// (() =>{
-//     fetch("/show-classes")
-//     .then((res) => res.json())
-//     .then((classes) => {
-//         console.log(classes);
-//     });
-// })()
-
 (() =>{
     fetch("is-admin-authorized", {
         method: "GET",
@@ -93,6 +85,7 @@ function sendRequest(button, request_status){
         }
     });
 })()
+
 // Función que loggea como usuario.
 async function loginAsUser(){
     var email = document.getElementById("email").value;
@@ -112,3 +105,14 @@ async function loginAsUser(){
         }
     });
 }
+
+
+function logout(){
+    fetch("/logout-admin")
+    .then(res=>res.json())
+    .then(token => {
+        document.cookie = `infoJwt=${token}; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+        window.location.href="/login-admin";
+    })
+}
+
