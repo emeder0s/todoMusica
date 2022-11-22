@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 const _admin = {
     /**
      * Login del administrador
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     login:  async (req, res) => {
         const { user, password } = req.body;
@@ -29,8 +29,8 @@ const _admin = {
 
     /**
      * Comprueba si el adinistrador está logueado o no 
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     isAdminAuthorized: (req, res) => {
         var cookies = req.cookies;
@@ -44,6 +44,21 @@ const _admin = {
             }
         }
       },
+
+      /**
+   * Log out del admin - limpia la cookie con el json web token del navegador
+   * @param {json} req 
+   * @param {json} res 
+   */
+  logout: (req, res) => {
+    var cookies = req.cookies;
+    if (cookies) {
+      var token = cookies.infoJwt;
+      res.json(token);
+    }else{
+        res.json(false)
+    }
+  }
 }
 
 module.exports = _admin;

@@ -7,8 +7,8 @@ const order_instrument = {
     /**
      * Inserta un regustro en la tabla order instruments dentro de la base de datos
      * cuyos datos se pasan en el body de la peticion.
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     new_order_instru: async (req,res)=>{
         const { qty_instrument, fk_id_instrument, fk_id_order } = req.body;
