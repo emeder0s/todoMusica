@@ -22,7 +22,7 @@ Además en la parte superior derecha hay un icono de un usuario que te permite i
 introducir tu correo y se te enviará un enlace de recuperación de contraseña a tu email.
 Una vez has iniciado sesión, desde el perfil de usuario, puedes visualizar tus datos personales y editarlos, añadir una dirección, visualizar tus pedidos y solicitar un copia de tu factura que podrás descargar en el momento o te la pueden enviar por correo.
 </p>
-<img src="./docs/Img_doc/Caso de uso User.png">
+<img src="./docs/casos_de_uso/Caso de uso User.png">
 <p>
 Además la aplicación dispone de otro tipo de usuario que es el usuario administrador. Para registrar a este tipo 
 de usuarios hay que hacerlo directamente desde la base de datos. Para iniciar sesión con un usuario administrado
@@ -30,7 +30,7 @@ hay que hacerlo desde un endpoint concreto que no es accesible desde la aplicaci
 aceptar o rechazar solicitudes de matriculas a clases y puede iniciar la sesión de un usuario unicamente introduciendo su correo.
 </p>
 
-<img src="./docs/Img_doc/Caso de uso Admin.png">
+<img src="./docs/casos_de_uso/Caso de uso Admin.png">
 
 <p>
 *Para poder cargar la aplicación por primera vez es necesario crear la base de datos de mySQL, ejecutar "node ./scrapping/scrapping.js" y cargar los jsons en la base de datos de mongo.
