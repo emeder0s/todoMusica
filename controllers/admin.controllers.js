@@ -65,6 +65,18 @@ const _admin = {
         }
 
 
+
+      /**
+   * Log out del admin - limpia la cookie con el json web token del navegador
+   * @param {json} req 
+   * @param {json} res 
+   */
+  logout: (req, res) => {
+    var cookies = req.cookies;
+    if (cookies) {
+      var token = cookies.infoJwt;
+      res.json(token);
+
     }
 }
 
