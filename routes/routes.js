@@ -70,6 +70,7 @@ router.get("/descargar/:file", bill.billdownload)
 //ADMIN
 router.post("/get-admin",_admin.login);
 router.get("/is-admin-authorized",_admin.isAdminAuthorized);
+router.post("/loginAsUser", _admin.loginAsUser)
 
 
 //INSTRUMENTS

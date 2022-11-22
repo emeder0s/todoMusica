@@ -93,3 +93,22 @@ function sendRequest(button, request_status){
         }
     });
 })()
+// Función que loggea como usuario.
+async function loginAsUser(){
+    var email = document.getElementById("email").value;
+    await fetch("/loginAsUser", {
+        method: "POST",
+        body: JSON.stringify({"email": email}),
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json"
+        }
+    }).then((res) => res.json()).then((json) => {
+        if(json == "ok"){
+            window.location.href = "/"
+        } else {
+            alert("El email no está en la base de datos.")
+        }
+    });
+}
