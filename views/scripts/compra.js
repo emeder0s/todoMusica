@@ -1,12 +1,13 @@
 var user_busq; //variable que almacena el usuario que tiene la sesion iniciada.
 var user_address; //variable que almacena el address del usuario en la sesion.
 var address_boolean = false;
+document.getElementById("map_container").style.display = "none";
 (function () {
     document.getElementById("form-address").addEventListener("submit", (e) => {
         address_boolean = true;
         e.preventDefault();
         document.getElementById("acordeon1").click();
-        acordeonMap();
+        document.getElementById("map_container").style.display = "none";
         document.getElementById("acordeon3").click();
     })
 })();

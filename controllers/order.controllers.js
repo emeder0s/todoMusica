@@ -45,9 +45,6 @@ async function getOrdersInstrument(order){
     return instruments;
 }
 
-const sendemail = require("./email.controllers");
-const SendmailTransport = require("nodemailer/lib/sendmail-transport");
-
 const order = {
     /**
      * Inserta un registro en la tabla orders de la base de datos, el cual
