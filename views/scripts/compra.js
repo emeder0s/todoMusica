@@ -215,20 +215,6 @@ function createOrderInstrument(order_id) {
     localStorage.setItem("carrito", JSON.stringify([]));
 }
 
-/* async function instrumentos() {
-    let allInstruments;
-    await fetch("/findInstruments", {
-        method: "GET",
-        mode: "cors",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-type": "application/json"
-        }
-    }).then((res) => res.json()).then(json => {
-        allInstruments = json;
-    });
-    return allInstruments;
-} */
 
 
 /**

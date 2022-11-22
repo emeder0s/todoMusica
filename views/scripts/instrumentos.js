@@ -228,31 +228,25 @@ function pintaCarrito(instrumentos) {
             precio = document.createElement("span");
             precio.innerText = instru.price;
             precio.style.marginRight = "5px"
-            div_2.appendChild(precio);/* 
-            menos = document.createElement("button");
-            menos.setAttribute("class", "btn btn-dark");
-            menos.innerHTML = "-";
-            div_2.appendChild(menos);
-            unidades = document.createElement("p");
-            unidades.innerText = element.unidades + " Uds."; 
-            div_2.appendChild(unidades);
-            masp = document.createElement("p");
-            masp.setAttribute("class", "masmenos");
-            masp.innerText = "+";
-            div_2.appendChild(masp);*/
+            div_2.appendChild(precio);
             div_2.style.display = "flex"
 
             unidades = document.createElement("p");
             unidades.innerText = "| " + element.unidades + " Uds.";
             div_2.appendChild(unidades);
             sacar = document.createElement("button");
-            sacar.setAttribute("class", "btn btn-dark");
-            
+            sacar.setAttribute("class", "btn btn-dark btn-papelera");
             let papelera = document.createElement("img");
             papelera.setAttribute("class", "papelera");
             papelera.setAttribute("src", "http://127.0.0.1:3000/img/papelera.png");
             sacar.appendChild(papelera)
             div_2.appendChild(sacar);
+            div_datos.style.width = "100%";
+            div_datos.style.display = "flex";
+            div_datos.style.flexDirection = "column";
+            div_datos.style.justifyContent = "space-around";
+            div_2.style.width = "100%";
+            div_2.style.justifyContent = "space-between";
             sacar.addEventListener("click", () => {
                 let carri = JSON.parse(localStorage.getItem("carrito"));
                 let i = buscaEnCarrito(carri, element.id);
@@ -287,6 +281,8 @@ function comprar() {
     }).then((res) => res.json()).then(json => {
         if(json == "Usuario no loggeado") {
             alert("Tienes que loggearte");
+        } else if (JSON.parse(localStorage.getItem("carrito")).length == 0) {
+            alert("El carrito esta vacío.");
         } else {
             window.location.href = "http://localhost:3000/compra";
         }
