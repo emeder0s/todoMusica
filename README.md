@@ -31,3 +31,7 @@ aceptar o rechazar solicitudes de matriculas a clases y puede iniciar la sesión
 </p>
 
 <img src="./docs/Img_doc/Caso de uso Admin.png">
+
+<p>
+*Para poder cargar la aplicación por primera vez es necesario crear la base de datos de mySQL, ejecutar "node ./scrapping/scrapping.js" y cargar los jsons en la base de datos de mongo.
+</p>
