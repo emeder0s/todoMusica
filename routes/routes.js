@@ -70,6 +70,8 @@ router.get("/descargar/:file", bill.billdownload)
 //ADMIN
 router.post("/get-admin",_admin.login);
 router.get("/is-admin-authorized",_admin.isAdminAuthorized);
+router.get("/logout-admin", _admin.logout)// Deuelve el token del admin para borrar la cookie en el front
+
 
 
 //INSTRUMENTS
