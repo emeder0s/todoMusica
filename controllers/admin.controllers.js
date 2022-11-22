@@ -63,7 +63,7 @@ const _admin = {
         } else {
             res.json("no ok")
         }
-
+    },
 
 
       /**
@@ -78,7 +78,7 @@ const _admin = {
       res.json(token);
 
     }
-}
+}}
 
 
 module.exports = _admin;
