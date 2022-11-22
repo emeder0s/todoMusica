@@ -45,8 +45,7 @@ async function getOrdersInstrument(order){
     return instruments;
 }
 
-const sendemail = require("./email.controllers");
-const SendmailTransport = require("nodemailer/lib/sendmail-transport");
+
 
 const order = {
     /**

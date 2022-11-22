@@ -116,7 +116,7 @@ const pages = {
                 console.log(error);
                 res.render("./login")
             }
-        },
+    }},
 
     profile: async (req, res) => {
         res.render("./profile.ejs")
