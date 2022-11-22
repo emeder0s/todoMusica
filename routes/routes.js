@@ -33,9 +33,8 @@ router.get("/pay/:id_order", pages.pay)
 router.get("/user-account",pages.userAccount)//página del perfil de usuario
 router.get("/sendOrder",pages.sendOrder)
 router.get("/user-classes",pages.userClasses)//página que muestra las clases matriculadas del usuario
+router.get("/user-orders",pages.userOrder)//página que muestra las clases matriculadas del usuario
 router.get("/profile", pages.profile)
-
-
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users

@@ -1,8 +1,9 @@
 const center = require("../controllers/centers.controllers");
-const instrument = require("../controllers/instruments.controllers")
-const admin = require("../controllers/admin.controllers")
-const user = require("../controllers/users.controllers")
-const _class = require("../controllers/classes.controllers")
+const instrument = require("../controllers/instruments.controllers");
+const admin = require("../controllers/admin.controllers");
+const user = require("../controllers/users.controllers");
+const _class = require("../controllers/classes.controllers");
+const order = require("../controllers/order.controllers")
 const jwt = require("jsonwebtoken");
 
 const pages = {
@@ -101,8 +102,25 @@ const pages = {
             }
         }
     },
+
+    userOrder: async (req, res) => {
+        var cookies = req.cookies;
+        if(cookies){
+            var token = cookies.infoJwt;
+            try {
+              let jwtVerify = jwt.verify(token, "m1c4s4");
+              console.log(jwtVerify);
+              var orders = await order.get_by_user(jwtVerify.email);
+              res.render("./userOrders.ejs",{orders})
+            } catch (error) {
+                console.log(error);
+                res.render("./login")
+            }
+        },
+
     profile: async (req, res) => {
         res.render("./profile.ejs")
+
     }
 };
 

@@ -102,7 +102,6 @@ const _class = {
     getByUser: async (token) => {
             let jwtVerify = jwt.verify(token, "m1c4s4")
             let email = jwtVerify.email; 
-            console.log(email)
             var user =   await _user.returnUserByEmail(email);
             var user_id = user.dataValues.id;
             var filter = {students:user_id.toString()};
