@@ -29,7 +29,7 @@ const address = {
      * @param {int} id 
      */
     returnAddressById: async (id) => {
-        res.json(await Address.findOne({ where: { "id": id } }));
+        return await Address.findOne({ where: { "id": id } });
     }
 }
 

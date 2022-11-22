@@ -32,7 +32,11 @@ async function getAddress(order){
     if(order.pickup_address){
         return order.pickup_address;
     }else{
-        return await address.returnAddressById(order.fk_id_address);
+        var orderAddress = await address.returnAddressById(order.fk_id_address);
+       var addressv = orderAddress.dataValues
+       var finalAddress = `${addressv.way_type}/ ${addressv.address}, ${addressv.a_number}, ${addressv.additional_address}. ${addressv.locality + " " + addressv.province + " " + addressv.postal_code + " " + addressv.country}`    
+   
+        return finalAddress
     }
 };
 
@@ -105,7 +109,7 @@ const order = {
                 bill: `http://127.0.0.1:3000/descargar/${order.dataValues.order_number}.pdf`,
                 number: order.dataValues.order_number,
                 date: order.dataValues.order_date,
-                address,
+               address,
                 instruments,
                 total
             }
