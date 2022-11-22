@@ -17,8 +17,10 @@ const user = {
 
   /**
    * Registra un usuario en la base de datos, Encripta la contraseña.
+
    * @param {json} req 
    * @param {json} res 
+
    */
   register: async (req, res) => {
     try {
@@ -49,10 +51,12 @@ const user = {
   },
 
   /**
+
   * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
   * @param {json} req 
   * @param {json} res 
   */
+
   isAuthorized: (req, res) => {
     var cookies = req.cookies;
     var token = cookies.infoJwt;
