@@ -55,8 +55,6 @@ const _admin = {
     if (cookies) {
       var token = cookies.infoJwt;
       res.json(token);
-    }else{
-        res.json(false)
     }
   }
 }

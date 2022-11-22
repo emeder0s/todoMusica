@@ -79,18 +79,22 @@ function sendRequest(button, request_status){
         }
     }).then((res) => res.json()).then(json => {
         if(json) {            
-            document.getElementById("nav-login").style.display="flex";
-        } else {
             document.getElementById("nav-logout").style.display="flex";
+        } else {
+            document.getElementById("nav-login").style.display="flex";
         }
     });
 })()
 
-function logout(){
+function logoutAdmin(){
     fetch("/logout-admin")
     .then(res=>res.json())
     .then(token => {
-        document.cookie = `infoJwt=${token}; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
-        window.location.href="/login-admin";
+        console.log(token);
+        if(token){
+            document.cookie = `infoJwt=${token}; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+            window.location.href="/login-admin";
+        }
+
     })
 }
