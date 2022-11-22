@@ -229,7 +229,6 @@ const pages = {
      */
     profile: async (req, res) => {
         res.render("./profile.ejs")
-
     }
 };
 

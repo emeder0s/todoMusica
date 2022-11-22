@@ -39,7 +39,7 @@ const user = {
   update: async (req, res) => {
     try {
       const { first_name, last_name, dni, email, phone, birth_date } = req.body;
-      const userr = await Users.findOne({where:{email}})
+      const userr = await Users.findOne({ where: { email } })
       userr.update({ first_name, last_name, dni, email, phone, birth_date })
       userr.save();
       res.redirect("back");
@@ -93,14 +93,18 @@ const user = {
     console.log(req.query.url);
     const { email, user_password } = req.body;
     const user = await Users.findOne({ where: { "email": req.body.email } });
-    let hashSaved = user.dataValues.user_password;
-    let compare = bcyptjs.compareSync(user_password, hashSaved);
-    const infoJwt = jwt.sign({ email }, "m1c4s4", {
-      expiresIn: "1800s",
-    });
-    if (compare) {
-      res.cookie("infoJwt", infoJwt);
-      res.json("ok");
+    if (user) {
+      let hashSaved = user.dataValues.user_password;
+      let compare = bcyptjs.compareSync(user_password, hashSaved);
+      const infoJwt = jwt.sign({ email }, "m1c4s4", {
+        expiresIn: "1800s",
+      });
+      if (compare) {
+        res.cookie("infoJwt", infoJwt);
+        res.json("ok");
+      } else {
+        res.json("no ok");
+      }
     } else {
       res.json("no ok");
     }
