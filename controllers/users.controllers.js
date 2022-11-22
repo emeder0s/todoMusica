@@ -5,18 +5,22 @@ const jwt = require("jsonwebtoken");
 const sendemail = require("./email.controllers");
 const SendmailTransport = require("nodemailer/lib/sendmail-transport");
 const user = {
+  /**
+   * Devuelve todos los usuarios
+   * @param {json} req 
+   * @param {json} res 
+   */
   findAll: async (req, res) => {
     const users = await Users.findAll();
     res.json(users);
   },
+
   /**
    * Registra un usuario en la base de datos, Encripta la contraseña.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
-
   register: async (req, res) => {
-
     try {
       const { first_name, last_name, dni, email, phone, birth_date, user_password } = req.body;
       const user_password_hash = await bcyptjs.hash(user_password, 8);
@@ -26,10 +30,14 @@ const user = {
       res.json("Email o DNI repetido");
     }
   },
+
+  /**
+   * Actualiza un usuario
+   * @param {json} req 
+   * @param {json} res 
+   */
   update: async (req, res) => {
-    console.log(req.body)
     try {
-      console.log("hola")
       const { first_name, last_name, dni, email, phone, birth_date } = req.body;
       const userr = await Users.findOne({where:{email}})
       userr.update({ first_name, last_name, dni, email, phone, birth_date })
@@ -39,10 +47,11 @@ const user = {
       res.json("Email o DNI repetido");
     }
   },
+
   /**
  * Función que comprueba que un usuario tiene la sesion iniciada recogiendo el Json web token de las cookies.
- * @param {*} req 
- * @param {*} res 
+ * @param {json} req 
+ * @param {json} res 
  * @returns 
  */
   isAuthorized: (req, res) => {
@@ -56,10 +65,11 @@ const user = {
       res.json("Usuario no loggeado")
     }
   },
+
   /**
    * Función que inserta una dirección en la base de datos e incluye su id en el campo del usuario que la inserta.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   set_address: async (req, res) => {
     var logged = await user.isAuthorized(req, res);
@@ -74,10 +84,11 @@ const user = {
       res.json(error);
     }
   },
+
   /**
    * Funcion que comprueba email y contraseña de usuario para iniciar sesion, al comprobar que es correcto inserta una cookie en el navegador.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   login: async (req, res) => {
     console.log(req.query.url);
@@ -95,10 +106,11 @@ const user = {
       res.json("no ok");
     }
   },
+
   /**
    * Funcion que devuelve un Json Web Token que contiene la dirección de email del usuario para comprobar la identidad al cambiar la contraseña.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   getUser: async (req, res) => {
     const { email } = req.body;
@@ -116,8 +128,8 @@ const user = {
 
   /**
    * Verifica la validez del json web token, recoge la nueva contraseña introducida por el usuario y la actualiza en la base de datos.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   verificar: async (req, res) => {
     let { token, password } = req.body;
@@ -133,10 +145,11 @@ const user = {
       res.json(false);
     }
   },
+
   /**
    * Borra a un usuario de la base de datos. Para realizar esta operación el usuario debe confirmar su identidad introduciendo sus credenciales.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   delete: async (req, res) => {
     const { email, user_password } = req.body;
@@ -153,8 +166,8 @@ const user = {
 
   /**
    * Función que actualiza el campo isbuyer en la BD del usuario.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   isbuyer: async (req, res) => {
     try {
@@ -172,8 +185,8 @@ const user = {
 
   /**
    * Función que recoge los datos de contacto y envia los emails tanto al usuario con el feedback como al administrador con el contenido del mensaje.
-   * @param {*} req 
-   * @param {*} res 
+   * @param {json} req 
+   * @param {json} res 
    */
   contact: async (req, res) => {
     const { first_name, last_name, email, text } = req.body;
@@ -183,23 +196,28 @@ const user = {
   },
 
   /**
-   * Funcion que devuelve un usuario que se busca por su email.
-   * @param {*} req
-   * @param {*} res
+   * Devuelve un usuario que se busca por su email.
+   * @param {json} req
+   * @param {json} res
    */
-
   returnUserByEmail: async (email) => {
     return await Users.findOne({ where: { "email": email } });
   },
 
-  /**    
-   * @param {*} req 
-   * @param {*} res 
+  /** 
+   * Devuelve el usuario con res.json
+   * @param {json} req 
+   * @param {json} res 
    */
   getUserByEmail: async (req, res) => {
     res.json(await Users.findOne({ where: { "email": req.body.email } }));
   },
 
+  /**
+   * Log out del usuario - limpia la cookie con el json web token del navegador
+   * @param {json} req 
+   * @param {json} res 
+   */
   logout: (req, res) => {
     var cookies = req.cookies;
     if (cookies) {

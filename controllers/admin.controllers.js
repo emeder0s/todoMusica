@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 const _admin = {
     /**
      * Login del administrador
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     login:  async (req, res) => {
         const { user, password } = req.body;
@@ -29,8 +29,8 @@ const _admin = {
 
     /**
      * Comprueba si el adinistrador está logueado o no 
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     isAdminAuthorized: (req, res) => {
         var cookies = req.cookies;

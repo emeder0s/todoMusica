@@ -13,8 +13,8 @@ const pages = require("./pages.controllers.js");
 const enrollRequest = {
     /**
      * Añade una solicitud de matriculación
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     add: async (req, res) => {
         var cookies = req.cookies;
@@ -32,9 +32,9 @@ const enrollRequest = {
 
     /**
      * Devuelve todas las solicitudes de matriculación
-     * @param {*} req 
-     * @param {*} res 
-     * @returns enrollRequets
+     * @param {json} req 
+     * @param {json} res 
+     * @returns {json}}
      */
     getAll: async (req, res) => {
         await mongoose.conn();
@@ -64,6 +64,13 @@ const enrollRequest = {
         );
         res.json(response);
     },
+    
+    /**
+     * Cambia el estado de la solicitud (aceptado o rechazado)
+     * Busca la clase y el centro en el que se imparte y llama a las funciones de enviar email de petición aceptada o rechadaza dependiendo del estado de la solicitud.
+     * @param {json} req 
+     * @param {json} res 
+     */
     sendRequest:async (req, res) => {
         await mongoose.conn();
         var request_id = new ObjectId(req.query.request_id);

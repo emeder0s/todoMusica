@@ -10,8 +10,8 @@ const _class = {
 
     /**
      * Devuelve todas las clases que hay en la DB
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     showAll: async (req, res) => {
         await mongoose.conn();
@@ -28,8 +28,8 @@ const _class = {
 
     /**
      * Devuelve las clases de un usuario, cuyo id se pasa en la URL. 
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     showByUser: async (req, res) => {
         await mongoose.conn();
@@ -46,8 +46,8 @@ const _class = {
 
     /**
      * Devuelve todas las clases agrupadas por centros
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     showByCenter: async (req, res) => {
         //el Object.entries se utiliza para convertirlo en iterable
@@ -64,8 +64,8 @@ const _class = {
 
     /**
      * Edita una clase
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     edit: async (req, res) => {
         await mongoose.conn();
@@ -78,8 +78,8 @@ const _class = {
 
     /**
      * Añade el id del usuario al array students de una clase
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     enroll: async (req, res) => {
         await mongoose.conn();
@@ -91,6 +91,11 @@ const _class = {
         res.json({});
     },
 
+    /**
+     * 
+     * @param {json} req 
+     * @param {json} res 
+     */
     getByCenterAndInstrument: async (req, res) => {
         await mongoose.conn();
         var center = await CenterModel.findOne({center_name:req.body.center});
@@ -98,7 +103,11 @@ const _class = {
         res.render('./enroll_classes.ejs', {classes});
         //mongoose.disconn();
     },
-
+    /**
+     * 
+     * @param {string} token 
+     * @returns {json} 
+     */
     getByUser: async (token) => {
             let jwtVerify = jwt.verify(token, "m1c4s4")
             let email = jwtVerify.email; 

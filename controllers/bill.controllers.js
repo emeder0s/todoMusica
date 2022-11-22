@@ -15,8 +15,8 @@ let contenidoHtml = fs.readFileSync(ubicacionPlantilla, 'utf8')
 const bill = {
     /**
      * Función que genera la factura de un pedido en formato pdf y la envia por correo electronico al usuario.
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     to_pdf: async (req, res) => {
         try {
@@ -110,8 +110,8 @@ const bill = {
     },
     /**
      * Funcion que permite descargar el archivo pdf con la factura que se haya solicitado.
-     * @param {*} req 
-     * @param {*} res 
+     * @param {json} req 
+     * @param {json} res 
      */
     billdownload: (req,res)=>{
         res.download(__dirname + `/../pdf_pedidos/` + req.params.file, 

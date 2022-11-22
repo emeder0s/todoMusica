@@ -16,8 +16,8 @@ const transporter = nodemailer.createTransport(smtpConfig);
 const email = {
   /**
    * Envia un correo electrónico con el enlace de recuperación de contraseña
-   * @param {*} infoJwt - json web token generado con el email del usuario
-   * @param {*} user_email - dirección de email del usuario que ha solicitado la contraseña.
+   * @param {string} infoJwt - json web token generado con el email del usuario
+   * @param {string} user_email - dirección de email del usuario que ha solicitado la contraseña.
    */
   passrequest: async (infoJwt, user_email) => {
     var mailOptions = {
@@ -52,7 +52,7 @@ const email = {
   },
 /**
  * Envia un email de confirmación de cambio de contraseña.
- * @param {*} user_email - dirección de email del usuario.
+ * @param {string} user_email - dirección de email del usuario.
  */
   passconfirm: async (user_email) => {
     var mailOptions = {
@@ -89,10 +89,10 @@ const email = {
 
   /**
    * Envia por email la factura correspondiente a un pedido.
-   * @param {*} user_email - Email del usuario.
-   * @param {*} first_name - Nombre del usuario.
-   * @param {*} order_number - Número de pedido.
-   * @param {*} order_date - Fecha del pedido.
+   * @param {string} user_email - Email del usuario.
+   * @param {string} first_name - Nombre del usuario.
+   * @param {string} order_number - Número de pedido.
+   * @param {string} order_date - Fecha del pedido.
    */
   invoice: (user_email, first_name, order_number, order_date) => {
     var mailOptions = {
@@ -133,10 +133,10 @@ const email = {
   },
   /**
    * Envia un email al administrador con el mensaje y los datos del usuario que solicita contacto
-   * @param {*} first_name - Nombre del usuario que solicita contacto.
-   * @param {*} last_name - Apellidos del usuario que solicita contacto.
-   * @param {*} user_email - Email del usuario que solicita contacto.
-   * @param {*} text - Mensaje de contacto.
+   * @param {string} first_name - Nombre del usuario que solicita contacto.
+   * @param {string} last_name - Apellidos del usuario que solicita contacto.
+   * @param {string} user_email - Email del usuario que solicita contacto.
+   * @param {string} text - Mensaje de contacto.
    */
   contact: async (first_name, last_name, user_email, text) => {
     var mailOptions = {
@@ -167,8 +167,8 @@ const email = {
   },
   /**
    * Envia un email confirmando que la solicitud de contacto ha sido recibida.
-   * @param {*} first_name - Nombre del usuario que solicita contacto.
-   * @param {*} user_email - Email del usuario que solicita contacto.
+   * @param {string} first_name - Nombre del usuario que solicita contacto.
+   * @param {string} user_email - Email del usuario que solicita contacto.
    */
   contactfeedback: async (first_name, user_email) => {
     var mailOptions = {
@@ -198,6 +198,13 @@ const email = {
       return info
     })
   },
+
+  /**
+   * Envía un email al usuario cuando se ha aceptado su solicitud de matrícula
+   * @param {string} user_email 
+   * @param {json} _class 
+   * @param {json} _center 
+   */
   enrollRequestAccepted: async (user_email,_class,_center) => {
     var mailOptions = {
       from: 'todomusicathebridge@gmail.com',
@@ -230,7 +237,12 @@ const email = {
       return info
     });
   },
-
+ /**
+   * Envía un email al usuario cuando se ha rechazado su solicitud de matrícula
+   * @param {string} user_email 
+   * @param {json} _class 
+   * @param {json} _center 
+   */
   enrollRequestRejected: async (user_email,_class,_center) => {
     var mailOptions = {
       from: 'todomusicathebridge@gmail.com',
