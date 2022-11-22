@@ -1,27 +1,31 @@
 const mongoose = require("../databases/mongo.js");
 const AdminModel = require("../models/admin.model.js");
+const Users = require("../models/user.model");
+const userController = require("../controllers/users.controllers");
 const bcyptjs = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 
 const _admin = {
     /**
      * Login del administrador
-     * @param {json} req 
-     * @param {json} res 
+
+     * @param {JSON} req 
+     * @param {JSON} res 
+
      */
-    login:  async (req, res) => {
+    login: async (req, res) => {
         const { user, password } = req.body;
         await mongoose.conn();
-        var admin = await AdminModel.findOne({admin:user});
-        if (admin){
-            if (admin.password == password && admin.admin == user){
+        var admin = await AdminModel.findOne({ admin: user });
+        if (admin) {
+            if (admin.password == password && admin.admin == user) {
                 const infoJwt = jwt.sign({ admin }, "m1m0t0", {
                     expiresIn: "1800s",
                 });
-                res.cookie("infoJwt", infoJwt).json("./dashboard"); 
-            }else{
+                res.cookie("infoJwt", infoJwt).json("./dashboard");
+            } else {
                 res.json(false);
-            }    
+            }
         } else {
             res.send(false);
         }
@@ -29,20 +33,23 @@ const _admin = {
 
     /**
      * Comprueba si el adinistrador está logueado o no 
-     * @param {json} req 
-     * @param {json} res 
+
+     * @param {JSON} req 
+     * @param {JSON} res 
+
      */
     isAdminAuthorized: (req, res) => {
         var cookies = req.cookies;
-        if (cookies){
+        if (cookies) {
             var token = cookies.infoJwt;
             try {
-              let jwtVerify = jwt.verify(token, "m1m0t0")
-              res.json(true)
+                let jwtVerify = jwt.verify(token, "m1m0t0")
+                res.json(true)
             } catch (error) {
-              res.json(false)
+                res.json(false)
             }
         }
+
       },
 
       /**
@@ -60,5 +67,6 @@ const _admin = {
     }
   }
 }
+
 
 module.exports = _admin;
