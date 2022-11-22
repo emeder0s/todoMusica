@@ -31,9 +31,10 @@ router.get("/compra", pages.compra)//Pagina que comienza el proceso de compra
 router.get("/map", pages.showmap)
 router.get("/pay/:id_order", pages.pay)
 router.get("/user-account",pages.userAccount)//página del perfil de usuario
+router.get("/sendOrder",pages.sendOrder)
 router.get("/user-classes",pages.userClasses)//página que muestra las clases matriculadas del usuario
 router.get("/user-orders",pages.userOrder)//página que muestra las clases matriculadas del usuario
-
+router.get("/profile", pages.profile)
 
 //USER
 router.post("/register", user.register); //funcion que inserta en users
@@ -48,6 +49,7 @@ router.post("/contact", user.contact) //funcion que envia dos emails. uno al cli
 router.get("/isAuthorized", user.isAuthorized)//funcion que devuelve el token de la cookie para ver si el usuario tiene la sesion iniciada.
 router.post("/getUserByEmail", user.getUserByEmail) //funcion que devuelve el usuario por su email
 router.get("/logout", user.logout)// Deuelve el token del usuario para borrar la cookie en el front
+router.post("/update", user.update)// Modifica los datos personales del usuario.
 
 //CLASSES
 router.get("/show-classes",_class.showAll);
@@ -61,7 +63,7 @@ router.post("/selected-center-instrument",_class.getByCenterAndInstrument);
 router.post("/getAddress", address.findAdressById);
 router.post("/createAddress", address.createAddress);
 
-//ORDER
+//BILL
 router.post("/bill_pdf", bill.to_pdf)
 router.get("/descargar/:file", bill.billdownload)
 
@@ -71,7 +73,6 @@ router.get("/is-admin-authorized",_admin.isAdminAuthorized);
 
 
 //INSTRUMENTS
-
 router.get("/findInstruments", instrument.findInstruments);
 router.post("/findCategory", instrument.findByCategory);
 
