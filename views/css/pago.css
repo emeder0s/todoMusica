@@ -1,0 +1,30 @@
+#cards {
+    display: flex;
+    justify-content: center;
+}
+img {
+    width: 150px
+}
+
+div#form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+div#form div#fechaCVV{
+    display: flex;
+}
+div#form div input{
+    width: 80px;
+}
+
+div#CVV {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+button {
+    margin-top: 10px;
+}

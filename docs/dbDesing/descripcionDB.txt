@@ -1,0 +1,19 @@
+DESCRIPCIÓN DE LA DB
+
+Al ser un requisito tener que usar tanto bases de datos relacionales como bases de datos 
+no relacionales, buscamos las tablas que mas relaciones tendrían entre ellas. 
+Por ejemplo, teníamos claro que los pedidos, los usuarios y las direcciones, eran tablas
+que se iban a tener que relacionar entre sí y por ello no dudamos en que iban en la base
+de datos relacional. 
+
+Por otro lado, aunque los usuario también pueden matricularse en las clases, y hay una relacion,
+decidimos que las clases y los centros irían en la base no relacional, ya que únicamente
+necesitamos el id del usuario para saber en que clase está matriculado, y eso es fácil de 
+buscar con los filtros de Mongo. 
+
+Las solicitudes de matriculación también las añadidos en la base no relacional, ya que ocurría lo 
+mismo que con las clases. El usuario realiza solicitudes pero únicamente necesitamos su email para luego
+poder enviarle el correo de aceptada o rechazada. 
+
+Las credenciales de administración ya que no tenían ninguna relación con ninguna otra tabla también las añadimos
+en Mongo. 

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/footer_nav.css">
+  <title>Direccion</title>
+</head>
+
+<body>
+  <%- include('partials/nav'); %>
+    <%- include('partials/nav-logout'); %>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseOne">
+              Datos Personales
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <p> <strong>Intruduzca su dirección postal</strong> </p>
+              <h1>Información personal</h1>
+              <form action="/update" method="POST" id="regis-form"
+                style="display: flex; flex-direction: column; justify-content: center;">
+                <label for="first_name">Nombre</label>
+                <input type="text" name="first_name" id="first_name" placeholder="Nombre" required
+                  pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
+                <small>* Este campo es obligatorio.</small>
+                <label for="last_name">Apellidos</label>
+                <input type="text" name="last_name" id="last_name" placeholder="Apellidos" required
+                  pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
+                <small>* Este campo es obligatorio.</small>
+                <label for="dni">DNI/NIE/CIF</label>
+                <input type="text" name="dni" id="dni" placeholder="DNI/NIE/CIF" required pattern="^[0-9]{8}[A-Z]$"
+                  title="11111111A">
+                <small>* Este campo es obligatorio.</small>
+                <label for="birth_date">Fecha de nacimiento</label>
+                <input type="date" name="birth_date" id="birth_date" required>
+                <label for="phone">Teléfono</label>
+                <input type="text" name="phone" id="phone" placeholder="Fijo o Movil" pattern="^[0-9]{9}$">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="E-mail" aria-describedby="emailHelp" required>
+                <small>* Este campo es obligatorio.</small>
+                <small id="emailHelp" class="form-text text-muted">No compartiremos tu direccion de
+                  email.</small>
+                <div style="height: 20px;"></div>
+                <button id="updateData" type="submit" class="btn btn-dark">Guardar Datos</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Dirección
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+              aria-labelledby="panelsStayOpen-headingTwo">
+              <div class="accordion-body">
+                <p> <strong>Intruduzca su dirección postal</strong> </p>
+
+                <form id="form-address" style="display: flex; flex-direction: column; justify-content: center;">
+                  <label for="way_type">Tipo via: *</label>
+                  <select class="custom-select" name="way_type" id="way_type" required>
+                    <option value="Calle">Calle</option>
+                    <option value="Avenida">Avenida</option>
+                    <option value="Paseo">Paseo</option>
+                    <option value="Carretera">Carretera</option>
+                    <option value="Travesia">Travesia</option>
+                    <option value="Glorieta">Glorieta</option>
+                    <option value="Pasaje">Pasaje</option>
+                    <option value="Plaza">Plaza</option>
+                    <option value="Ronda">Ronda</option>
+                    <option value="Via">Via</option>
+                  </select>
+                  <label for="address">Via</label>
+                  <input type="text" name="address" id="address" placeholder="Direccion">
+                  <label for="additional_address">Informacion Adicional</label>
+                  <input type="text" name="additional_address" id="additional_address"
+                    placeholder="Escalera/Piso/Puerta">
+                  <label for="a_number">Número</label>
+                  <input type="text" name="a_number" id="a_number" placeholder="Número">
+                  <label for="city">Localidad / Municipio</label>
+                  <input type="text" name="city" id="city" placeholder="Localidad / Municipio">
+                  <label for="province">Provincia</label>
+                  <input type="text" name="province" id="province" placeholder="Provincia">
+                  <label for="postal_code">Codigo Postal</label>
+                  <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal">
+                  <label for="country">País</label>
+                  <input type="text" name="country" id="country" placeholder="Pais">
+                  <div style="height: 20px;"></div>
+                  <button id="updateAddress" onclick="creaNuevoAddres()" class="btn btn-dark">Guardar Dirección</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <%- include('partials/footer'); %>
+            <script src="./scripts/logout.js"></script>
+            <script src="./scripts/profile.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+              integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+              crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+    background-color: #f3f3f3;
+}
+
+div.accordion-item {
+    background-color: #f3f3f3;
+}
+
+.request-container {
+    border-radius: 5px;
+    border: 1px solid #c8c8c8;
+    background-color: white;
+    padding: 5px;
+}
+
+.buttons-request-container{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-request-container button{
+    margin-right: 10px;;
+}
+
+.is-buyer{
+    font-weight: bold;
+    color:black;
+}

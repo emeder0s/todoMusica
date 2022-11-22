@@ -1,0 +1,112 @@
+body {
+    background-color: #f3f3f3;
+}
+
+#instrumentos {
+    display: flex;
+    flex-direction: column;
+}
+
+h1#categorias {
+    display: flex;
+    justify-content: space-around;
+}
+
+button.instrumentos img {
+    width: 30%;
+    margin-left: 5%;
+}
+button#carritoIni {
+    width: 30%;
+}
+#guitarras_electricas {
+    border-top: 0.25px solid rgba(128, 128, 128, 0.649);
+}
+
+button.instrumentos {
+    display: flex;
+    background-color: white;
+    border: none;
+    border-bottom: 0.25px solid rgba(128, 128, 128, 0.649);
+}
+
+button.instrumentos p {
+    margin-left: 15%;
+    padding-top: 8%;
+}
+
+div#contenedor_instrumentos img,
+div.elemento_carrito img {
+    width: 30%;
+    margin-left: 5%;
+}
+
+div#contenedor_instrumentos {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+span {
+    font-weight: 500;
+}
+
+div.instrumento_comprar,
+div.elemento_carrito {
+    background-color: white;
+    padding: 8px;
+    margin: 8px 8px;
+    border-radius: 6px;
+    display: flex;
+}
+
+button.compra {
+    font-size: 13px;
+    padding: 4px;
+    margin-left: 10px;
+    width: 145px;
+}
+
+div.div_datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#grid_botones {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+div.offcanvas-body {
+    background-color: #f3f3f3;
+}
+
+#h1container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.foto_carrito {
+    width: 25px;
+}
+
+#offcanvasRight>div.offcanvas-body>div>div>div>button>img {
+    width: 20px;
+}
+
+#offcanvasRight>div.offcanvas-body>div>div>div>button {
+    margin-left: 40px;
+}
+
+#contenedor_instrumentos>div>div>div>button>img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.btn-papelera {
+    padding: 0;
+    width: 50px;
+}

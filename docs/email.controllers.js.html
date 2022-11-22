@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: email.controllers.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: email.controllers.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var nodemailer = require('nodemailer');
+const Users = require("../models/user.model");
+const fs = require("fs")
+const path = require("path")
+const smtpConfig = {
+  host: 'smtp.ionos.es',
+  port: 587,
+  secure: false,
+  auth: {
+    user: "info@suricatoav.es",
+    pass: "etiketass"
+  }
+};
+const transporter = nodemailer.createTransport(smtpConfig);
+
+const email = {
+  /**
+   * Envia un correo electrónico con el enlace de recuperación de contraseña
+   * @param {string} infoJwt - json web token generado con el email del usuario
+   * @param {string} user_email - dirección de email del usuario que ha solicitado la contraseña.
+   */
+  passrequest: async (infoJwt, user_email) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Cambio de contraseña: Comprobacion de identidad',
+      text: "",
+      html: `&lt;!doctype html>
+            &lt;html ⚡4email>
+              &lt;head>
+                &lt;meta charset="utf-8">
+              &lt;/head>
+              &lt;body>
+                &lt;h1>Recuperación de contraseña:&lt;/h1>
+                &lt;h3>TodoMúsica&lt;/h3>
+                &lt;p>Has solicitado el cambio de contraseña para tu usuario, &lt;a href="http://127.0.0.1:3000/forgetpassword/${infoJwt}">haz click Aqui&lt;/a> para establecer una nueva.&lt;/p>
+                &lt;p>Si no has solicitado el cambio de contraseña, ignora este mensaje.&lt;/p>
+                &lt;p>Gracias por confiar en TodoMúsica.&lt;/p>
+              &lt;/body>
+            &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    });
+
+  },
+/**
+ * Envia un email de confirmación de cambio de contraseña.
+ * @param {string} user_email - dirección de email del usuario.
+ */
+  passconfirm: async (user_email) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Confirmación de cambio de contraseña',
+      text: "",
+      html: `&lt;!doctype html>
+          &lt;html ⚡4email>
+            &lt;head>
+              &lt;meta charset="utf-8">
+            &lt;/head>
+            &lt;body>
+              &lt;h1>Confirmación de contraseña:&lt;/h1>
+              &lt;h3>TodoMúsica&lt;/h3>
+              &lt;p>El cambio de contraseña se ha realizado con éxito. Si no recuerdas haber hecho este cambio puedes &lt;a href="http://127.0.0.1:3000/passrecovery">Recuperar tu contraseña.&lt;/a>&lt;/p>
+              &lt;p>Gracias por confiar en TodoMúsica.&lt;/p>
+            &lt;/body>
+          &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    });
+  },
+  neworder: (req, res) => {
+
+  },
+
+  /**
+   * Envia por email la factura correspondiente a un pedido.
+   * @param {string} user_email - Email del usuario.
+   * @param {string} first_name - Nombre del usuario.
+   * @param {string} order_number - Número de pedido.
+   * @param {string} order_date - Fecha del pedido.
+   */
+  invoice: (user_email, first_name, order_number, order_date) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com' ,
+      to: user_email,
+      subject: `Confirmación de pedido y factura: ${order_number}`,
+      text: "",
+      attachments: [{
+        filename: `${order_number}.pdf`,
+        path: `./pdf_pedidos/${order_number}.pdf`,
+      }],
+      html: `&lt;!doctype html>
+          &lt;html ⚡4email>
+            &lt;head>
+              &lt;meta charset="utf-8">
+            &lt;/head>
+            &lt;body>
+            &lt;h2>TodoMúsica/h2>
+              &lt;h1>En marcha!&lt;/h1>
+              &lt;h4>Muchas gracias ${first_name}!!&lt;h4>
+              &lt;p>Hemos procesado su solicitud del pedido: ${order_number} con fecha ${order_date} y estamos trabajando para enviarlo lo antes posible.
+              &lt;p>Puedes encontrar tu factura adjunta en este Email. Si lo deseas tambien puedes descargarla desde &lt;a href="http://127.0.0.1:3000/descargar/${order_number}.pdf">Este enlace&lt;/a>&lt;/p>
+            &lt;/body>
+          &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted + " Factura enviada")
+      }
+      return info
+    })
+  },
+  classconfirm: (req, res) => {
+
+  },
+  /**
+   * Envia un email al administrador con el mensaje y los datos del usuario que solicita contacto
+   * @param {string} first_name - Nombre del usuario que solicita contacto.
+   * @param {string} last_name - Apellidos del usuario que solicita contacto.
+   * @param {string} user_email - Email del usuario que solicita contacto.
+   * @param {string} text - Mensaje de contacto.
+   */
+  contact: async (first_name, last_name, user_email, text) => {
+    var mailOptions = {
+      from: user_email ,
+      to: 'todomusicathebridge@gmail.com',
+      subject: `Contacto: ${first_name + " " + last_name}`,
+      text: "",
+      html: `&lt;!doctype html>
+          &lt;html ⚡4email>
+            &lt;head>
+              &lt;meta charset="utf-8">
+            &lt;/head>
+            &lt;body>
+              &lt;h1>Mensaje de usuario:&lt;/h1>
+              &lt;p>${text}&lt;/p>
+            &lt;/body>
+          &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    })
+  },
+  /**
+   * Envia un email confirmando que la solicitud de contacto ha sido recibida.
+   * @param {string} first_name - Nombre del usuario que solicita contacto.
+   * @param {string} user_email - Email del usuario que solicita contacto.
+   */
+  contactfeedback: async (first_name, user_email) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Contacto',
+      text: "",
+      html: `&lt;!doctype html>
+          &lt;html ⚡4email>
+            &lt;head>
+              &lt;meta charset="utf-8">
+            &lt;/head>
+            &lt;body>
+              &lt;h1>Gracias por contactar con TodoMúsica.&lt;/h1>
+              &lt;p>Hola ${first_name}. Hemos recibido tu solicitud de contacto. En breve recibirás una respuesta.&lt;/p>
+              &lt;p>Gracias por confiar en TodoMúsica.&lt;/p>
+            &lt;/body>
+          &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    })
+  },
+
+  /**
+   * Envía un email al usuario cuando se ha aceptado su solicitud de matrícula
+   * @param {string} user_email 
+   * @param {json} _class 
+   * @param {json} _center 
+   */
+  enrollRequestAccepted: async (user_email,_class,_center) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Resultado de solicitud de matriculación',
+      text: "",
+      html: `&lt;!doctype html>
+          &lt;html ⚡4email>
+            &lt;head>
+              &lt;meta charset="utf-8">
+            &lt;/head>
+            &lt;body>
+              &lt;h1>¡Felicidades! - Ha sido ACEPTADO&lt;/h1>
+              &lt;h3>TodoMúsica&lt;/h3>
+              &lt;p>Nos complace comunicarle que ha sido aceptado en la clase de ${_class.instrument} - ${_class.schedule}&lt;/p>
+              &lt;p>Para terminar el proceso de matriculación deberá ponerse en contacto con el centro donde se imparten sus clases para que le expliquen las opciones de pago:&lt;/p>
+              &lt;p>Centro: ${_center.center_name} &lt;/p>
+              &lt;p>Telefono: ${_center.phone_number} &lt;/p>
+              &lt;p>Gracias por confiar en TodoMúsica.&lt;/p>
+            &lt;/body>
+          &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    });
+  },
+ /**
+   * Envía un email al usuario cuando se ha rechazado su solicitud de matrícula
+   * @param {string} user_email 
+   * @param {json} _class 
+   * @param {json} _center 
+   */
+  enrollRequestRejected: async (user_email,_class,_center) => {
+    var mailOptions = {
+      from: 'todomusicathebridge@gmail.com',
+      to: user_email,
+      subject: 'Resultado de solicitud de matriculación',
+      text: "",
+      html: `&lt;!doctype html>
+          &lt;html ⚡4email>
+            &lt;head>
+              &lt;meta charset="utf-8">
+            &lt;/head>
+            &lt;body>
+              &lt;h1>Lo sentimos - No ha sido aceptado&lt;/h1>
+              &lt;h3>TodoMúsica&lt;/h3>
+              &lt;p>Lamentamos comunicarle que no ha sido aceptado en la clase de ${_class.instrument} - ${_class.schedule} en el centro  ${_center.center_name}&lt;/p>
+              &lt;p>Gracias por confiar en TodoMúsica.&lt;/p>
+            &lt;/body>
+          &lt;/html>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+        console.log(info.accepted)
+      }
+      return info
+    });
+  },
+};
+
+module.exports = email;
+
+
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getAddress">getAddress</a></li><li><a href="global.html#getInstruments">getInstruments</a></li><li><a href="global.html#getOrdersInstrument">getOrdersInstrument</a></li><li><a href="global.html#getTotalPrice">getTotalPrice</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Nov 22 2022 10:30:31 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

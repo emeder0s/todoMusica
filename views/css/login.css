@@ -1,0 +1,32 @@
+body {
+    background-color: #f3f3f3;
+}
+
+#form-email{
+    display: flex;
+    justify-content: center;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
+}
+
+#cont-body {
+    display       : flex;
+    flex-direction: column;
+}
+
+.container a{
+    text-decoration: none;
+    font-weight: bold;
+    color:black;
+}
+
+p{
+    margin-bottom:3px;
+}
+
+
+
