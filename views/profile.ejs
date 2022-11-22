@@ -28,26 +28,31 @@
             <div class="accordion-body">
               <p> <strong>Intruduzca su dirección postal</strong> </p>
               <h1>Información personal</h1>
-              <form action="/update" method="POST" id="regis-form" style="display: flex; flex-direction: column; justify-content: center;">
+              <form action="/update" method="POST" id="regis-form"
+                style="display: flex; flex-direction: column; justify-content: center;">
                 <label for="first_name">Nombre</label>
-                <input  type="text" name="first_name" id="first_name" placeholder="Nombre" required pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
+                <input type="text" name="first_name" id="first_name" placeholder="Nombre" required
+                  pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
                 <small>* Este campo es obligatorio.</small>
                 <label for="last_name">Apellidos</label>
-                <input  type="text" name="last_name" id="last_name" placeholder="Apellidos" required pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
+                <input type="text" name="last_name" id="last_name" placeholder="Apellidos" required
+                  pattern="^[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]+\s?[A-Z\u00C0-\u017F]?[a-z\u00C0-\u017F]*$">
                 <small>* Este campo es obligatorio.</small>
                 <label for="dni">DNI/NIE/CIF</label>
-                <input  type="text" name="dni" id="dni" placeholder="DNI/NIE/CIF" required pattern="^[0-9]{8}[A-Z]$" title="11111111A">
+                <input type="text" name="dni" id="dni" placeholder="DNI/NIE/CIF" required pattern="^[0-9]{8}[A-Z]$"
+                  title="11111111A">
                 <small>* Este campo es obligatorio.</small>
                 <label for="birth_date">Fecha de nacimiento</label>
-                <input  type="date" name="birth_date" id="birth_date" required>
+                <input type="date" name="birth_date" id="birth_date" required>
                 <label for="phone">Teléfono</label>
-                <input  type="text" name="phone" id="phone" placeholder="Fijo o Movil" pattern="^[0-9]{9}$">
+                <input type="text" name="phone" id="phone" placeholder="Fijo o Movil" pattern="^[0-9]{9}$">
                 <label for="email">E-mail</label>
-                <input  type="email" name="email" id="email" placeholder="E-mail" aria-describedby="emailHelp" required>
+                <input type="email" name="email" id="email" placeholder="E-mail" aria-describedby="emailHelp" required>
                 <small>* Este campo es obligatorio.</small>
                 <small id="emailHelp" class="form-text text-muted">No compartiremos tu direccion de
                   email.</small>
-                <button id="updateData" type="submit">Guardar Datos</button>
+                <div style="height: 20px;"></div>
+                <button id="updateData" type="submit" class="btn btn-dark">Guardar Datos</button>
               </form>
             </div>
           </div>
@@ -95,7 +100,8 @@
                   <input type="text" name="postal_code" id="postal_code" placeholder="Codigo Postal">
                   <label for="country">País</label>
                   <input type="text" name="country" id="country" placeholder="Pais">
-                  <button id="updateAddress" onclick="creaNuevoAddres()">Guardar Dirección</button>
+                  <div style="height: 20px;"></div>
+                  <button id="updateAddress" onclick="creaNuevoAddres()" class="btn btn-dark">Guardar Dirección</button>
                 </form>
               </div>
             </div>
