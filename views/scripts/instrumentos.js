@@ -124,7 +124,7 @@ function muestraIntrumentos(instrumentos, categoria) {
  * @param {*} boton 
  * @param {*} instrumentos 
  */
-function intrumentosAlLocalStorage(boton, instrumentos) {
+function intrumentosAlLocalStorage(boton) {
     boton.addEventListener("click", () => {
         var id_instru = boton.getAttribute("idinstrumento");
         var carrito = JSON.parse(localStorage.getItem("carrito"));

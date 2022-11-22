@@ -45,6 +45,7 @@ async function getOrdersInstrument(order){
     return instruments;
 }
 
+
 const order = {
     /**
      * Inserta un registro en la tabla orders de la base de datos, el cual
