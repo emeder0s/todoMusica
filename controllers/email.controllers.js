@@ -8,7 +8,7 @@ const smtpConfig = {
   secure: false,
   auth: {
     user: "info@suricatoav.es",
-    pass: "etiketass"
+    pass: "xxxxxxxxxx"
   }
 };
 const transporter = nodemailer.createTransport(smtpConfig);
